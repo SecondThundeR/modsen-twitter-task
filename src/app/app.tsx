@@ -1,3 +1,9 @@
-export function App() {
-  return <h1>Hello!</h1>;
-}
+import { Routing } from "@/pages";
+
+import { withProviders } from "./providers";
+
+const App = withProviders(() => {
+  return <Routing />;
+});
+
+export default App;
