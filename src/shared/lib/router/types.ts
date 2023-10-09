@@ -3,5 +3,5 @@ export enum RoutePaths {
   register = "/register",
   login = "/login",
   home = "/home",
-  notFound = "/not-found",
+  notFound = "*",
 }
