@@ -1,6 +1,6 @@
-import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { FirebaseOptions, initializeApp } from "firebase/app";
 
 import { config } from "@/shared/lib/config";
 
