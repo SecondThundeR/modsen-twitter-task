@@ -2,14 +2,16 @@ import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
+import { config } from "@/shared/lib/config";
+
 const firebaseConfig: FirebaseOptions = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  databaseURL: import.meta.env.VITE_APP_DB_URL,
+  apiKey: config.API_KEY,
+  authDomain: config.AUTH_DOMAIN,
+  projectId: config.PROJECT_ID,
+  storageBucket: config.STORAGE_BUCKET,
+  messagingSenderId: config.MESSAGING_SENDER_ID,
+  appId: config.APP_ID,
+  databaseURL: config.APP_DB_URL,
 };
 
 const app = initializeApp(firebaseConfig);
