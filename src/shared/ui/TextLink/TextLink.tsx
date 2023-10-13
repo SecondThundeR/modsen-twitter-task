@@ -6,9 +6,16 @@ export const TextLink = memo(function TextLink({
   href = "#",
   text,
   isDisabled = false,
+  size = "regular",
+  type = "regular",
 }: TextLinkProps) {
   return (
-    <Link $isDisabled={isDisabled} href={!isDisabled ? href : undefined}>
+    <Link
+      $isDisabled={isDisabled}
+      $size={size}
+      $type={type}
+      href={!isDisabled ? href : undefined}
+    >
       {text}
     </Link>
   );
