@@ -15,4 +15,5 @@ function getFontSize(size: TextSize) {
 export const Wrapper = styled.p<TextStyleProps>`
   color: #000;
   font-size: ${({ $size }) => getFontSize($size)};
+  line-height: 1.3;
 `;

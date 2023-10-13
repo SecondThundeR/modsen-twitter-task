@@ -18,6 +18,10 @@ export const RootImage = styled.div<RootImageProps>`
   background-position: center;
   background-repeat: no-repeat;
   background-clip: border-box;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -27,6 +31,11 @@ export const ContentWrapper = styled.div`
   padding-left: 36px;
   padding-right: 96px;
   gap: 24px;
+
+  @media only screen and (max-width: 768px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
 export const Footer = styled.footer`
