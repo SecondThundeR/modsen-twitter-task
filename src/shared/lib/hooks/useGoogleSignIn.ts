@@ -33,7 +33,7 @@ export function useGoogleSignIn() {
     } finally {
       setIsLoading(false);
     }
-  }, [navigate]);
+  }, [dispatch, navigate]);
 
   return { isLoading, onSignIn };
 }
