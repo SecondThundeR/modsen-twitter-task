@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { LayoutProps } from "./interfaces";
 import {
   Root,
@@ -7,7 +9,10 @@ import {
   Footer,
 } from "./Layout.styled";
 
-export const Layout = ({ children, footerElementsSlot }: LayoutProps) => {
+export const Layout = memo(function Layout({
+  children,
+  footerElementsSlot,
+}: LayoutProps) {
   return (
     <Root>
       <Wrapper>
@@ -17,4 +22,4 @@ export const Layout = ({ children, footerElementsSlot }: LayoutProps) => {
       <Footer>{footerElementsSlot}</Footer>
     </Root>
   );
-};
+});
