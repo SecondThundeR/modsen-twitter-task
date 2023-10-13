@@ -10,7 +10,7 @@ export const FooterElements = memo(function FooterElements() {
         const { id, ...props } = data;
         return <TextLink key={id} {...props} />;
       })}
-      <Text text="© 2023 Twitter, Inc." />
+      <Text size="small" text="© 2023 Twitter, Inc." />
     </>
   );
 });
