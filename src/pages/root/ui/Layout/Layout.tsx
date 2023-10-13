@@ -11,7 +11,7 @@ export const Layout = ({ children, footerElementsSlot }: LayoutProps) => {
   return (
     <Root>
       <Wrapper>
-        <RootImage src="/homeBG.png" />
+        <RootImage $src="/rootBackground.png" />
         <ContentWrapper>{children}</ContentWrapper>
       </Wrapper>
       <Footer>{footerElementsSlot}</Footer>

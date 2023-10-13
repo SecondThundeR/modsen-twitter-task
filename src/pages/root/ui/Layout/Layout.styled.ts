@@ -1,24 +1,31 @@
 import styled from "styled-components";
+import { RootImageProps } from "./interfaces";
 
 export const Root = styled.div`
-  height: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
   height: 100%;
 `;
 
-export const RootImage = styled.img`
-  width: 58%;
+export const RootImage = styled.div<RootImageProps>`
+  background-image: url(${({ $src }) => $src});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: border-box;
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 36px;
+  padding-right: 96px;
   gap: 24px;
 `;
 
