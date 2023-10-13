@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "@/shared/constants/colors";
 
 export const Wrapper = styled.button`
+  cursor: pointer;
   width: 100%;
   height: fit-content;
   display: flex;
