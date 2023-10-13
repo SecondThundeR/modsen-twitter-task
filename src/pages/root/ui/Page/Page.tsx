@@ -26,7 +26,7 @@ const Page = memo(function Page() {
         including <TextLink size="inherit" type="primary" text="Cookie Use" />
       </Text>
       <Text size="large">
-        Already have an account? <Link to={RoutePaths.register}>Log in</Link>
+        Already have an account? <Link to={RoutePaths.login}>Log in</Link>
       </Text>
     </Layout>
   );
