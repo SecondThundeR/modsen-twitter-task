@@ -2,9 +2,9 @@ import { InferType, object, string } from "yup";
 
 const envVariables = object({
   VITE_API_KEY: string().required(),
-  VITE_AUTH_DOMAIN: string().url().required(),
+  VITE_AUTH_DOMAIN: string().required(),
   VITE_PROJECT_ID: string().required(),
-  VITE_STORAGE_BUCKET: string().url().required(),
+  VITE_STORAGE_BUCKET: string().required(),
   VITE_MESSAGING_SENDER_ID: string().required(),
   VITE_APP_ID: string().required(),
   VITE_APP_DB_URL: string(),
@@ -23,5 +23,5 @@ export const config = {
   STORAGE_BUCKET: import.meta.env.VITE_STORAGE_BUCKET,
   MESSAGING_SENDER_ID: import.meta.env.VITE_MESSAGING_SENDER_ID,
   APP_ID: import.meta.env.VITE_APP_ID,
-  APP_DB_URL: import.meta.env.VITE_APP_DB_URL || "",
+  APP_DB_URL: import.meta.env.VITE_APP_DB_URL || undefined,
 } as const;
