@@ -1,21 +1,19 @@
 import styled from "styled-components";
-import { TitleSizes, TitleWrapperProps } from "./interfaces";
 
-function getFontSize(size: TitleSizes) {
-  if (size === "regular") return "42px";
-  return "84px";
-}
+import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
+import { WEIGHTS_MAP } from "@/shared/constants/weights";
+import { getFontFamily } from "@/shared/helpers/generalStyles";
+import { getFontSize, getFontSizePhone } from "@/shared/helpers/titleStyles";
 
-function getFontSizePhone(size: TitleSizes) {
-  if (size === "regular") return "32px";
-  return "48px";
-}
+import { TitleWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.h1<TitleWrapperProps>`
-  font-size: ${(props) => getFontSize(props.$size)};
-  font-weight: 900;
+  width: ${DIMENSIONS_MAP.full};
+  font-family: ${({ $font }) => getFontFamily($font)};
+  font-size: ${({ $size }) => getFontSize($size)};
+  font-weight: ${({ $weight }) => WEIGHTS_MAP[$weight]};
 
   @media only screen and (max-width: 768px) {
-    font-size: ${(props) => getFontSizePhone(props.$size)};
+    font-size: ${({ $size }) => getFontSizePhone($size)};
   }
 `;
