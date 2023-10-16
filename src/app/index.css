@@ -131,4 +131,5 @@ table {
 /* Fonts */
 html {
   font-family: Roboto, "Roboto Serif", sans-serif;
+  font-weight: 400;
 }
