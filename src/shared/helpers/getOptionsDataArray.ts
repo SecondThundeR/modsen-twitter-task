@@ -8,7 +8,7 @@ export function getOptionsDataArray(
   return Array.from({ length }, (_, i) => start + i + 1).map<OptionItem>(
     (item) => ({
       value: `${key}-${item}`,
-      name: String(item),
+      name: item.toString().padStart(2, "0"),
     }),
   );
 }
