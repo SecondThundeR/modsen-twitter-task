@@ -4,8 +4,10 @@ import { COLORS } from "@/shared/constants/colors";
 import {
   ACTIVE_SCALE,
   CURSOR_POINTER,
+  CURSOR_REGULAR,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
+  INACTIVE_OPACITY,
   TEXT_CENTER,
   TRANSITION_TIME,
 } from "@/shared/constants/generalStyles";
@@ -31,7 +33,7 @@ export const Wrapper = styled.button<ButtonStyleProps>`
   cursor: ${CURSOR_POINTER};
   width: ${DIMENSIONS_MAP.full};
   height: ${DIMENSIONS_MAP.fit};
-  display: ${DISPLAY_MAP.grid};
+  display: ${DISPLAY_MAP.flex};
   justify-content: ${FLEX_PROPERTIES.justifyCenter};
   align-items: ${FLEX_PROPERTIES.alignCenter};
   gap: ${GAP_MAP.regular};
@@ -54,5 +56,10 @@ export const Wrapper = styled.button<ButtonStyleProps>`
 
   &:active {
     transform: ${`scale(${ACTIVE_SCALE})`};
+  }
+
+  &:disabled {
+    opacity: ${INACTIVE_OPACITY};
+    cursor: ${CURSOR_REGULAR};
   }
 `;

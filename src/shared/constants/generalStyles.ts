@@ -8,6 +8,7 @@ export const FLEX_PROPERTIES = {
   justifyCenter: "center",
   alignCenter: "center",
 } as const;
+export const CURSOR_REGULAR = "default";
 export const CURSOR_POINTER = "pointer";
 export const NO_BORDER = "none";
 export const NO_PADDING = 0;
@@ -16,3 +17,5 @@ export const UNDERLINE_DECORATION = "underline";
 export const TEXT_CENTER = "center";
 export const TRANSITION_TIME = "0.2s";
 export const ACTIVE_SCALE = 0.98;
+export const INACTIVE_OPACITY = 0.6;
+export const REGULAR_OPACITY = 1;
