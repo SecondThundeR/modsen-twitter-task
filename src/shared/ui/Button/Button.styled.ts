@@ -43,10 +43,14 @@ export const Wrapper = styled.button<ButtonStyleProps>`
   font-size: ${FONT_SIZE_MAP.button};
   font-weight: ${WEIGHTS_MAP.medium};
   text-align: ${TEXT_CENTER};
-  padding: ${PADDING_MAP.button};
+  padding: ${PADDING_MAP.button.regular};
   border-radius: ${RADIUS_MAP.button};
   border: ${({ $variant }) => getBorder($variant)};
   transition: ${TRANSITION_TIME};
+
+  @media only screen and (max-width: 768px) {
+    padding: ${PADDING_MAP.button.phone};
+  }
 
   &:hover {
     background-color: ${({ $variant }) => getHoverBackgroundColor($variant)};

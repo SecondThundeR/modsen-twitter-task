@@ -1,5 +1,6 @@
 export const BORDER_BOX = "border-box";
 export const DISPLAY_MAP = {
+  none: "none",
   flex: "flex",
   grid: "grid",
 } as const;
@@ -7,6 +8,12 @@ export const FLEX_PROPERTIES = {
   column: "column",
   justifyCenter: "center",
   alignCenter: "center",
+  wrap: "wrap",
+} as const;
+export const IMAGE_PROPERTIES = {
+  position: "center",
+  repeat: "no-repeat",
+  clip: "border-box",
 } as const;
 export const CURSOR_REGULAR = "default";
 export const CURSOR_POINTER = "pointer";

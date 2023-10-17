@@ -1,17 +1,38 @@
 export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
+  fullScreen: "100vh",
+  narrowBlock: "670px",
 };
 
 export const GAP_MAP = {
   regular: "8px",
   medium: "16px",
+  semiLarge: "18px",
+  large: "24px",
+  extraLarge: "32px",
 } as const;
 
 export const PADDING_MAP = {
-  button: "18px 80px",
+  button: {
+    regular: "18px 80px",
+    phone: "18px 16px",
+  },
   input: "20px 24px",
+  footer: "18px 0px",
+  contentWrapper: {
+    regular: "0 96px 0 36px",
+    phone: "0px 16px",
+  },
 } as const;
+
+export const MARGIN_MAP = {
+  footer: "0px auto",
+  registerWrapper: {
+    regular: "16px auto",
+    phone: "16px",
+  },
+};
 
 export const RADIUS_MAP = {
   button: "42px",

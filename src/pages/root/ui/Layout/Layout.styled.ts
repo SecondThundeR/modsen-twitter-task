@@ -1,49 +1,58 @@
 import styled from "styled-components";
+import {
+  DISPLAY_MAP,
+  FLEX_PROPERTIES,
+  IMAGE_PROPERTIES,
+} from "@/shared/constants/generalStyles";
+import {
+  DIMENSIONS_MAP,
+  GAP_MAP,
+  MARGIN_MAP,
+  PADDING_MAP,
+} from "@/shared/constants/sizing";
 import { RootImageProps } from "./interfaces";
 
 export const Root = styled.div`
-  height: 100vh;
-  display: grid;
+  height: ${DIMENSIONS_MAP.fullScreen};
+  display: ${DISPLAY_MAP.grid};
   grid-template-rows: 1fr auto;
 `;
 
 export const Wrapper = styled.div`
-  display: grid;
+  display: ${DISPLAY_MAP.grid};
   grid-template-columns: 1fr auto;
-  height: 100%;
+  height: ${DIMENSIONS_MAP.full};
 `;
 
 export const RootImage = styled.div<RootImageProps>`
   background-image: url(${({ $src }) => $src});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-clip: border-box;
+  background-position: ${IMAGE_PROPERTIES.position};
+  background-repeat: ${IMAGE_PROPERTIES.repeat};
+  background-clip: ${IMAGE_PROPERTIES.clip};
 
   @media only screen and (max-width: 768px) {
-    display: none;
+    display: ${DISPLAY_MAP.none};
   }
 `;
 
 export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 36px;
-  padding-right: 96px;
-  gap: 24px;
+  display: ${DISPLAY_MAP.flex};
+  flex-direction: ${FLEX_PROPERTIES.column};
+  justify-content: ${FLEX_PROPERTIES.justifyCenter};
+  padding: ${PADDING_MAP.contentWrapper.regular};
+  gap: ${GAP_MAP.large};
 
   @media only screen and (max-width: 768px) {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: ${PADDING_MAP.contentWrapper.phone};
   }
 `;
 
 export const Footer = styled.footer`
-  padding: 18px 0px;
-  margin: 0px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
+  padding: ${PADDING_MAP.footer};
+  margin: ${MARGIN_MAP.footer};
+  display: ${DISPLAY_MAP.flex};
+  justify-content: ${FLEX_PROPERTIES.justifyCenter};
+  align-items: ${FLEX_PROPERTIES.alignCenter};
+  gap: ${GAP_MAP.semiLarge};
+  flex-wrap: ${FLEX_PROPERTIES.wrap};
 `;
