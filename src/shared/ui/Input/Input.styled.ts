@@ -16,7 +16,6 @@ import {
 
 export const ErrorWrapper = styled.div`
   width: ${DIMENSIONS_MAP.full};
-  box-sizing: ${BORDER_BOX};
   display: ${DISPLAY_MAP.flex};
   flex-direction: ${FLEX_PROPERTIES.column};
   gap: ${GAP_MAP.regular};
@@ -28,6 +27,7 @@ export const ErrorMessage = styled.p`
 `;
 
 export const Wrapper = styled.input`
+  box-sizing: ${BORDER_BOX};
   width: ${DIMENSIONS_MAP.full};
   background-color: ${COLORS.white};
   font-size: ${FONT_SIZE_MAP.input};
