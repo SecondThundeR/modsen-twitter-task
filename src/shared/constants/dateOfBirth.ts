@@ -3,6 +3,7 @@ import { getOptionsDataArray } from "@/shared/helpers/getOptionsDataArray";
 const YEARS_THRESHOLD = 80;
 const START_YEAR = new Date().getFullYear() - YEARS_THRESHOLD;
 
+export const MAX_DAYS = 31;
 export const MONTHS_DATA = [
   {
     value: "month",
