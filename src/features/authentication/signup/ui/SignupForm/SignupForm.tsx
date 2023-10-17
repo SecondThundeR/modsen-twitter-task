@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { memo, useCallback, useMemo, useState } from "react";
-import { useForm, useWatch } from "react-hook-form";
 
 import { initiateSignup } from "@/features/authentication/signup/model/signup";
 import {
@@ -17,6 +16,7 @@ import {
 } from "@/shared/constants/dateOfBirth";
 import { getDaysAmount } from "@/shared/helpers/date";
 import { useAppDispatch } from "@/shared/lib/hooks";
+import { useForm, useWatch } from "@/shared/lib/validation";
 import { Input, Title, Text, Button, Select } from "@/shared/ui";
 
 import { SignupFormProps } from "./interfaces";

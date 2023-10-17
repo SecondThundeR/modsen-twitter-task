@@ -1,6 +1,6 @@
 import { memo, useCallback } from "react";
-
 import { useNavigate } from "react-router-dom";
+
 import { SignupForm } from "@/features/authentication/signup";
 import TwitterLogo from "@/shared/assets/logo.svg?react";
 import { COLORS } from "@/shared/constants/colors";

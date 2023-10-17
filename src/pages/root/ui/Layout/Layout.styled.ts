@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import {
   DISPLAY_MAP,
   FLEX_PROPERTIES,
@@ -10,6 +11,7 @@ import {
   MARGIN_MAP,
   PADDING_MAP,
 } from "@/shared/constants/sizing";
+
 import { RootImageProps } from "./interfaces";
 
 export const Root = styled.div`

@@ -1,4 +1,5 @@
 import { memo } from "react";
+
 import { TextLinkProps } from "./interfaces";
 import { Link } from "./TextLink.styled";
 

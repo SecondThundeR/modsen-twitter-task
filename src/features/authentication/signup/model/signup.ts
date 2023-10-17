@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, set } from "firebase/database";
+
 import { auth, database } from "@/shared/lib/firebase";
 
 export type SignupParams = {
