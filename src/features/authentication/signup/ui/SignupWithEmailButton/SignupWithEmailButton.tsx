@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RoutePaths } from "@/shared/lib/router";
 import { Button } from "@/shared/ui";
 
-export const SignUpWithEmailButton = memo(function SignUpWithEmailButton() {
+export const SignupWithEmailButton = memo(function SignupWithEmailButton() {
   const navigate = useNavigate();
 
   const onClick = useCallback(() => {
