@@ -1,5 +1,6 @@
 export const COLORS = {
   error: "#cd0404",
+  success: "#1dd3b0",
   accent: "#1da1f2",
   accentDark: "#177fbf",
   white: "#fff",

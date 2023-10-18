@@ -24,6 +24,7 @@ export const PADDING_MAP = {
     regular: "0 96px 0 36px",
     phone: "0px 16px",
   },
+  alert: "32px 24px",
 } as const;
 
 export const MARGIN_MAP = {
@@ -36,6 +37,7 @@ export const MARGIN_MAP = {
 
 export const RADIUS_MAP = {
   button: "42px",
+  alert: "8px",
   input: "6px",
 } as const;
 
