@@ -6,8 +6,10 @@ export interface TextProps {
   text?: string;
   children?: ReactNode;
   size?: TextSize;
+  isSubtext?: boolean;
 }
 
 export interface TextStyleProps {
   $size: TextSize;
+  $isSubtext: boolean;
 }

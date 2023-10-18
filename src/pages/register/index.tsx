@@ -1,5 +1,1 @@
-const RegisterPage = () => {
-  return <h1>Register page</h1>;
-};
-
-export default RegisterPage;
+export { default } from "./ui/Page/Page";
