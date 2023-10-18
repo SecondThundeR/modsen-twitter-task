@@ -3,32 +3,36 @@ import { getOptionsDataArray } from "@/shared/helpers/getOptionsDataArray";
 const YEARS_THRESHOLD = 80;
 const START_YEAR = new Date().getFullYear() - YEARS_THRESHOLD;
 
+export const MONTH_KEY_BASE = "month";
+export const DAY_KEY_BASE = "day";
+export const YEAR_KEY_BASE = "year";
+
 export const MAX_DAYS = 31;
 export const MONTHS_DATA = [
   {
-    value: "month",
+    value: MONTH_KEY_BASE,
     name: "Month",
     isDisabled: true,
   },
-  ...getOptionsDataArray(12, "month"),
+  ...getOptionsDataArray(12, MONTH_KEY_BASE),
 ];
 
 export const DAYS_DATA = [
   {
-    value: "day",
+    value: DAY_KEY_BASE,
     name: "Day",
     isDisabled: true,
   },
-  ...getOptionsDataArray(31, "day"),
+  ...getOptionsDataArray(31, DAY_KEY_BASE),
 ];
 
 export const YEARS_DATA = [
   {
-    value: "year",
+    value: YEAR_KEY_BASE,
     name: "Year",
     isDisabled: true,
   },
-  ...getOptionsDataArray(YEARS_THRESHOLD, "year", START_YEAR).reverse(),
+  ...getOptionsDataArray(YEARS_THRESHOLD, YEAR_KEY_BASE, START_YEAR).reverse(),
 ];
 
 export const DATE_OF_BIRTH_INFO =
