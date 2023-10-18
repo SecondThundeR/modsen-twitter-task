@@ -5,7 +5,7 @@ import { auth, database } from "@/shared/lib/firebase";
 
 export type SignupParams = {
   name: string;
-  phoneNumber?: string;
+  phoneNumber: string;
   email: string;
   password: string;
   monthOfBirth: string;

@@ -35,6 +35,7 @@ export const SignupForm = memo(function SignupForm({
     register,
   } = useForm<SignupFormSchema>({
     resolver: yupResolver(signupFormSchema),
+    mode: "all",
   });
   const [currentMonth, currentYear] = useWatch({
     control,
