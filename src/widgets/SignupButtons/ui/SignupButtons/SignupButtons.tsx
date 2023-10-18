@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import { SignUpWithEmailButton } from "@/features/root/signUpWithEmailButton";
-import { SignUpWithGoogleButton } from "@/features/root/signUpWithGoogleButton";
+import { SignUpWithEmailButton } from "@/features/authentication/signUpWithEmailButton";
+import { SignUpWithGoogleButton } from "@/features/authentication/signUpWithGoogleButton";
 
 import { ButtonsWrapper } from "./SignupButtons.styled";
 
