@@ -13,11 +13,13 @@ import {
   DAYS_DATA,
   YEARS_DATA,
   MAX_DAYS,
+  MONTH_KEY_BASE,
+  YEAR_KEY_BASE,
 } from "@/shared/constants/dateOfBirth";
 import { getDaysAmount } from "@/shared/helpers/date";
 import { useAppDispatch } from "@/shared/lib/hooks";
 import { useForm, useWatch } from "@/shared/lib/validation";
-import { Input, Title, Text, Button, Select } from "@/shared/ui";
+import { Input, Title, Text, Button, Select, Alert } from "@/shared/ui";
 
 import { SignupFormProps } from "./interfaces";
 import { Wrapper, DateOfBirthWrapper } from "./SignupForm.styled";
@@ -42,16 +44,20 @@ export const SignupForm = memo(function SignupForm({
     name: ["monthOfBirth", "yearOfBirth"],
   });
   const currentMonthDays = useMemo(() => {
-    if (!currentMonth || !currentYear) return MAX_DAYS;
+    if (
+      currentMonth === undefined ||
+      currentYear === undefined ||
+      currentMonth === MONTH_KEY_BASE ||
+      currentYear === YEAR_KEY_BASE
+    )
+      return MAX_DAYS;
 
-    const test = getDaysAmount(
-      Number(currentMonth.split("-")[1]),
-      Number(currentYear.split("-")[1]),
-    );
-    return test;
+    const currentMonthNumber = Number(currentMonth.split("-")[1]);
+    const currentYearNumber = Number(currentYear.split("-")[1]);
+    return getDaysAmount(currentMonthNumber, currentYearNumber);
   }, [currentMonth, currentYear]);
-  const daysSlice = DAYS_DATA.slice(0, currentMonthDays + 1);
 
+  const daysSlice = DAYS_DATA.slice(0, currentMonthDays + 1);
   const buttonText = isLoading ? "Creating account..." : "Next";
 
   const onSubmit = useCallback(
@@ -134,6 +140,9 @@ export const SignupForm = memo(function SignupForm({
           {...register("yearOfBirth")}
         />
       </DateOfBirthWrapper>
+      {errors.root && (
+        <Alert title="Error!" text={errors.root.message} variant="error" />
+      )}
       <Button
         type="submit"
         text={buttonText}
