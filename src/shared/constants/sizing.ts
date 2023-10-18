@@ -2,7 +2,8 @@ export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
   fullScreen: "100vh",
-  narrowBlock: "670px",
+  narrowSignupBlock: "670px",
+  narrowSigninBlock: "450px",
 };
 
 export const GAP_MAP = {

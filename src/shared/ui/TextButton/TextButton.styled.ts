@@ -8,10 +8,12 @@ import {
   UNDERLINE_DECORATION,
 } from "@/shared/constants/generalStyles";
 import { DIMENSIONS_MAP, FONT_SIZE_MAP } from "@/shared/constants/sizing";
+import { TextButtonStyleProps } from "./interfaces";
 
-export const Button = styled.button`
+export const Button = styled.button<TextButtonStyleProps>`
   cursor: ${CURSOR_POINTER};
-  width: ${DIMENSIONS_MAP.fit};
+  width: ${DIMENSIONS_MAP.full};
+  text-align: ${({ $alignment }) => $alignment};
   padding: ${NO_PADDING};
   border: ${NO_BORDER};
   outline: ${NO_BORDER};
