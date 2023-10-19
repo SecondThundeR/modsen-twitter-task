@@ -31,6 +31,7 @@ export const RootImage = styled.div<RootImageProps>`
   background-position: ${IMAGE_PROPERTIES.position};
   background-repeat: ${IMAGE_PROPERTIES.repeat};
   background-clip: ${IMAGE_PROPERTIES.clip};
+  background-size: ${IMAGE_PROPERTIES.size};
 
   @media only screen and (max-width: 768px) {
     display: ${DISPLAY_MAP.none};

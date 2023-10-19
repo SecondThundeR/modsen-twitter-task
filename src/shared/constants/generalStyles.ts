@@ -14,6 +14,7 @@ export const IMAGE_PROPERTIES = {
   position: "center",
   repeat: "no-repeat",
   clip: "border-box",
+  size: "cover",
 } as const;
 export const CURSOR_REGULAR = "default";
 export const CURSOR_POINTER = "pointer";
