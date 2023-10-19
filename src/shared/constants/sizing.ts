@@ -2,11 +2,13 @@ export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
   fullScreen: "100vh",
+  narrowLayoutBlock: "1408px",
   narrowSignupBlock: "670px",
   narrowSigninBlock: "450px",
-};
+} as const;
 
 export const GAP_MAP = {
+  small: "4px",
   regular: "8px",
   medium: "16px",
   semiLarge: "18px",
@@ -30,11 +32,12 @@ export const PADDING_MAP = {
 
 export const MARGIN_MAP = {
   footer: "0px auto",
+  navigation: "32px 32px 0 0",
   registerWrapper: {
     regular: "16px auto",
     phone: "16px",
   },
-};
+} as const;
 
 export const RADIUS_MAP = {
   button: "42px",

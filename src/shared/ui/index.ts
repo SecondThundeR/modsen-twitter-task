@@ -1,6 +1,8 @@
 export { Alert } from "./Alert/Alert";
 export { Button } from "./Button/Button";
 export { Input } from "./Input/Input";
+export { Layout } from "./Layout/Layout";
+export { SectionButton } from "./SectionButton/SectionButton";
 export { Select } from "./Select/Select";
 export { Text } from "./Text/Text";
 export { TextButton } from "./TextButton/TextButton";

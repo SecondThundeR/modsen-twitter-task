@@ -3,6 +3,8 @@ export const COLORS = {
   success: "#1dd3b0",
   accent: "#1da1f2",
   accentDark: "#177fbf",
+  secondary: "#b3b8bb",
+  secondaryDark: "#878a8c",
   white: "#fff",
   black: "#000",
   black60: "rgba(0, 0, 0, 0.6)",

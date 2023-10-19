@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export type ButtonFonts = "regular" | "serif";
-export type ButtonVariant = "regular" | "primary";
+export type ButtonVariant = "regular" | "primary" | "secondary";
 
 export interface ButtonProps
   extends Pick<

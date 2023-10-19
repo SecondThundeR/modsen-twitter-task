@@ -17,6 +17,7 @@ export const IMAGE_PROPERTIES = {
 } as const;
 export const CURSOR_REGULAR = "default";
 export const CURSOR_POINTER = "pointer";
+export const MARGIN_AUTO = "auto";
 export const NO_BORDER = "none";
 export const NO_PADDING = 0;
 export const NO_DECORATION = "none";

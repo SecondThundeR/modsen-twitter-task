@@ -7,10 +7,11 @@ export const Text = memo(function Text({
   text,
   children,
   size = "regular",
+  weight = "regular",
   isSubtext = false,
 }: TextProps) {
   return (
-    <Wrapper $size={size} $isSubtext={isSubtext}>
+    <Wrapper $size={size} $weight={weight} $isSubtext={isSubtext}>
       {text ?? children}
     </Wrapper>
   );
