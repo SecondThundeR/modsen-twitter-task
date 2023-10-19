@@ -2,6 +2,7 @@ import { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SigninForm } from "@/features/authentication/signin";
+import { IconLink } from "@/features/navigation";
 import TwitterLogo from "@/shared/assets/logo.svg?react";
 import { COLORS } from "@/shared/constants/colors";
 import { RoutePaths } from "@/shared/lib/router";
@@ -22,7 +23,10 @@ const Page = memo(function Page() {
 
   return (
     <Layout>
-      <TwitterLogo width="48" height="48" fill={COLORS.accent} />
+      <IconLink
+        icon={<TwitterLogo width="48" height="48" fill={COLORS.accent} />}
+        destination={RoutePaths.landing}
+      />
       <Title text="Log in to Twitter" />
       <SigninForm onComplete={onComplete} />
       <TextButton

@@ -2,6 +2,7 @@ import { memo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SignupForm } from "@/features/authentication/signup";
+import { IconLink } from "@/features/navigation";
 import TwitterLogo from "@/shared/assets/logo.svg?react";
 import { COLORS } from "@/shared/constants/colors";
 import { RoutePaths } from "@/shared/lib/router";
@@ -18,7 +19,10 @@ const Page = memo(function Page() {
 
   return (
     <Layout>
-      <TwitterLogo width="48" height="48" fill={COLORS.accent} />
+      <IconLink
+        icon={<TwitterLogo width="48" height="48" fill={COLORS.accent} />}
+        destination={RoutePaths.landing}
+      />
       <Title text="Create an account" size="small" weight="bold" font="serif" />
       <SignupForm onComplete={onComplete} />
     </Layout>
