@@ -6,6 +6,8 @@ import {
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   NO_BORDER,
+  POSITION_MAP,
+  STICKY_TOP,
 } from "@/shared/constants/generalStyles";
 import {
   DIMENSIONS_MAP,
@@ -15,6 +17,9 @@ import {
 import { TextWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.header`
+  position: ${POSITION_MAP.sticky};
+  top: ${STICKY_TOP};
+  background-color: ${({ theme: { body } }) => body};
   box-sizing: ${BORDER_BOX};
   width: ${DIMENSIONS_MAP.full};
   height: ${DIMENSIONS_MAP.headerSize};
