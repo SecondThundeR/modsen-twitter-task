@@ -11,12 +11,19 @@ export const Header = memo(function Header({
   leftSlot,
   rightSlot,
 }: HeaderProps) {
+  const hasLeftSlot = !!leftSlot;
+  const hasSubtitle = !!subtitle;
+
   return (
     <Wrapper>
       <LeftSlotWrapper>
         {leftSlot}
-        <TextWrapper $hasDivider={!!leftSlot}>
-          <Title text={title} size="extrasmall" font="serif" />
+        <TextWrapper $hasDivider={hasLeftSlot}>
+          <Title
+            text={title}
+            size={hasSubtitle ? "extrasmall" : "compact"}
+            font="serif"
+          />
           {subtitle && <Text text={subtitle} isSubtext />}
         </TextWrapper>
       </LeftSlotWrapper>

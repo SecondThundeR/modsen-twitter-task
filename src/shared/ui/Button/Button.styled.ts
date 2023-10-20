@@ -38,7 +38,8 @@ export const Wrapper = styled.button<ButtonStyleProps>`
   align-items: ${FLEX_PROPERTIES.alignCenter};
   gap: ${GAP_MAP.regular};
   font-family: ${({ $font }) => getFontFamily($font)};
-  background-color: ${({ $variant }) => getBackgroundColor($variant)};
+  background-color: ${({ theme, $variant }) =>
+    getBackgroundColor($variant, theme)};
   color: ${({ $variant }) => getTextColor($variant)};
   font-size: ${FONT_SIZE_MAP.button};
   font-weight: ${WEIGHTS_MAP.medium};
@@ -53,7 +54,8 @@ export const Wrapper = styled.button<ButtonStyleProps>`
   }
 
   &:hover {
-    background-color: ${({ $variant }) => getHoverBackgroundColor($variant)};
+    background-color: ${({ theme, $variant }) =>
+      getHoverBackgroundColor($variant, theme)};
     color: ${COLORS.white};
     border-color: ${COLORS.transparent};
   }

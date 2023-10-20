@@ -4,7 +4,12 @@ export type TitleWeights =
   | "bold"
   | "extrabold"
   | "black";
-export type TitleSizes = "extrasmall" | "small" | "regular" | "large";
+export type TitleSizes =
+  | "extrasmall"
+  | "compact"
+  | "small"
+  | "regular"
+  | "large";
 export type TitleFonts = "regular" | "serif";
 
 export type TitleProps = {

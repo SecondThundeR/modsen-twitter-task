@@ -127,9 +127,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-/* Fonts */
-html {
-  font-family: Roboto, "Roboto Serif", sans-serif;
-  font-weight: 400;
-}

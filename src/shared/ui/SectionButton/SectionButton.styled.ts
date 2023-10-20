@@ -20,6 +20,7 @@ export const Button = styled.button<SectionButtonStyleProps>`
   display: ${DISPLAY_MAP.flex};
   align-items: ${FLEX_PROPERTIES.alignCenter};
   gap: ${GAP_MAP.semiLarge};
+  color: ${({ theme: { color } }) => color};
   border: ${NO_BORDER};
   outline: ${NO_BORDER};
   font-family: ${({ $isActive }) =>
@@ -27,6 +28,11 @@ export const Button = styled.button<SectionButtonStyleProps>`
   font-size: ${FONT_SIZE_MAP.textButton};
   font-weight: ${({ $isActive }) =>
     $isActive ? WEIGHTS_MAP.bold : WEIGHTS_MAP.semibold};
+
+  & > svg {
+    -webkit-filter: ${({ theme: { iconInvert } }) => iconInvert};
+    filter: ${({ theme: { iconInvert } }) => iconInvert};
+  }
 
   &:hover {
     opacity: ${INACTIVE_OPACITY};

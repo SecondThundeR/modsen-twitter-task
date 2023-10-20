@@ -59,6 +59,10 @@ export const FONT_SIZE_MAP = {
       desktop: "18px",
       phone: "16px",
     },
+    compact: {
+      desktop: "24px",
+      phone: "18px",
+    },
     small: {
       desktop: "30px",
       phone: "24px",

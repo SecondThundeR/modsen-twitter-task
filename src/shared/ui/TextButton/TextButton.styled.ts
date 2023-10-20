@@ -19,7 +19,7 @@ export const Button = styled.button<TextButtonStyleProps>`
   outline: ${NO_BORDER};
   background-color: ${COLORS.transparent};
   font-size: ${FONT_SIZE_MAP.textButton};
-  color: ${COLORS.accent};
+  color: ${({ theme: { accent } }) => accent};
 
   &:hover {
     text-decoration: ${UNDERLINE_DECORATION};
