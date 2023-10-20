@@ -1,4 +1,5 @@
 export { Alert } from "./Alert/Alert";
+export { AvatarPlaceholder } from "./AvatarPlaceholder/AvatarPlaceholder";
 export { Button } from "./Button/Button";
 export { Input } from "./Input/Input";
 export { Layout } from "./Layout/Layout";

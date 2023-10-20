@@ -3,8 +3,7 @@ import { memo } from "react";
 import { SignoutButton } from "@/features/authentication/signout";
 import { useAppSelector } from "@/shared/lib/hooks";
 
-import { Text } from "@/shared/ui";
-import { AvatarPlaceholder } from "@/shared/ui/AvatarPlaceholder/AvatarPlaceholder";
+import { AvatarPlaceholder, Text } from "@/shared/ui";
 
 import { Wrapper, InfoWrapper, DetailsWrapper } from "./ProfileDetails.styled";
 
