@@ -2,6 +2,7 @@ export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
   fullScreen: "100vh",
+  headerSize: "86px",
   narrowLayoutBlock: "1408px",
   narrowSignupBlock: "670px",
   narrowSigninBlock: "450px",
@@ -22,7 +23,8 @@ export const PADDING_MAP = {
     phone: "18px 16px",
   },
   input: "20px 24px",
-  footer: "18px 0px",
+  footer: "18px 0",
+  header: "0 16px",
   contentWrapper: {
     regular: "0 96px 0 36px",
     phone: "0px 16px",

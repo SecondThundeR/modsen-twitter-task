@@ -10,5 +10,7 @@ export const COLORS = {
   black60: "rgba(0, 0, 0, 0.6)",
   black20: "rgba(0, 0, 0, 0.2)",
   border: "#e4eaed",
+  sectionBorder: "#c4c4c4",
+  slotBorder: "#312f2f",
   transparent: "transparent",
 } as const;
