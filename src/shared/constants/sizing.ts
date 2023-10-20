@@ -2,11 +2,14 @@ export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
   fullScreen: "100vh",
+  headerSize: "86px",
+  narrowLayoutBlock: "1408px",
   narrowSignupBlock: "670px",
   narrowSigninBlock: "450px",
-};
+} as const;
 
 export const GAP_MAP = {
+  small: "4px",
   regular: "8px",
   medium: "16px",
   semiLarge: "18px",
@@ -20,7 +23,8 @@ export const PADDING_MAP = {
     phone: "18px 16px",
   },
   input: "20px 24px",
-  footer: "18px 0px",
+  footer: "18px 0",
+  header: "0 16px",
   contentWrapper: {
     regular: "0 96px 0 36px",
     phone: "0px 16px",
@@ -30,11 +34,12 @@ export const PADDING_MAP = {
 
 export const MARGIN_MAP = {
   footer: "0px auto",
+  navigation: "32px 32px 0 0",
   registerWrapper: {
     regular: "16px auto",
     phone: "16px",
   },
-};
+} as const;
 
 export const RADIUS_MAP = {
   button: "42px",
@@ -53,6 +58,10 @@ export const FONT_SIZE_MAP = {
     extrasmall: {
       desktop: "18px",
       phone: "16px",
+    },
+    compact: {
+      desktop: "24px",
+      phone: "18px",
     },
     small: {
       desktop: "30px",

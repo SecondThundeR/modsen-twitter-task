@@ -1,7 +1,7 @@
-import { Link, LinkProps } from "./components";
+import { Link, ProtectedRoute, RegularRoute } from "./components";
 
 export { useLocation, matchPath, useNavigate } from "react-router-dom";
+export * from "./routes";
 export * from "./types";
 
-export { Link };
-export type { LinkProps };
+export { Link, ProtectedRoute, RegularRoute };

@@ -1,12 +1,28 @@
+import { DefaultTheme } from "styled-components";
+
 import { COLORS } from "@/shared/constants/colors";
 import { ButtonVariant } from "@/shared/ui/Button/interfaces";
 
-export function getBackgroundColor(variant: ButtonVariant) {
-  return variant === "regular" ? COLORS.white : COLORS.accent;
+export function getBackgroundColor(
+  variant: ButtonVariant,
+  { accent, secondary }: Pick<DefaultTheme, "accent" | "secondary">,
+) {
+  if (variant === "primary") return accent;
+  if (variant === "secondary") return secondary;
+  return COLORS.white;
 }
 
-export function getHoverBackgroundColor(variant: ButtonVariant) {
-  return variant === "regular" ? COLORS.accent : COLORS.accentDark;
+export function getHoverBackgroundColor(
+  variant: ButtonVariant,
+  {
+    accentHover,
+    secondaryHover,
+    accent,
+  }: Pick<DefaultTheme, "accentHover" | "secondaryHover" | "accent">,
+) {
+  if (variant === "primary") return accentHover;
+  if (variant === "secondary") return secondaryHover;
+  return accent;
 }
 
 export function getTextColor(variant: ButtonVariant) {

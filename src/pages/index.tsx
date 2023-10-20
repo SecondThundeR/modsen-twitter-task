@@ -1,24 +1,36 @@
-import { lazy } from "react";
+import { memo } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { RoutePaths } from "@/shared/lib/router";
+import { LayoutNavigation } from "@/widgets/LayoutNavigation";
+import { RoutePaths, ProtectedRoute, RegularRoute } from "@/shared/lib/router";
+import { Layout } from "@/shared/ui";
 
-const RootPage = lazy(() => import("./root"));
-const LoginPage = lazy(() => import("./login"));
-const RegisterPage = lazy(() => import("./register"));
-const HomePage = lazy(() => import("./home"));
+import HomePage from "./home";
+import LoginPage from "./login";
+import ProfilePage from "./profile";
+import RegisterPage from "./register";
+import RootPage from "./root";
 
-export const Routing = () => {
+const HomeLayout = <Layout navSlot={<LayoutNavigation />} />;
+
+export const Routing = memo(function Routing() {
   return (
     <Routes>
-      <Route path={RoutePaths.root} element={<RootPage />} />
-      <Route path={RoutePaths.login} element={<LoginPage />} />
-      <Route path={RoutePaths.register} element={<RegisterPage />} />
-      <Route path={RoutePaths.home} element={<HomePage />} />
+      <Route element={<RegularRoute />}>
+        <Route path={RoutePaths.landing} element={<RootPage />} />
+        <Route path={RoutePaths.login} element={<LoginPage />} />
+        <Route path={RoutePaths.register} element={<RegisterPage />} />
+      </Route>
+      <Route element={<ProtectedRoute />}>
+        <Route element={HomeLayout}>
+          <Route path={RoutePaths.home} element={<HomePage />} />
+          <Route path={RoutePaths.profile} element={<ProfilePage />} />
+        </Route>
+      </Route>
       <Route
         path={RoutePaths.notFound}
-        element={<Navigate to={RoutePaths.root} />}
+        element={<Navigate to={RoutePaths.landing} />}
       />
     </Routes>
   );
-};
+});

@@ -10,7 +10,7 @@ import {
 import { TextLinkStyledProps } from "./interfaces";
 
 export const Link = styled.a<TextLinkStyledProps>`
-  color: ${({ $type }) => getTextColor($type)};
+  color: ${({ theme, $type }) => getTextColor($type, theme)};
   font-size: ${({ $size }) => getFontSize($size)};
   text-decoration: ${NO_DECORATION};
 
