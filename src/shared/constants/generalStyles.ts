@@ -14,6 +14,7 @@ export const FLEX_PROPERTIES = {
   justifyCenter: "center",
   alignCenter: "center",
   wrap: "wrap",
+  justifyBetween: "space-between",
 } as const;
 export const IMAGE_PROPERTIES = {
   position: "center",
@@ -31,9 +32,11 @@ export const UNDERLINE_DECORATION = "underline";
 export const TEXT_CENTER = "center";
 export const TRANSITION_TIME = "0.2s";
 export const ACTIVE_SCALE = 0.98;
+export const ACTIVE_SCALE_ICON = 0.95;
 export const NO_OPACITY = 0;
 export const INACTIVE_OPACITY = 0.6;
 export const REGULAR_OPACITY = 1;
 export const NO_INVERT = "invert(0%)";
 export const FULL_INVERT = "invert(100%)";
 export const STICKY_TOP = 0;
+export const TOP_INDEX = 1000;

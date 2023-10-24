@@ -8,6 +8,7 @@ import {
   NO_BORDER,
   POSITION_MAP,
   STICKY_TOP,
+  TOP_INDEX,
 } from "@/shared/constants/generalStyles";
 import {
   DIMENSIONS_MAP,
@@ -27,7 +28,8 @@ export const Wrapper = styled.header`
   display: ${DISPLAY_MAP.flex};
   align-items: ${FLEX_PROPERTIES.alignCenter};
   padding: ${PADDING_MAP.header};
-  justify-content: space-between;
+  justify-content: ${FLEX_PROPERTIES.justifyBetween};
+  z-index: ${TOP_INDEX};
 `;
 
 export const LeftSlotWrapper = styled.div`

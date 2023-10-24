@@ -11,9 +11,11 @@ export type TitleSizes =
   | "regular"
   | "large";
 export type TitleFonts = "regular" | "serif";
+export type TitleWidths = "full" | "fit";
 
 export type TitleProps = {
   text: string;
+  width?: TitleWidths;
   size?: TitleSizes;
   weight?: TitleWeights;
   font?: TitleFonts;
@@ -21,6 +23,7 @@ export type TitleProps = {
 
 export type TitleWrapperProps = {
   $size: TitleSizes;
+  $width: TitleWidths;
   $weight: TitleWeights;
   $font: TitleFonts;
 };

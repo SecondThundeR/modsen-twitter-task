@@ -30,6 +30,8 @@ export const PADDING_MAP = {
     phone: "0px 16px",
   },
   alert: "32px 24px",
+  placeholder: "16px",
+  tweetWrapper: "16px 24px",
 } as const;
 
 export const MARGIN_MAP = {

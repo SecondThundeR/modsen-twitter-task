@@ -8,7 +8,7 @@ import { getFontSize, getFontSizePhone } from "@/shared/helpers/titleStyles";
 import { TitleWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.h1<TitleWrapperProps>`
-  width: ${DIMENSIONS_MAP.full};
+  width: ${({ $width }) => DIMENSIONS_MAP[$width]};
   font-family: ${({ $font }) => getFontFamily($font)};
   font-size: ${({ $size }) => getFontSize($size)};
   font-weight: ${({ $weight }) => WEIGHTS_MAP[$weight]};

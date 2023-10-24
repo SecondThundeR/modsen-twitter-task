@@ -5,12 +5,13 @@ import { Wrapper } from "./Title.styled";
 
 export const Title = memo(function Title({
   text,
+  width = "full",
   size = "regular",
   weight = "black",
   font = "regular",
 }: TitleProps) {
   return (
-    <Wrapper $size={size} $weight={weight} $font={font}>
+    <Wrapper $width={width} $size={size} $weight={weight} $font={font}>
       {text}
     </Wrapper>
   );

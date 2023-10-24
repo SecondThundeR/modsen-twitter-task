@@ -1,9 +1,10 @@
-import { signInWithPopup } from "firebase/auth";
+import { getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { setUser } from "@/entities/user";
+import { setUserData, setUserInfo } from "@/entities/user";
+import { extractUserData } from "@/shared/helpers/database";
 import { auth, googleAuthProvider } from "@/shared/lib/firebase";
 
 import { RoutePaths } from "../router";
@@ -18,15 +19,35 @@ export function useGoogleSignIn() {
 
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
-      const { uid, displayName, email } = result.user;
+      const additionalInfo = getAdditionalUserInfo(result);
+      const isNewUser =
+        additionalInfo !== null ? additionalInfo.isNewUser : true;
+      const { uid } = result.user;
+      const { displayName, email, dateOfBirth, phoneNumber, ...rest } =
+        await extractUserData(uid);
 
-      dispatch(
-        setUser({
-          uid,
-          displayName,
-          email,
-        }),
-      );
+      if (!isNewUser) {
+        dispatch(
+          setUserInfo({
+            userData: {
+              uid,
+              displayName,
+              email,
+              dateOfBirth,
+              phoneNumber,
+            },
+            ...rest,
+          }),
+        );
+      } else {
+        dispatch(
+          setUserData({
+            uid,
+            displayName,
+            email,
+          }),
+        );
+      }
 
       navigate(RoutePaths.home);
     } catch (error) {

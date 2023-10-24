@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { resetAuthors } from "@/entities/author";
+import { resetTweets } from "@/entities/tweet";
 import { resetUser } from "@/entities/user";
 
 import { auth } from "../firebase";
@@ -20,6 +22,8 @@ export function useLogout() {
     try {
       await auth.signOut();
       dispatch(resetUser());
+      dispatch(resetAuthors());
+      dispatch(resetTweets());
       navigate(RoutePaths.landing);
     } catch (error) {
       console.error(error);

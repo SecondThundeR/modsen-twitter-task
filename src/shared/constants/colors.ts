@@ -4,6 +4,9 @@ export const COLORS = {
   success: "#1dd3b0",
   successDark: "#099a7e",
 
+  liked: "#ef1c5c",
+  likedDark: "#ff6c98",
+
   accent: "#1da1f2",
   accentDark: "#30a2cf",
   accentHover: "#177fbf",
