@@ -9,7 +9,7 @@ export const Wrapper = styled.div<AlertStyleProps>`
   display: ${DISPLAY_MAP.flex};
   flex-direction: ${FLEX_PROPERTIES.column};
   gap: ${GAP_MAP.regular};
-  color: ${({ theme: { color } }) => color};
+  color: ${({ theme: { colorAlert } }) => colorAlert};
   background-color: ${({ theme: { error, success }, $variant }) =>
     $variant === "error" ? error : success};
   padding: ${PADDING_MAP.alert};

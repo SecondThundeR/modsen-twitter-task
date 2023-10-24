@@ -5,6 +5,7 @@ declare module "styled-components" {
     body: string;
     liked: string;
     color: string;
+    colorAlert: string;
     color20: string;
     color60: string;
     accent: string;
