@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { LikeTweetButton } from "@/features/home/tweets/ui/LikeTweetButton/LikeTweetButton";
+import { LikeTweetButton } from "@/features/tweets/ui/LikeTweetButton/LikeTweetButton";
 import { useTweetAuthor, useTweetLikes } from "@/entities/tweet";
 import { formatTimeDifference } from "@/shared/helpers/date";
 import { AvatarPlaceholder, Text, Title } from "@/shared/ui";
