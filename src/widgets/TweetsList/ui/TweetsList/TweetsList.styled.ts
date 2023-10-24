@@ -16,3 +16,7 @@ export const Wrapper = styled.div`
   display: ${DISPLAY_MAP.flex};
   flex-direction: ${FLEX_PROPERTIES.column};
 `;
+
+export const AlertWrapper = styled.div`
+  padding: ${PADDING_MAP.placeholder};
+`;
