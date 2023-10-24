@@ -1,6 +1,7 @@
 export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
+  half: "50%",
   fullScreen: "100vh",
   headerSize: "86px",
   narrowLayoutBlock: "1408px",
@@ -35,6 +36,7 @@ export const PADDING_MAP = {
   placeholder: "16px",
   tweetWrapper: "16px 24px",
   composerWrapper: "18px 24px",
+  modal: "16px 20px",
 } as const;
 
 export const MARGIN_MAP = {
@@ -48,6 +50,7 @@ export const MARGIN_MAP = {
 
 export const RADIUS_MAP = {
   button: "42px",
+  modal: "12px",
   alert: "8px",
   input: "6px",
 } as const;

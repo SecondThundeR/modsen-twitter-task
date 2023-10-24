@@ -3,6 +3,7 @@ export const POSITION_MAP = {
   absolute: "absolute",
   relative: "relative",
   sticky: "sticky",
+  fixed: "fixed",
 } as const;
 export const DISPLAY_MAP = {
   none: "none",

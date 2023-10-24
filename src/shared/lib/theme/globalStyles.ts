@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const lightTheme: DefaultTheme = {
   body: COLORS.white,
+  bodyModal: COLORS.bodyModal,
   liked: COLORS.liked,
   color: COLORS.black,
   colorAlert: COLORS.white,
@@ -32,6 +33,7 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   body: COLORS.black,
+  bodyModal: COLORS.bodyModalDark,
   liked: COLORS.likedDark,
   color: COLORS.white,
   colorAlert: COLORS.black,

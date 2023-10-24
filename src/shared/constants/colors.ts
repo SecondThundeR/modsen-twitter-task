@@ -24,6 +24,9 @@ export const COLORS = {
   black20: "rgba(0, 0, 0, 0.2)",
   black60: "rgba(0, 0, 0, 0.6)",
 
+  bodyModal: "rgba(0, 0, 0, 0.4)",
+  bodyModalDark: "rgba(255, 255, 255, 0.15)",
+
   border: "#e4eaed",
   sectionBorder: "#c4c4c4",
   slotBorder: "#312f2f",
