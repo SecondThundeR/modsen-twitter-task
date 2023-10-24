@@ -28,15 +28,15 @@ export const authorSlice = createSlice({
       action: PayloadAction<NonNullable<AuthorState["authorsArray"]>[number]>,
     ) => {
       const authorID = action.payload?.uid;
-      if (
-        state.authorsArray?.findIndex((author) => author?.uid === authorID) !==
-        -1
-      )
-        return;
-
       if (state.authorsArray === null) {
         state.authorsArray = [];
       }
+
+      if (
+        state.authorsArray.findIndex((author) => author?.uid === authorID) !==
+        -1
+      )
+        return;
 
       state.authorsArray = [action.payload, ...state.authorsArray];
     },
@@ -60,6 +60,7 @@ export const selectAuthorByID = (
   createSelector(
     [(state: RootState) => state.authors.authorsArray],
     (authorsArray) => {
+      console.log("Triggered selector:", authorsArray);
       return authorsArray?.find((authorData) => authorData?.uid == id);
     },
   );
