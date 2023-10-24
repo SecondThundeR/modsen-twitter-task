@@ -32,13 +32,15 @@ export function useTweets() {
 
       if (!extractedData) return [];
 
-      const tweetsArray = Object.entries(extractedData).map((data) => {
-        const [id, value] = data;
-        return {
-          id,
-          ...value,
-        };
-      }) satisfies Tweet[];
+      const tweetsArray = Object.entries(extractedData)
+        .reverse()
+        .map((data) => {
+          const [id, value] = data;
+          return {
+            id,
+            ...value,
+          };
+        }) satisfies Tweet[];
       dispatch(setTweets(tweetsArray));
     } catch (error) {
       throw new Error(

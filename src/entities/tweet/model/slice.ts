@@ -65,7 +65,21 @@ export const tweetSlice = createSlice({
   },
 });
 
-export const selectCurrentTweets = (state: RootState) => state.tweet.tweetsData;
+export const selectCurrentTweets = (state: RootState) => {
+  const { userData, followingIds } = state.user;
+  const data = state.tweet.tweetsData;
+  const userId = userData!.uid;
+  if (!data) return data;
+
+  const filteredTweets: Tweet[] = [];
+
+  for (const tweet of data) {
+    if (tweet.authorId === userId || followingIds?.includes(tweet.authorId))
+      filteredTweets.push(tweet);
+  }
+
+  return filteredTweets;
+};
 
 export const selectTweetsLikes = (
   id: string,
