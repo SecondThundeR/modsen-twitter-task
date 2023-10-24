@@ -1,6 +1,6 @@
 import { get, ref } from "firebase/database";
 
-import { serializeFirebaseArrays } from "@/shared/helpers/database";
+import { deserializeFirebaseArrays } from "@/shared/helpers/database";
 import { database } from "@/shared/lib/firebase";
 
 export const getDBLikes = async (tweetId: string) => {
@@ -12,7 +12,7 @@ export const getDBLikes = async (tweetId: string) => {
 
   const tweetData = currentTweetsData.exportVal() as FirebaseExportValue;
   const likesData = tweetData.likesIds as FirebaseArrayValue<string>;
-  const convertedLikes = serializeFirebaseArrays(likesData);
+  const convertedLikes = deserializeFirebaseArrays(likesData);
 
   return convertedLikes;
 };

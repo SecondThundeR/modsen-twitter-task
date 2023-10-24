@@ -4,7 +4,7 @@ import { UserState } from "@/entities/user";
 
 import { database } from "../lib/firebase";
 
-type extractedUserData = {
+type ExtractedUserData = {
   displayName: string;
   email: string;
   dateOfBirth: string;
@@ -18,17 +18,30 @@ export const extractUserData = async (userID: string) => {
     if (!data.exists())
       throw new Error("Failed to find any data for specific user!");
 
-    const extractedData = data.exportVal() as extractedUserData;
+    const extractedData = data.exportVal() as ExtractedUserData;
     if (!extractedData)
       throw new Error("Failed to extract any data for specific user!");
 
-    return extractedData;
+    const deserializedData: ExtractedUserData = {
+      ...extractedData,
+      tweetsIds: deserializeFirebaseArrays(
+        extractedData.tweetsIds as FirebaseArrayValue<string>,
+      ),
+      followersIds: deserializeFirebaseArrays(
+        extractedData.followersIds as FirebaseArrayValue<string>,
+      ),
+      followingIds: deserializeFirebaseArrays(
+        extractedData.followingIds as FirebaseArrayValue<string>,
+      ),
+    };
+
+    return deserializedData;
   } catch (error) {
     throw new Error(`Failed to fetch user data! ${(error as Error).message}`);
   }
 };
 
-export const serializeFirebaseArrays = <T>(data: FirebaseArrayValue<T>) => {
+export const deserializeFirebaseArrays = <T>(data: FirebaseArrayValue<T>) => {
   if (data === undefined) return [];
   return Object.values(data);
 };
