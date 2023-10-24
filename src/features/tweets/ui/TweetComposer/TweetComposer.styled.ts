@@ -1,14 +1,27 @@
 import styled from "styled-components";
 
 import { COLORS } from "@/shared/constants/colors";
-import { DISPLAY_MAP, FLEX_PROPERTIES } from "@/shared/constants/generalStyles";
-import { GAP_MAP, PADDING_MAP } from "@/shared/constants/sizing";
+import {
+  BORDER_BOX,
+  DISPLAY_MAP,
+  FLEX_PROPERTIES,
+  NONE,
+} from "@/shared/constants/generalStyles";
+import {
+  DIMENSIONS_MAP,
+  GAP_MAP,
+  PADDING_MAP,
+} from "@/shared/constants/sizing";
+import { TweetComposerStyledProps } from "./interfaces";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<TweetComposerStyledProps>`
+  box-sizing: ${BORDER_BOX};
+  width: ${DIMENSIONS_MAP.full};
   display: ${DISPLAY_MAP.flex};
   gap: ${GAP_MAP.medium};
   padding: ${PADDING_MAP.composerWrapper};
-  border-bottom: ${`1px solid ${COLORS.sectionBorder}`};
+  border-bottom: ${({ $isStandalone }) =>
+    $isStandalone ? NONE : `1px solid ${COLORS.sectionBorder}`};
 `;
 
 export const ComposerWrapper = styled.div`

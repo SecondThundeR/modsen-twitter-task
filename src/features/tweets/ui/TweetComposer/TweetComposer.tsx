@@ -18,6 +18,7 @@ import {
 } from "@/shared/ui";
 
 import { useAddTweet } from "../..";
+import { TweetComposerProps } from "./interfaces";
 import {
   Wrapper,
   ComposerWrapper,
@@ -26,7 +27,10 @@ import {
   ButtonWrapper,
 } from "./TweetComposer.styled";
 
-export const TweetComposer = memo(function TweetComposer() {
+export const TweetComposer = memo(function TweetComposer({
+  isStandalone = false,
+  onAdd,
+}: TweetComposerProps) {
   const userData = useAppSelector(selectCurrentUser);
   const authorId = userData.userData!.uid;
   const { isAdding, error, addNewTweet } = useAddTweet();
@@ -48,7 +52,8 @@ export const TweetComposer = memo(function TweetComposer() {
     if (!tweetText) return;
     await addNewTweet({ text: tweetText, authorId });
     setTweetText("");
-  }, [addNewTweet, authorId, tweetText]);
+    onAdd && onAdd();
+  }, [addNewTweet, authorId, onAdd, tweetText]);
 
   if (error !== null)
     return (
@@ -58,7 +63,7 @@ export const TweetComposer = memo(function TweetComposer() {
     );
 
   return (
-    <Wrapper>
+    <Wrapper $isStandalone={isStandalone}>
       <AvatarPlaceholder width={52} height={52} />
       <ComposerWrapper>
         <Textarea
