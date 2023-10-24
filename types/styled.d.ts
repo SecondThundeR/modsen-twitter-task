@@ -3,6 +3,7 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     body: string;
+    liked: string;
     color: string;
     color20: string;
     color60: string;
