@@ -6,7 +6,7 @@ import {
   SignupFormSchema,
   signupFormSchema,
 } from "@/features/authentication/signup/model/signupFormSchema";
-import { setUser } from "@/entities/user";
+import { setUserData } from "@/entities/user";
 import {
   DATE_OF_BIRTH_INFO,
   MONTHS_DATA,
@@ -68,7 +68,7 @@ export const SignupForm = memo(function SignupForm({
         const res = await initiateSignup(params);
         const { uid, displayName, email, phoneNumber, dateOfBirth } = res;
         dispatch(
-          setUser({
+          setUserData({
             uid,
             displayName,
             email,
