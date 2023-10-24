@@ -7,7 +7,7 @@ import {
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   INACTIVE_OPACITY,
-  NO_BORDER,
+  NONE,
 } from "@/shared/constants/generalStyles";
 import { FONT_SIZE_MAP, GAP_MAP } from "@/shared/constants/sizing";
 import { WEIGHTS_MAP } from "@/shared/constants/weights";
@@ -21,8 +21,8 @@ export const Button = styled.button<SectionButtonStyleProps>`
   align-items: ${FLEX_PROPERTIES.alignCenter};
   gap: ${GAP_MAP.semiLarge};
   color: ${({ theme: { color } }) => color};
-  border: ${NO_BORDER};
-  outline: ${NO_BORDER};
+  border: ${NONE};
+  outline: ${NONE};
   font-family: ${({ $isActive }) =>
     $isActive ? FONT_FAMILY_MAP.robotoSerif : FONT_FAMILY_MAP.roboto};
   font-size: ${FONT_SIZE_MAP.textButton};

@@ -5,7 +5,7 @@ import {
   CURSOR_REGULAR,
   FULL_INVERT,
   INACTIVE_OPACITY,
-  NO_BORDER,
+  NONE,
   NO_INVERT,
   NO_PADDING,
 } from "@/shared/constants/generalStyles";
@@ -17,7 +17,7 @@ export const Wrapper = styled.button<IconButtonStyleProps>`
   width: ${DIMENSIONS_MAP.fit};
   height: ${DIMENSIONS_MAP.fit};
   padding: ${NO_PADDING};
-  border: ${NO_BORDER};
+  border: ${NONE};
   background-color: transparent;
 
   & > svg {

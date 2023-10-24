@@ -5,7 +5,7 @@ import {
   BORDER_BOX,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
-  NO_BORDER,
+  NONE,
   POSITION_MAP,
   STICKY_TOP,
   TOP_INDEX,
@@ -44,5 +44,5 @@ export const TextWrapper = styled.div<TextWrapperProps>`
   gap: ${GAP_MAP.regular};
   padding-left: ${({ $hasDivider }) => ($hasDivider ? GAP_MAP.regular : 0)};
   border-left: ${({ $hasDivider }) =>
-    $hasDivider ? `1px solid ${COLORS.slotBorder}` : NO_BORDER};
+    $hasDivider ? `1px solid ${COLORS.slotBorder}` : NONE};
 `;

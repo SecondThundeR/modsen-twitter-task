@@ -8,6 +8,7 @@ export { Layout } from "./Layout/Layout";
 export { SectionButton } from "./SectionButton/SectionButton";
 export { Select } from "./Select/Select";
 export { Text } from "./Text/Text";
+export { Textarea } from "./Textarea/Textarea";
 export { TextButton } from "./TextButton/TextButton";
 export { TextLink } from "./TextLink/TextLink";
 export { Title } from "./Title/Title";

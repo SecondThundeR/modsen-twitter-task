@@ -5,6 +5,8 @@ import { ButtonProps } from "./interfaces";
 
 export const Button = memo(function Button({
   text,
+  width = "full",
+  size = "regular",
   font = "regular",
   variant = "regular",
   leftSlot,
@@ -12,7 +14,13 @@ export const Button = memo(function Button({
   ...props
 }: ButtonProps) {
   return (
-    <Wrapper {...props} $font={font} $variant={variant}>
+    <Wrapper
+      {...props}
+      $width={width}
+      $size={size}
+      $font={font}
+      $variant={variant}
+    >
       {leftSlot}
       {text}
       {rightSlot}
