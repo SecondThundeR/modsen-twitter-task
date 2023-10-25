@@ -4,6 +4,7 @@ export {
   authorSlice,
   setAuthorsData,
   pushAuthor,
+  setFollowersIds,
   removeAuthor,
   resetAuthors,
   selectAuthorByID,

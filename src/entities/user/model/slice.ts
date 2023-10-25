@@ -27,6 +27,9 @@ export const userSlice = createSlice({
       state.followingIds = followingIds;
       state.tweetsIds = tweetsIds;
     },
+    setFollowingIds: (state, action: PayloadAction<string[]>) => {
+      state.followingIds = [...action.payload];
+    },
     pushTweetID: (state, action: PayloadAction<string>) => {
       const tweetID = action.payload;
       if (state.tweetsIds?.findIndex((id) => id === tweetID) !== -1) return;
@@ -77,6 +80,7 @@ export const selectUserDataByID = (state: RootState, userId: string) => {
 export const {
   setUserData,
   setUserInfo,
+  setFollowingIds,
   pushTweetID,
   pushFollowingID,
   removeTweetID,

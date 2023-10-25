@@ -48,6 +48,25 @@ export const authorSlice = createSlice({
         ...state.authorsArray.filter((author) => author?.uid !== authorID),
       ];
     },
+    setFollowersIds: (
+      state,
+      action: PayloadAction<{ authorId: string; followers: string[] }>,
+    ) => {
+      const { authorId, followers } = action.payload;
+      if (!state.authorsArray) return;
+
+      const authorIndex = state.authorsArray.findIndex(
+        (authorData) => authorData?.uid == authorId,
+      );
+      if (authorIndex === -1) return;
+
+      const authorData = { ...state.authorsArray[authorIndex]! };
+
+      state.authorsArray[authorIndex] = {
+        ...authorData,
+        followersIds: [...followers],
+      };
+    },
     resetAuthors: (state) => {
       state.authorsArray = null;
     },
@@ -60,5 +79,10 @@ export const selectAuthorByID = (state: RootState, authorId?: string) => {
   );
 };
 
-export const { setAuthorsData, pushAuthor, removeAuthor, resetAuthors } =
-  authorSlice.actions;
+export const {
+  setAuthorsData,
+  pushAuthor,
+  setFollowersIds,
+  removeAuthor,
+  resetAuthors,
+} = authorSlice.actions;

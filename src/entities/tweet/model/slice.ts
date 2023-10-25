@@ -68,17 +68,33 @@ export const tweetSlice = createSlice({
 
 const selectTweets = (state: RootState) => state.tweet.tweetsData;
 
+export const selectTweetsAmount = (state: RootState, authorId?: string) => {
+  const { tweetsData } = state.tweet;
+  const { uid } = state.user.userData!;
+  if (!tweetsData) return 0;
+  return tweetsData.filter((tweet) => {
+    if (authorId !== undefined) return tweet.authorId === authorId;
+    return tweet.authorId === uid;
+  }).length;
+};
+
 export const selectCurrentTweets = createSelector(
-  [selectCurrentUser, selectTweets],
-  (user, tweets) => {
+  [
+    selectCurrentUser,
+    selectTweets,
+    (_state: RootState, filterId?: string) => filterId,
+  ],
+  (user, tweets, filterId) => {
     const { userData, followingIds } = user;
     const userId = userData!.uid;
-    if (!tweets) return [];
+    if (!tweets) return null;
 
-    return tweets.filter(
-      (tweet) =>
-        tweet.authorId === userId || followingIds?.includes(tweet.authorId),
-    );
+    return tweets.filter((tweet) => {
+      if (filterId !== undefined) return tweet.authorId === filterId;
+      return (
+        tweet.authorId === userId || followingIds?.includes(tweet.authorId)
+      );
+    });
   },
 );
 

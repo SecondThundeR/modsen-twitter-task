@@ -3,6 +3,7 @@ export {
   userSlice,
   setUserInfo,
   setUserData,
+  setFollowingIds,
   pushTweetID,
   pushFollowingID,
   removeTweetID,

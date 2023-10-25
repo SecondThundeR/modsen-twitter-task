@@ -7,6 +7,7 @@ export {
   editTweet,
   removeTweet,
   resetTweets,
+  selectTweetsAmount,
   selectCurrentTweets,
 } from "./model/slice";
 export * from "./hooks";
