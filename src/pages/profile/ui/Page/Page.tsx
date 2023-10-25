@@ -28,44 +28,42 @@ const Page = memo(function Page() {
     handlers: { onOpen, onClose },
   } = useModal();
 
-  if (isLoading)
-    return (
-      <PlaceholderWrapper>
-        <Text text="Loading profile data..." />
-      </PlaceholderWrapper>
-    );
-
-  const { uid, displayName, description, email, followersIds, followingIds } =
-    data!;
-  const followingNumber = followingIds?.length ?? 0;
-  const followersNumber = followersIds?.length ?? 0;
   const buttonText = getProfileButtonText(isOwnProfile, isFollowedByUser);
 
   return (
     <>
-      <Header
-        title={displayName}
-        subtitle={`${tweetsLength} tweets`}
-        leftSlot={!isOwnProfile && <BackButton />}
-        rightSlot={<ChangeThemeToggle />}
-      />
-      <ProfileBlock
-        buttonText={buttonText}
-        name={displayName}
-        username={email}
-        description={description}
-        following={followingNumber}
-        followers={followersNumber}
-        isDisabled={isUpdating}
-        onClick={isOwnProfile ? onOpen : updateFollowStatus}
-      />
-      {isOwnProfile && <TweetComposer />}
-      <ProfileTabs />
-      <TweetsList filterAuthorId={uid} />
-      {isOpened && (
-        <Modal title="Profile update" closeModal={onClose}>
-          <ProfileUpdateForm onComplete={onClose} />
-        </Modal>
+      {isLoading && (
+        <PlaceholderWrapper>
+          <Text text="Loading profile data..." />
+        </PlaceholderWrapper>
+      )}
+      {data && (
+        <>
+          <Header
+            title={data.displayName}
+            subtitle={`${tweetsLength} tweets`}
+            leftSlot={!isOwnProfile && <BackButton />}
+            rightSlot={<ChangeThemeToggle />}
+          />
+          <ProfileBlock
+            buttonText={buttonText}
+            name={data.displayName}
+            username={data.email}
+            description={data.description}
+            following={data.followingIds?.length ?? 0}
+            followers={data.followersIds?.length ?? 0}
+            isDisabled={isUpdating}
+            onClick={isOwnProfile ? onOpen : updateFollowStatus}
+          />
+          {isOwnProfile && <TweetComposer />}
+          <ProfileTabs />
+          <TweetsList filterAuthorId={data.uid} />
+          {isOpened && (
+            <Modal title="Profile update" closeModal={onClose}>
+              <ProfileUpdateForm onComplete={onClose} />
+            </Modal>
+          )}
+        </>
       )}
     </>
   );
