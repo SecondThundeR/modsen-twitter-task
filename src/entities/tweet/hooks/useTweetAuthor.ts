@@ -8,8 +8,12 @@ import { useAppSelector } from "@/shared/lib/hooks";
 import { RoutePaths } from "@/shared/lib/router";
 
 export function useTweetAuthor(authorId: string) {
-  const userData = useAppSelector(selectUserDataByID(authorId));
-  const authorData = useAppSelector(selectAuthorByID(authorId));
+  const userData = useAppSelector((state) =>
+    selectUserDataByID(state, authorId),
+  );
+  const authorData = useAppSelector((state) =>
+    selectAuthorByID(state, authorId),
+  );
   const dispatch = useDispatch();
 
   const name = userData?.displayName ?? authorData?.displayName;

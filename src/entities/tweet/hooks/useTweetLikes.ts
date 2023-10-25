@@ -9,7 +9,7 @@ import { editLikes, selectTweetsLikes } from "../model/slice";
 
 export function useTweetLikes(tweetId: string) {
   const userData = useAppSelector(selectCurrentUser);
-  const likesIds = useAppSelector(selectTweetsLikes(tweetId));
+  const likesIds = useAppSelector((state) => selectTweetsLikes(state, tweetId));
   const dispatch = useAppDispatch();
   const [isUpdating, setIsUpdating] = useState(false);
 

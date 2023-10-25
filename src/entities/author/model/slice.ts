@@ -1,4 +1,4 @@
-import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { AuthorState } from "./types";
 
@@ -54,13 +54,11 @@ export const authorSlice = createSlice({
   },
 });
 
-export const selectAuthorByID = (
-  id?: string,
-): Selector<NonNullable<AuthorState["authorsArray"]>[number] | undefined> =>
-  createSelector(
-    [(state: RootState) => state.authors.authorsArray],
-    (authorsArray) => authorsArray?.find((authorData) => authorData?.uid == id),
+export const selectAuthorByID = (state: RootState, authorId?: string) => {
+  return state.authors.authorsArray?.find(
+    (authorData) => authorData?.uid == authorId,
   );
+};
 
 export const { setAuthorsData, pushAuthor, removeAuthor, resetAuthors } =
   authorSlice.actions;

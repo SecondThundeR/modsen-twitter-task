@@ -10,7 +10,7 @@ export function useProfileData() {
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
   const currentUserData = useAppSelector(selectCurrentUser);
-  const authorData = useAppSelector(selectAuthorByID(id));
+  const authorData = useAppSelector((state) => selectAuthorByID(state, id));
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(false);
 

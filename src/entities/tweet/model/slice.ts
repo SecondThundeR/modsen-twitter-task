@@ -1,4 +1,4 @@
-import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { Tweet, TweetsState } from "./types";
 
@@ -81,20 +81,15 @@ export const selectCurrentTweets = (state: RootState) => {
   return filteredTweets;
 };
 
-export const selectTweetsLikes = (
-  id: string,
-): Selector<NonNullable<TweetsState["tweetsData"]>[number]["likesIds"]> =>
-  createSelector(
-    [(state: RootState) => state.tweet.tweetsData],
-    (tweetsData) => {
-      if (tweetsData === null) return;
+export const selectTweetsLikes = (state: RootState, tweetId: string) => {
+  const { tweetsData } = state.tweet;
+  if (!tweetsData) return;
 
-      const tweetData = tweetsData.find((tweet) => tweet.id === id);
-      if (!tweetData) return;
+  const tweetData = tweetsData.find((tweet) => tweet.id === tweetId);
+  if (!tweetData) return;
 
-      return tweetData.likesIds;
-    },
-  );
+  return tweetData.likesIds;
+};
 
 export const {
   setTweets,

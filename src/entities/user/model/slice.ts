@@ -1,4 +1,4 @@
-import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { UserState } from "./types";
 
@@ -69,12 +69,10 @@ export const userSlice = createSlice({
 
 export const selectCurrentUser = (state: RootState) => state.user;
 
-export const selectUserDataByID = (
-  id: string,
-): Selector<UserState["userData"] | undefined> =>
-  createSelector([(state: RootState) => state.user.userData], (userData) => {
-    if (userData?.uid === id) return userData;
-  });
+export const selectUserDataByID = (state: RootState, userId: string) => {
+  const { userData } = state.user;
+  if (userData?.uid === userId) return userData;
+};
 
 export const {
   setUserData,
