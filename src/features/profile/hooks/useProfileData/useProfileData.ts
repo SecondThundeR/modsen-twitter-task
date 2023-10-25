@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { getAuthorData, pushAuthor, selectAuthorByID } from "@/entities/author";
+import { selectTweetsAmount } from "@/entities/tweet";
 import { selectCurrentUser } from "@/entities/user";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { RoutePaths } from "@/shared/lib/router";
@@ -9,14 +10,17 @@ import { RoutePaths } from "@/shared/lib/router";
 export function useProfileData() {
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
+
   const currentUserData = useAppSelector(selectCurrentUser);
+  const tweetsLength = useAppSelector((state) => selectTweetsAmount(state, id));
   const authorData = useAppSelector((state) => selectAuthorByID(state, id));
   const dispatch = useAppDispatch();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const isOwnProfile = id === undefined;
 
-  const getProfileData = useCallback(() => {
+  const getCurrentProfileData = useCallback(() => {
     if (isOwnProfile) {
       const { userData, ...rest } = currentUserData;
       return {
@@ -24,10 +28,10 @@ export function useProfileData() {
         ...userData,
       };
     }
-    return authorData;
+    return authorData!;
   }, [authorData, currentUserData, isOwnProfile]);
 
-  const fetchAuthorData = useCallback(
+  const fetchUserProfileData = useCallback(
     async (id: string) => {
       setIsLoading(true);
 
@@ -45,13 +49,13 @@ export function useProfileData() {
 
   useEffect(() => {
     if (id !== undefined && !authorData) {
-      fetchAuthorData(id).catch(console.error);
+      fetchUserProfileData(id).catch(console.error);
     }
-  }, [authorData, fetchAuthorData, id]);
+  }, [authorData, fetchUserProfileData, id]);
 
   return {
-    id,
-    data: getProfileData(),
+    tweetsLength,
+    data: getCurrentProfileData(),
     general: {
       isLoading,
       isOwnProfile,

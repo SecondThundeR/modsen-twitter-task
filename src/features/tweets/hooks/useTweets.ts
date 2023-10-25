@@ -12,9 +12,11 @@ import { selectCurrentUser } from "@/entities/user";
 import { database } from "@/shared/lib/firebase";
 import { useAppSelector, useAppDispatch } from "@/shared/lib/hooks";
 
-export function useTweets() {
+export function useTweets(authorId?: string) {
   const { userData } = useAppSelector(selectCurrentUser);
-  const tweets = useAppSelector(selectCurrentTweets);
+  const tweets = useAppSelector((state) =>
+    selectCurrentTweets(state, authorId),
+  );
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
