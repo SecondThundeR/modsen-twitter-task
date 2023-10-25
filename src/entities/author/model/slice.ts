@@ -59,10 +59,7 @@ export const selectAuthorByID = (
 ): Selector<NonNullable<AuthorState["authorsArray"]>[number] | undefined> =>
   createSelector(
     [(state: RootState) => state.authors.authorsArray],
-    (authorsArray) => {
-      console.log("Triggered selector:", authorsArray);
-      return authorsArray?.find((authorData) => authorData?.uid == id);
-    },
+    (authorsArray) => authorsArray?.find((authorData) => authorData?.uid == id),
   );
 
 export const { setAuthorsData, pushAuthor, removeAuthor, resetAuthors } =

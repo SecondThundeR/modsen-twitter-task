@@ -28,7 +28,6 @@ export function useTweets() {
       const extractedData = data.exportVal() as {
         [key: string]: TweetDBInfo;
       };
-      console.log(extractedData);
 
       if (!extractedData) return [];
 
