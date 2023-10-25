@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { selectCurrentUser } from "@/entities/user";
 import { Tweet, TweetsState } from "./types";
 
 const initialState: TweetsState = {
@@ -65,21 +66,21 @@ export const tweetSlice = createSlice({
   },
 });
 
-export const selectCurrentTweets = (state: RootState) => {
-  const { userData, followingIds } = state.user;
-  const data = state.tweet.tweetsData;
-  const userId = userData!.uid;
-  if (!data) return data;
+const selectTweets = (state: RootState) => state.tweet.tweetsData;
 
-  const filteredTweets: Tweet[] = [];
+export const selectCurrentTweets = createSelector(
+  [selectCurrentUser, selectTweets],
+  (user, tweets) => {
+    const { userData, followingIds } = user;
+    const userId = userData!.uid;
+    if (!tweets) return [];
 
-  for (const tweet of data) {
-    if (tweet.authorId === userId || followingIds?.includes(tweet.authorId))
-      filteredTweets.push(tweet);
-  }
-
-  return filteredTweets;
-};
+    return tweets.filter(
+      (tweet) =>
+        tweet.authorId === userId || followingIds?.includes(tweet.authorId),
+    );
+  },
+);
 
 export const selectTweetsLikes = (state: RootState, tweetId: string) => {
   const { tweetsData } = state.tweet;
