@@ -28,7 +28,7 @@ export function useProfileData() {
         ...userData,
       };
     }
-    return authorData!;
+    return authorData;
   }, [authorData, currentUserData, isOwnProfile]);
 
   const fetchUserProfileData = useCallback(
@@ -48,7 +48,7 @@ export function useProfileData() {
   );
 
   useEffect(() => {
-    if (id !== undefined && !authorData) {
+    if (id && !authorData) {
       fetchUserProfileData(id).catch(console.error);
     }
   }, [authorData, fetchUserProfileData, id]);

@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 
 import { manageFollowStatus } from "..";
 
-export function useProfileFollow(authorId: string) {
+export function useProfileFollow(authorId?: string) {
   const [isUpdating, setIsUpdating] = useState(false);
   const userData = useAppSelector(selectCurrentUser);
   const authorData = useAppSelector((state) =>
@@ -21,7 +21,7 @@ export function useProfileFollow(authorId: string) {
     : authorData?.followersIds?.includes(userId) ?? false;
 
   const updateFollowStatus = useCallback(async () => {
-    if (isAuthorACurrentUser) return;
+    if (!authorId || isAuthorACurrentUser) return;
 
     setIsUpdating(true);
 
