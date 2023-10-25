@@ -3,6 +3,12 @@ import { getOptionsDataArray } from "@/shared/helpers/getOptionsDataArray";
 const YEARS_THRESHOLD = 80;
 const START_YEAR = new Date().getFullYear() - YEARS_THRESHOLD;
 
+export const DOB_SPLIT_DELIMITER = "-";
+export const DOB_POSITIONS_INDEX = {
+  month: 0,
+  day: 1,
+  year: 2,
+} as const;
 export const MONTH_KEY_BASE = "month";
 export const DAY_KEY_BASE = "day";
 export const YEAR_KEY_BASE = "year";

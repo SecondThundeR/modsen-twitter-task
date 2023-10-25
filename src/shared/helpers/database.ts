@@ -1,15 +1,11 @@
 import { child, get, ref } from "firebase/database";
 
-import { UserState } from "@/entities/user";
+import { UserData, UserState } from "@/entities/user";
 
 import { database } from "../lib/firebase";
 
-type ExtractedUserData = {
-  displayName: string;
-  email: string;
-  dateOfBirth: string;
-  phoneNumber: string;
-} & Omit<UserState, "userData">;
+type ExtractedUserData = Omit<NonNullable<UserData>, "uid"> &
+  Omit<UserState, "userData">;
 
 export const extractUserData = async (userID: string) => {
   try {

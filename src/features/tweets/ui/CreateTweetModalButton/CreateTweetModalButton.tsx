@@ -1,31 +1,22 @@
-import { memo, useCallback, useState } from "react";
+import { memo } from "react";
 
-import { Button } from "@/shared/ui";
-import { Modal } from "@/shared/ui/Modal/Modal";
+import { useModal } from "@/shared/lib/hooks";
+import { Button, Modal } from "@/shared/ui";
+
 import { TweetComposer } from "../TweetComposer/TweetComposer";
 
 export const CreateTweetModalButton = memo(function CreateTweetModalButton() {
-  const [isModalOpened, setIsModalOpened] = useState(false);
-
-  const onOpenModal = useCallback(() => {
-    setIsModalOpened(true);
-  }, []);
-
-  const onCloseModal = useCallback(() => {
-    setIsModalOpened(false);
-  }, []);
+  const {
+    isOpened,
+    handlers: { onOpen, onClose },
+  } = useModal();
 
   return (
     <>
-      <Button
-        text="Tweet"
-        font="serif"
-        variant="primary"
-        onClick={onOpenModal}
-      />
-      {isModalOpened && (
-        <Modal closeModal={onCloseModal}>
-          <TweetComposer isStandalone onAdd={onCloseModal} />
+      <Button text="Tweet" font="serif" variant="primary" onClick={onOpen} />
+      {isOpened && (
+        <Modal closeModal={onClose}>
+          <TweetComposer isStandalone onAdd={onClose} />
         </Modal>
       )}
     </>
