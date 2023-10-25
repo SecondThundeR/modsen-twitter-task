@@ -23,6 +23,10 @@ export const IMAGE_PROPERTIES = {
   clip: "border-box",
   size: "cover",
 } as const;
+export const PROFILE_TABS_GRID_PROPERTIES = {
+  columns: "repeat(4, 1fr)",
+  rows: "1fr",
+} as const;
 export const CURSOR_REGULAR = "default";
 export const CURSOR_POINTER = "pointer";
 export const MARGIN_AUTO = "auto";
@@ -42,3 +46,4 @@ export const FULL_INVERT = "invert(100%)";
 export const STICKY_TOP = 0;
 export const TOP_INDEX = 1000;
 export const BORDER_CIRCLE = "100%";
+export const PROFILE_IMAGE_TRANSFORM = "translateY(-100px)";
