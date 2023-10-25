@@ -55,7 +55,7 @@ export const authorSlice = createSlice({
 });
 
 export const selectAuthorByID = (
-  id: string,
+  id?: string,
 ): Selector<NonNullable<AuthorState["authorsArray"]>[number] | undefined> =>
   createSelector(
     [(state: RootState) => state.authors.authorsArray],

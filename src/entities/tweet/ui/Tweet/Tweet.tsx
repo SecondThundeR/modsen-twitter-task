@@ -3,6 +3,7 @@ import { memo } from "react";
 import { LikeTweetButton } from "@/features/tweets/ui/LikeTweetButton/LikeTweetButton";
 import { useTweetAuthor, useTweetLikes } from "@/entities/tweet";
 import { formatTimeDifference } from "@/shared/helpers/date";
+import { Link } from "@/shared/lib/router";
 import { Avatar, Text, Title } from "@/shared/ui";
 
 import { TweetProps } from "./interfaces";
@@ -20,7 +21,7 @@ export const Tweet = memo(function Tweet({
   createdAt,
   authorId,
 }: TweetProps) {
-  const { name, email } = useTweetAuthor(authorId);
+  const { name, email, profileLink } = useTweetAuthor(authorId);
   const { isUpdating, isLiked, likesAmount, onLikeClick } = useTweetLikes(id);
 
   return (
@@ -29,13 +30,11 @@ export const Tweet = memo(function Tweet({
       <TweetDetailsWrapper>
         <InfoWrapper>
           <InfoHeaderWrapper>
-            <Title
-              text={name}
-              width="fit"
-              size="extrasmall"
-              weight="bold"
-              font="serif"
-            />
+            <Title width="fit" size="extrasmall" weight="bold" font="serif">
+              <Link variant="regular" to={profileLink}>
+                {name}
+              </Link>
+            </Title>
             <Text text={email} isSubtext />
             <Text text={formatTimeDifference(createdAt)} isSubtext />
           </InfoHeaderWrapper>
