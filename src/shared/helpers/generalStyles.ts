@@ -1,8 +1,7 @@
 import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
-import { ButtonFonts } from "@/shared/ui/Button/interfaces";
-import { TitleFonts } from "@/shared/ui/Title/interfaces";
+import { FontsVariants } from "@/shared/types/fontsVariants";
 
-export function getFontFamily(font: ButtonFonts | TitleFonts) {
+export function getFontFamily(font: FontsVariants) {
   return font === "regular"
     ? FONT_FAMILY_MAP.roboto
     : FONT_FAMILY_MAP.robotoSerif;
