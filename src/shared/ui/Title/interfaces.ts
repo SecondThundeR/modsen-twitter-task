@@ -14,7 +14,7 @@ export type TitleFonts = "regular" | "serif";
 export type TitleWidths = "full" | "fit";
 
 export type TitleProps = {
-  text: string;
+  text?: string | null;
   width?: TitleWidths;
   size?: TitleSizes;
   weight?: TitleWeights;

@@ -10,6 +10,8 @@ export const Title = memo(function Title({
   weight = "black",
   font = "regular",
 }: TitleProps) {
+  if (!text) return null;
+
   return (
     <Wrapper $width={width} $size={size} $weight={weight} $font={font}>
       {text}

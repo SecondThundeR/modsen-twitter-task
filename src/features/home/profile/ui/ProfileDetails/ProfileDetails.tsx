@@ -3,7 +3,7 @@ import { memo } from "react";
 import { SignoutButton } from "@/features/authentication/signout";
 import { useAppSelector } from "@/shared/lib/hooks";
 
-import { AvatarPlaceholder, Text } from "@/shared/ui";
+import { Avatar, Text } from "@/shared/ui";
 
 import { Wrapper, InfoWrapper, DetailsWrapper } from "./ProfileDetails.styled";
 
@@ -17,7 +17,7 @@ export const ProfileDetails = memo(function ProfileDetails() {
   return (
     <Wrapper>
       <DetailsWrapper>
-        <AvatarPlaceholder />
+        <Avatar />
         <InfoWrapper>
           <Text text={displayName ?? "User"} size="large" weight="semibold" />
           {email && <Text text={email} size="large" isSubtext />}

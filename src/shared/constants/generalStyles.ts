@@ -41,3 +41,4 @@ export const NO_INVERT = "invert(0%)";
 export const FULL_INVERT = "invert(100%)";
 export const STICKY_TOP = 0;
 export const TOP_INDEX = 1000;
+export const BORDER_CIRCLE = "100%";

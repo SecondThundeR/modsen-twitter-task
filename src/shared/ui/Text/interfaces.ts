@@ -4,7 +4,7 @@ export type TextWeight = "regular" | "medium" | "semibold";
 export type TextSize = "small" | "regular" | "large";
 
 export interface TextProps {
-  text?: string;
+  text?: string | null;
   children?: ReactNode;
   size?: TextSize;
   weight?: TextWeight;

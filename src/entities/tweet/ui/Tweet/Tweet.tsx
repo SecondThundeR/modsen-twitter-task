@@ -3,7 +3,7 @@ import { memo } from "react";
 import { LikeTweetButton } from "@/features/tweets/ui/LikeTweetButton/LikeTweetButton";
 import { useTweetAuthor, useTweetLikes } from "@/entities/tweet";
 import { formatTimeDifference } from "@/shared/helpers/date";
-import { AvatarPlaceholder, Text, Title } from "@/shared/ui";
+import { Avatar, Text, Title } from "@/shared/ui";
 
 import { TweetProps } from "./interfaces";
 import {
@@ -25,7 +25,7 @@ export const Tweet = memo(function Tweet({
 
   return (
     <Wrapper>
-      <AvatarPlaceholder width={60} height={60} />
+      <Avatar width={60} height={60} />
       <TweetDetailsWrapper>
         <InfoWrapper>
           <InfoHeaderWrapper>

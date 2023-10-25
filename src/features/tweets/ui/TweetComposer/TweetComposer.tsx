@@ -8,14 +8,7 @@ import {
   MAX_ROWS,
 } from "@/shared/constants/composer";
 import { useAppSelector } from "@/shared/lib/hooks";
-import {
-  Alert,
-  AvatarPlaceholder,
-  Button,
-  IconButton,
-  Text,
-  Textarea,
-} from "@/shared/ui";
+import { Alert, Avatar, Button, IconButton, Text, Textarea } from "@/shared/ui";
 
 import { useAddTweet } from "../..";
 import { TweetComposerProps } from "./interfaces";
@@ -64,7 +57,7 @@ export const TweetComposer = memo(function TweetComposer({
 
   return (
     <Wrapper $isStandalone={isStandalone}>
-      <AvatarPlaceholder width={52} height={52} />
+      <Avatar width={52} height={52} />
       <ComposerWrapper>
         <Textarea
           placeholder="What's happening"
