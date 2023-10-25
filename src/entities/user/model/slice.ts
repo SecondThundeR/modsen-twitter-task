@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { UserState } from "./types";
+import { UserDataUpdate, UserState } from "./types";
 
 const initialState: UserState = {
   userData: null,
@@ -29,6 +29,23 @@ export const userSlice = createSlice({
     },
     setFollowingIds: (state, action: PayloadAction<string[]>) => {
       state.followingIds = [...action.payload];
+    },
+    updateUserInfo: (
+      state,
+      action: PayloadAction<NonNullable<UserDataUpdate>>,
+    ) => {
+      if (!state.userData) return;
+      const { uid, ...currentData } = state.userData;
+      const newData = action.payload;
+      const diffInfo = {
+        uid,
+        displayName: newData.displayName ?? currentData.displayName ?? null,
+        email: newData.email ?? currentData.email ?? null,
+        description: newData.description ?? currentData.description,
+        phoneNumber: newData.phoneNumber ?? currentData.phoneNumber,
+        dateOfBirth: newData.dateOfBirth ?? currentData.dateOfBirth,
+      };
+      state.userData = { ...diffInfo };
     },
     pushTweetID: (state, action: PayloadAction<string>) => {
       const tweetID = action.payload;
@@ -81,6 +98,7 @@ export const {
   setUserData,
   setUserInfo,
   setFollowingIds,
+  updateUserInfo,
   pushTweetID,
   pushFollowingID,
   removeTweetID,

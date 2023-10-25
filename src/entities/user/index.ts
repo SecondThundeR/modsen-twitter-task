@@ -1,9 +1,10 @@
-export { type UserState } from "./model/types";
+export { type UserState, type UserData } from "./model/types";
 export {
   userSlice,
   setUserInfo,
   setUserData,
   setFollowingIds,
+  updateUserInfo,
   pushTweetID,
   pushFollowingID,
   removeTweetID,

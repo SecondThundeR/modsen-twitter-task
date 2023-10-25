@@ -1,8 +1,10 @@
-import { User } from "firebase/auth";
-import { UserState } from "@/entities/user";
+import { UserData, UserState } from "@/entities/user";
 
 export type AuthorData =
-  | (Pick<User, "uid" | "displayName" | "email"> &
+  | (Pick<
+      NonNullable<UserData>,
+      "uid" | "displayName" | "email" | "description"
+    > &
       Omit<UserState, "userData" | "tweetsIds">)
   | null;
 

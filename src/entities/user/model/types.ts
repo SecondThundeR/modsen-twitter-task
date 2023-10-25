@@ -1,11 +1,14 @@
 import { User } from "firebase/auth";
 
-type UserData =
+export type UserData =
   | (Pick<User, "uid" | "displayName" | "email"> & {
+      description?: string;
       phoneNumber?: string;
       dateOfBirth?: string;
     })
   | null;
+
+export type UserDataUpdate = Partial<Omit<NonNullable<UserData>, "uid">>;
 
 export type UserState = {
   userData: UserData;
