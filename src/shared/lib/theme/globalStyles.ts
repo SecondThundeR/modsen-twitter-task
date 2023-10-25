@@ -16,7 +16,10 @@ export const GlobalStyle = createGlobalStyle`
 
 export const lightTheme: DefaultTheme = {
   body: COLORS.white,
+  bodyModal: COLORS.bodyModal,
+  liked: COLORS.liked,
   color: COLORS.black,
+  colorAlert: COLORS.white,
   color20: COLORS.black20,
   color60: COLORS.black60,
   accent: COLORS.accent,
@@ -30,7 +33,10 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   body: COLORS.black,
+  bodyModal: COLORS.bodyModalDark,
+  liked: COLORS.likedDark,
   color: COLORS.white,
+  colorAlert: COLORS.black,
   color20: COLORS.white20,
   color60: COLORS.white60,
   accent: COLORS.accentDark,

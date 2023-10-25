@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { COLORS } from "@/shared/constants/colors";
 import {
   CURSOR_POINTER,
-  NO_BORDER,
+  NONE,
   NO_PADDING,
   UNDERLINE_DECORATION,
 } from "@/shared/constants/generalStyles";
@@ -15,8 +15,8 @@ export const Button = styled.button<TextButtonStyleProps>`
   width: ${DIMENSIONS_MAP.full};
   text-align: ${({ $alignment }) => $alignment};
   padding: ${NO_PADDING};
-  border: ${NO_BORDER};
-  outline: ${NO_BORDER};
+  border: ${NONE};
+  outline: ${NONE};
   background-color: ${COLORS.transparent};
   font-size: ${FONT_SIZE_MAP.textButton};
   color: ${({ theme: { accent } }) => accent};

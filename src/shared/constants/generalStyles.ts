@@ -3,6 +3,7 @@ export const POSITION_MAP = {
   absolute: "absolute",
   relative: "relative",
   sticky: "sticky",
+  fixed: "fixed",
 } as const;
 export const DISPLAY_MAP = {
   none: "none",
@@ -14,6 +15,7 @@ export const FLEX_PROPERTIES = {
   justifyCenter: "center",
   alignCenter: "center",
   wrap: "wrap",
+  justifyBetween: "space-between",
 } as const;
 export const IMAGE_PROPERTIES = {
   position: "center",
@@ -24,16 +26,18 @@ export const IMAGE_PROPERTIES = {
 export const CURSOR_REGULAR = "default";
 export const CURSOR_POINTER = "pointer";
 export const MARGIN_AUTO = "auto";
-export const NO_BORDER = "none";
+export const NONE = "none";
 export const NO_PADDING = 0;
 export const NO_DECORATION = "none";
 export const UNDERLINE_DECORATION = "underline";
 export const TEXT_CENTER = "center";
 export const TRANSITION_TIME = "0.2s";
 export const ACTIVE_SCALE = 0.98;
+export const ACTIVE_SCALE_ICON = 0.95;
 export const NO_OPACITY = 0;
 export const INACTIVE_OPACITY = 0.6;
 export const REGULAR_OPACITY = 1;
 export const NO_INVERT = "invert(0%)";
 export const FULL_INVERT = "invert(100%)";
 export const STICKY_TOP = 0;
+export const TOP_INDEX = 1000;

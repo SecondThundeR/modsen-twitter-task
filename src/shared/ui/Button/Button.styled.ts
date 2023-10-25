@@ -31,7 +31,7 @@ import { ButtonStyleProps } from "./interfaces";
 
 export const Wrapper = styled.button<ButtonStyleProps>`
   cursor: ${CURSOR_POINTER};
-  width: ${DIMENSIONS_MAP.full};
+  width: ${({ $width }) => DIMENSIONS_MAP[$width]};
   height: ${DIMENSIONS_MAP.fit};
   display: ${DISPLAY_MAP.flex};
   justify-content: ${FLEX_PROPERTIES.justifyCenter};
@@ -41,10 +41,10 @@ export const Wrapper = styled.button<ButtonStyleProps>`
   background-color: ${({ theme, $variant }) =>
     getBackgroundColor($variant, theme)};
   color: ${({ $variant }) => getTextColor($variant)};
-  font-size: ${FONT_SIZE_MAP.button};
+  font-size: ${({ $size }) => FONT_SIZE_MAP.button[$size]};
   font-weight: ${WEIGHTS_MAP.medium};
   text-align: ${TEXT_CENTER};
-  padding: ${PADDING_MAP.button.regular};
+  padding: ${({ $size }) => PADDING_MAP.button[$size]};
   border-radius: ${RADIUS_MAP.button};
   border: ${({ $variant }) => getBorder($variant)};
   transition: ${TRANSITION_TIME};

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, set } from "firebase/database";
 
 import { auth, database } from "@/shared/lib/firebase";
@@ -33,21 +33,18 @@ const handleSignup = async ({
       password,
     );
     const { user } = credentials;
-
-    await updateProfile(user, {
+    const additionalUserData = {
       displayName: name,
-    });
-
-    await set(ref(database, "users/" + user.uid), {
+      email,
       dateOfBirth: formattedDateOfBirth,
       phoneNumber,
-    });
+    };
+
+    await set(ref(database, "users/" + user.uid), additionalUserData);
 
     return {
       ...user,
-      displayName: name,
-      dateOfBirth: formattedDateOfBirth,
-      phoneNumber,
+      ...additionalUserData,
     };
   } catch (error) {
     throw new Error(`Failed to signup! ${(error as Error).message}`);

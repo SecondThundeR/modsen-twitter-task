@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { memo, useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 
-import { setUser } from "@/entities/user";
+import { setUserInfo } from "@/entities/user";
 import { useAppDispatch } from "@/shared/lib/hooks";
 import { Alert, Button, Input } from "@/shared/ui";
 import { initiateSignin } from "../../model/signin";
@@ -37,14 +37,18 @@ export const SigninForm = memo(function SigninForm({
 
       try {
         const res = await initiateSignin(params);
-        const { uid, displayName, email, phoneNumber, dateOfBirth } = res;
+        const { uid, displayName, email, phoneNumber, dateOfBirth, ...rest } =
+          res;
         dispatch(
-          setUser({
-            uid,
-            displayName,
-            email,
-            phoneNumber,
-            dateOfBirth,
+          setUserInfo({
+            userData: {
+              uid,
+              displayName,
+              email,
+              phoneNumber,
+              dateOfBirth,
+            },
+            ...rest,
           }),
         );
         onComplete?.();

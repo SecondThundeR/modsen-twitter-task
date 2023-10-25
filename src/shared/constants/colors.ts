@@ -1,8 +1,11 @@
 export const COLORS = {
   error: "#cd0404",
   errorDark: "#ff7272",
-  success: "#1dd3b0",
-  successDark: "#099a7e",
+  success: "#099a7e",
+  successDark: "#1dd3b0",
+
+  liked: "#ef1c5c",
+  likedDark: "#ff6c98",
 
   accent: "#1da1f2",
   accentDark: "#30a2cf",
@@ -20,6 +23,9 @@ export const COLORS = {
   black: "#000",
   black20: "rgba(0, 0, 0, 0.2)",
   black60: "rgba(0, 0, 0, 0.6)",
+
+  bodyModal: "rgba(0, 0, 0, 0.4)",
+  bodyModalDark: "rgba(255, 255, 255, 0.15)",
 
   border: "#e4eaed",
   sectionBorder: "#c4c4c4",
