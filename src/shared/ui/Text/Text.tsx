@@ -10,11 +10,11 @@ export const Text = memo(function Text({
   weight = "regular",
   isSubtext = false,
 }: TextProps) {
-  if (!text) return null;
+  if (!text && !children) return null;
 
   return (
     <Wrapper $size={size} $weight={weight} $isSubtext={isSubtext}>
-      {text ?? children}
+      {children ?? text}
     </Wrapper>
   );
 });

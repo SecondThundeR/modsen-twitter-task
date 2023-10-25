@@ -1,7 +1,6 @@
-import { LinkProps } from "react-router-dom";
-
+import { LinkProps } from "./interfaces";
 import { NavLink } from "./styled";
 
-export function Link({ ...props }: LinkProps) {
-  return <NavLink {...props} />;
+export function Link({ variant = "primary", ...props }: LinkProps) {
+  return <NavLink $variant={variant} {...props} />;
 }

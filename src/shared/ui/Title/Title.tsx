@@ -5,16 +5,17 @@ import { Wrapper } from "./Title.styled";
 
 export const Title = memo(function Title({
   text,
+  children,
   width = "full",
   size = "regular",
   weight = "black",
   font = "regular",
 }: TitleProps) {
-  if (!text) return null;
+  if (!text && !children) return null;
 
   return (
     <Wrapper $width={width} $size={size} $weight={weight} $font={font}>
-      {text}
+      {children ?? text}
     </Wrapper>
   );
 });

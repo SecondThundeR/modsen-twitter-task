@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type TitleWeights =
   | "regular"
   | "medium"
@@ -15,6 +17,7 @@ export type TitleWidths = "full" | "fit";
 
 export type TitleProps = {
   text?: string | null;
+  children?: ReactNode;
   width?: TitleWidths;
   size?: TitleSizes;
   weight?: TitleWeights;
