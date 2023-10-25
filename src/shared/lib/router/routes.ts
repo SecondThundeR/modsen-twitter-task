@@ -4,5 +4,6 @@ export const RoutePaths = {
   login: "/login",
   home: "/home",
   profile: "/profile",
+  profileOptionalID: `/profile/:id?`,
   notFound: "*",
 } as const;
