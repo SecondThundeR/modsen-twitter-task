@@ -1,73 +1,74 @@
-import { child, get, ref } from "firebase/database";
 import { useCallback, useEffect, useState } from "react";
 
 import { AuthorData, pushAuthor } from "@/entities/author";
 import {
-  type Tweet,
+  type TweetType,
   type TweetDBInfo,
   selectCurrentTweets,
   setTweets,
 } from "@/entities/tweet";
 import { selectCurrentUser } from "@/entities/user";
-import { database } from "@/shared/lib/firebase";
+import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseArray";
+import { getData } from "@/shared/lib/firebase";
 import { useAppSelector, useAppDispatch } from "@/shared/lib/hooks";
+import { FirebaseDatabaseType } from "@/shared/types/firebase";
 
-export function useTweets() {
+export function useTweets(authorId?: string) {
   const { userData } = useAppSelector(selectCurrentUser);
-  const tweets = useAppSelector(selectCurrentTweets);
+  const tweets = useAppSelector((state) =>
+    selectCurrentTweets(state, authorId),
+  );
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
 
   const fetchTweets = useCallback(async () => {
+    const tweetsDBPath = "tweets/";
+    let tweetsData: FirebaseArrayValue<TweetDBInfo> | undefined;
     try {
-      const tweetsRef = child(ref(database), "/tweets");
-      const data = await get(tweetsRef);
-      if (!data.exists()) return [];
-
-      const extractedData = data.exportVal() as {
-        [key: string]: TweetDBInfo;
-      };
-      console.log(extractedData);
-
-      if (!extractedData) return [];
-
-      const tweetsArray = Object.entries(extractedData)
-        .reverse()
-        .map((data) => {
-          const [id, value] = data;
-          return {
-            id,
-            ...value,
-          };
-        }) satisfies Tweet[];
-      dispatch(setTweets(tweetsArray));
+      tweetsData = await getData<TweetDBInfo[]>(tweetsDBPath);
     } catch (error) {
-      throw new Error(
-        `Failed to fetch tweets data! ${(error as Error).message}`,
-      );
+      console.error(`Failed to fetch tweets data! ${(error as Error).message}`);
+      return [];
     }
+
+    const tweetsArray = Object.entries(tweetsData!)
+      .reverse()
+      .map((data) => {
+        const [id, value] = data;
+        return {
+          id,
+          ...value,
+        };
+      }) satisfies TweetType[];
+    dispatch(setTweets(tweetsArray));
   }, [dispatch]);
 
   const fetchTweetsAuthors = useCallback(async () => {
-    try {
-      if (tweets === null) return;
+    if (tweets === null) return;
 
-      for (const tweet of tweets) {
-        if (tweet.authorId === userData?.uid) continue;
-        const authorRef = ref(database, "users/" + tweet.authorId);
-        const data = await get(authorRef);
-        if (!data.exists()) continue;
+    for (const tweet of tweets) {
+      if (tweet.authorId === userData?.uid) continue;
+      const authorDBPath = "users/" + tweet.authorId;
 
-        const extractedData = data.exportVal() as AuthorData;
-        if (!extractedData) continue;
+      let authorData: FirebaseDatabaseType<AuthorData> | undefined;
 
-        dispatch(pushAuthor(extractedData));
+      try {
+        authorData = await getData<AuthorData>(authorDBPath);
+      } catch (error) {
+        console.error(
+          `Failed to fetch authors data! ${(error as Error).message}`,
+        );
+        continue;
       }
-    } catch (error) {
-      throw new Error(
-        `Failed to fetch authors data! ${(error as Error).message}`,
-      );
+
+      const deserializedData = {
+        ...authorData!,
+        followersIds: deserializeFirebaseArray(authorData!.followersIds),
+        followingIds: deserializeFirebaseArray(authorData!.followingIds),
+      } satisfies AuthorData;
+
+      dispatch(pushAuthor(deserializedData));
     }
   }, [dispatch, tweets, userData?.uid]);
 

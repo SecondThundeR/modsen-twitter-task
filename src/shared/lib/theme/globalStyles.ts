@@ -1,4 +1,4 @@
-import { createGlobalStyle, DefaultTheme } from "styled-components";
+import { createGlobalStyle, type DefaultTheme } from "styled-components";
 
 import { COLORS } from "@/shared/constants/colors";
 import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";

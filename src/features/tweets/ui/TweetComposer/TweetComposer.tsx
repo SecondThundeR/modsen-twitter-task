@@ -1,5 +1,6 @@
-import { ChangeEventHandler, memo, useCallback, useState } from "react";
+import { type ChangeEventHandler, memo, useCallback, useState } from "react";
 
+import { useAddTweet } from "@/features/tweets";
 import { selectCurrentUser } from "@/entities/user";
 import ImageIcon from "@/shared/assets/image.svg?react";
 import {
@@ -8,17 +9,9 @@ import {
   MAX_ROWS,
 } from "@/shared/constants/composer";
 import { useAppSelector } from "@/shared/lib/hooks";
-import {
-  Alert,
-  AvatarPlaceholder,
-  Button,
-  IconButton,
-  Text,
-  Textarea,
-} from "@/shared/ui";
+import { Alert, Avatar, Button, IconButton, Text, Textarea } from "@/shared/ui";
 
-import { useAddTweet } from "../..";
-import { TweetComposerProps } from "./interfaces";
+import type { TweetComposerProps } from "./interfaces";
 import {
   Wrapper,
   ComposerWrapper,
@@ -31,8 +24,9 @@ export const TweetComposer = memo(function TweetComposer({
   isStandalone = false,
   onAdd,
 }: TweetComposerProps) {
-  const userData = useAppSelector(selectCurrentUser);
-  const authorId = userData.userData!.uid;
+  const userData = useAppSelector((state) => selectCurrentUser(state).userData);
+  const authorId = userData!.uid;
+  const userAvatar = userData!.avatarURL;
   const { isAdding, error, addNewTweet } = useAddTweet();
   const [tweetText, setTweetText] = useState("");
 
@@ -64,7 +58,7 @@ export const TweetComposer = memo(function TweetComposer({
 
   return (
     <Wrapper $isStandalone={isStandalone}>
-      <AvatarPlaceholder width={52} height={52} />
+      <Avatar width={52} height={52} src={userAvatar} />
       <ComposerWrapper>
         <Textarea
           placeholder="What's happening"

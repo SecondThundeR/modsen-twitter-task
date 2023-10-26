@@ -1,6 +1,6 @@
 import { MouseEventHandler, memo, useCallback } from "react";
-
 import { useDispatch } from "react-redux";
+
 import { changeTheme, selectCurrentTheme } from "@/entities/theme";
 import { useAppSelector } from "@/shared/lib/hooks";
 

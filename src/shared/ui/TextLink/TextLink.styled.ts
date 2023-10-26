@@ -7,7 +7,7 @@ import {
   getTextDecoration,
 } from "@/shared/helpers/textLinkStyles";
 
-import { TextLinkStyledProps } from "./interfaces";
+import type { TextLinkStyledProps } from "./interfaces";
 
 export const Link = styled.a<TextLinkStyledProps>`
   color: ${({ theme, $type }) => getTextColor($type, theme)};

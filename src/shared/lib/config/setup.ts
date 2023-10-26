@@ -1,4 +1,4 @@
-import { InferType, object, string } from "yup";
+import { type InferType, object, string } from "yup";
 
 const envVariables = object({
   VITE_API_KEY: string().required(),

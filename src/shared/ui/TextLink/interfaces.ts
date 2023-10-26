@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes } from "react";
+import type { AnchorHTMLAttributes } from "react";
 
 export type TextLinkSize = "regular" | "inherit";
 export type TextLinkType = "regular" | "primary";

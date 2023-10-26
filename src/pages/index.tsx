@@ -24,7 +24,10 @@ export const Routing = memo(function Routing() {
       <Route element={<ProtectedRoute />}>
         <Route element={HomeLayout}>
           <Route path={RoutePaths.home} element={<HomePage />} />
-          <Route path={RoutePaths.profile} element={<ProfilePage />} />
+          <Route
+            path={RoutePaths.profileOptionalID}
+            element={<ProfilePage />}
+          />
         </Route>
       </Route>
       <Route

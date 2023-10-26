@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo, useState } from "react";
 
 import { initiateSignup } from "@/features/authentication/signup/model/signup";
 import {
-  SignupFormSchema,
+  type SignupFormSchema,
   signupFormSchema,
 } from "@/features/authentication/signup/model/signupFormSchema";
 import { setUserData } from "@/entities/user";
@@ -21,7 +21,7 @@ import { useAppDispatch } from "@/shared/lib/hooks";
 import { useForm, useWatch } from "@/shared/lib/validation";
 import { Input, Title, Text, Button, Select, Alert } from "@/shared/ui";
 
-import { SignupFormProps } from "./interfaces";
+import type { SignupFormProps } from "./interfaces";
 import { Wrapper, DateOfBirthWrapper } from "./SignupForm.styled";
 
 export const SignupForm = memo(function SignupForm({

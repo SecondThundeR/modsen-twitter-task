@@ -1,8 +1,10 @@
 import styled from "styled-components";
+
 import { COLORS } from "@/shared/constants/colors";
 import { DISPLAY_MAP, FLEX_PROPERTIES } from "@/shared/constants/generalStyles";
 import { GAP_MAP, PADDING_MAP } from "@/shared/constants/sizing";
-import { TweetLikeButtonWrapperProps } from "./interfaces";
+
+import type { TweetLikeButtonWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.div`
   display: ${DISPLAY_MAP.flex};

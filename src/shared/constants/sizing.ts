@@ -3,7 +3,8 @@ export const DIMENSIONS_MAP = {
   full: "100%",
   half: "50%",
   fullScreen: "100vh",
-  headerSize: "86px",
+  header: "86px",
+  profileHeaderImage: "280px",
   narrowLayoutBlock: "1408px",
   narrowSignupBlock: "670px",
   narrowSigninBlock: "450px",
@@ -22,11 +23,13 @@ export const PADDING_MAP = {
   button: {
     regular: "18px 80px",
     compact: "16px 32px",
+    small: "12px 24px",
     phone: "18px 16px",
   },
   input: "20px 24px",
   textArea: "4px",
   footer: "18px 0",
+  tab: "18px 0",
   header: "0 16px",
   contentWrapper: {
     regular: "0 96px 0 36px",
@@ -37,6 +40,7 @@ export const PADDING_MAP = {
   tweetWrapper: "16px 24px",
   composerWrapper: "18px 24px",
   modal: "16px 20px",
+  profileBlock: "24px 16px",
 } as const;
 
 export const MARGIN_MAP = {
@@ -87,7 +91,10 @@ export const FONT_SIZE_MAP = {
   button: {
     regular: "20px",
     compact: "18px",
+    small: "16px",
   },
   input: "18px",
   textButton: "18px",
 } as const;
+
+export const TEXT_LINE_HEIGHT = 1.3;

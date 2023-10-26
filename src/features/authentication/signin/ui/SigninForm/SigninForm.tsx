@@ -1,17 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { memo, useState, useCallback } from "react";
-import { useForm } from "react-hook-form";
 
+import { initiateSignin } from "@/features/authentication/signin/model/signin";
+import {
+  type SigninFormSchema,
+  signinFormSchema,
+} from "@/features/authentication/signin/model/signinFormSchema";
 import { setUserInfo } from "@/entities/user";
 import { useAppDispatch } from "@/shared/lib/hooks";
+import { useForm } from "@/shared/lib/validation";
 import { Alert, Button, Input } from "@/shared/ui";
-import { initiateSignin } from "../../model/signin";
-import {
-  SigninFormSchema,
-  signinFormSchema,
-} from "../../model/signinFormSchema";
 
-import { SigninFormProps } from "./interfaces";
+import type { SigninFormProps } from "./interfaces";
 import { Wrapper } from "./SigninForm.styled";
 
 export const SigninForm = memo(function SigninForm({
@@ -37,13 +37,23 @@ export const SigninForm = memo(function SigninForm({
 
       try {
         const res = await initiateSignin(params);
-        const { uid, displayName, email, phoneNumber, dateOfBirth, ...rest } =
-          res;
+        const {
+          uid,
+          displayName,
+          description,
+          avatarURL,
+          email,
+          phoneNumber,
+          dateOfBirth,
+          ...rest
+        } = res;
         dispatch(
           setUserInfo({
             userData: {
               uid,
               displayName,
+              description,
+              avatarURL,
               email,
               phoneNumber,
               dateOfBirth,

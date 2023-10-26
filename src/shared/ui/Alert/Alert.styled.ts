@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { DISPLAY_MAP, FLEX_PROPERTIES } from "@/shared/constants/generalStyles";
 import { GAP_MAP, PADDING_MAP, RADIUS_MAP } from "@/shared/constants/sizing";
 
-import { AlertStyleProps } from "./interfaces";
+import type { AlertStyleProps } from "./interfaces";
 
 export const Wrapper = styled.div<AlertStyleProps>`
   display: ${DISPLAY_MAP.flex};

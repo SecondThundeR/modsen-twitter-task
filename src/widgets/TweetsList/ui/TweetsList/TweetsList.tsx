@@ -1,13 +1,16 @@
 import { memo } from "react";
 
 import { useTweets } from "@/features/tweets";
-import { Tweet } from "@/entities/tweet/ui/Tweet/Tweet";
+import { Tweet } from "@/entities/tweet";
 import { Alert, Text } from "@/shared/ui";
 
+import type { TweetsListProps } from "./interface";
 import { AlertWrapper, PlaceholderWrapper, Wrapper } from "./TweetsList.styled";
 
-export const TweetsList = memo(function TweetsList() {
-  const { isLoading, error, tweets } = useTweets();
+export const TweetsList = memo(function TweetsList({
+  filterAuthorId,
+}: TweetsListProps) {
+  const { isLoading, error, tweets } = useTweets(filterAuthorId);
 
   return (
     <Wrapper>

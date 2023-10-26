@@ -1,3 +1,7 @@
+import type { ReactNode } from "react";
+
+import type { FontsVariants } from "@/shared/types/fontsVariants";
+
 export type TitleWeights =
   | "regular"
   | "medium"
@@ -10,20 +14,20 @@ export type TitleSizes =
   | "small"
   | "regular"
   | "large";
-export type TitleFonts = "regular" | "serif";
 export type TitleWidths = "full" | "fit";
 
 export type TitleProps = {
-  text: string;
+  text?: string | null;
+  children?: ReactNode;
   width?: TitleWidths;
   size?: TitleSizes;
   weight?: TitleWeights;
-  font?: TitleFonts;
+  font?: FontsVariants;
 };
 
 export type TitleWrapperProps = {
   $size: TitleSizes;
   $width: TitleWidths;
   $weight: TitleWeights;
-  $font: TitleFonts;
+  $font: FontsVariants;
 };

@@ -8,8 +8,8 @@ import MoreRegular from "@/shared/assets/more.svg?react";
 import NotificationRegular from "@/shared/assets/notificationOutline.svg?react";
 import ProfileFilled from "@/shared/assets/profileFill.svg?react";
 import ProfileRegular from "@/shared/assets/profileOutline.svg?react";
-import { RoutePaths, RouteValues } from "@/shared/lib/router";
-import { SectionButtonProps } from "@/shared/ui/SectionButton/interfaces";
+import { RoutePaths, type RouteValues } from "@/shared/lib/router";
+import type { SectionButtonProps } from "@/shared/ui/SectionButton/interfaces";
 
 type NavButtonsType = Omit<SectionButtonProps, "isActive" | "onClick"> & {
   route?: RouteValues;

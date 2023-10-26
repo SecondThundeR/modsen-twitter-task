@@ -1,8 +1,8 @@
 import { memo } from "react";
 
-import { TweetsList } from "@/widgets/TweetsList/ui/TweetsList/TweetsList";
+import { TweetsList } from "@/widgets/TweetsList";
 import { ChangeThemeToggle } from "@/features/theme";
-import { TweetComposer } from "@/features/tweets/ui/TweetComposer/TweetComposer";
+import { TweetComposer } from "@/features/tweets";
 import { Header } from "@/shared/ui";
 
 const Page = memo(function Page() {

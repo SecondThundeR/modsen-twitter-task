@@ -15,7 +15,7 @@ import {
   GAP_MAP,
   PADDING_MAP,
 } from "@/shared/constants/sizing";
-import { TextWrapperProps } from "./interfaces";
+import type { TextWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.header`
   position: ${POSITION_MAP.sticky};
@@ -23,7 +23,7 @@ export const Wrapper = styled.header`
   background-color: ${({ theme: { body } }) => body};
   box-sizing: ${BORDER_BOX};
   width: ${DIMENSIONS_MAP.full};
-  height: ${DIMENSIONS_MAP.headerSize};
+  height: ${DIMENSIONS_MAP.header};
   border-bottom: ${`1px solid ${COLORS.sectionBorder}`};
   display: ${DISPLAY_MAP.flex};
   align-items: ${FLEX_PROPERTIES.alignCenter};

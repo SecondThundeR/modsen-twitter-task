@@ -3,8 +3,7 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { setUserData, setUserInfo } from "@/entities/user";
-import { extractUserData } from "@/shared/helpers/database";
+import { getUserData, setUserData, setUserInfo } from "@/entities/user";
 import { auth, googleAuthProvider } from "@/shared/lib/firebase";
 
 import { RoutePaths } from "../router";
@@ -24,7 +23,7 @@ export function useGoogleSignIn() {
         additionalInfo !== null ? additionalInfo.isNewUser : true;
       const { uid } = result.user;
       const { displayName, email, dateOfBirth, phoneNumber, ...rest } =
-        await extractUserData(uid);
+        await getUserData(uid);
 
       if (!isNewUser) {
         dispatch(

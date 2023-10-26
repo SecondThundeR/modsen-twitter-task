@@ -1,6 +1,8 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Tweet, TweetsState } from "./types";
+import { selectCurrentUser } from "@/entities/user";
+
+import type { Tweet, TweetsState } from "./types";
 
 const initialState: TweetsState = {
   tweetsData: null,
@@ -14,17 +16,14 @@ export const tweetSlice = createSlice({
       state,
       action: PayloadAction<NonNullable<TweetsState["tweetsData"]>>,
     ) => {
-      state.tweetsData = [...action.payload];
+      state.tweetsData = action.payload;
     },
     addTweet: (state, action: PayloadAction<Tweet>) => {
-      const tweet = action.payload;
-      if (
-        state.tweetsData?.findIndex(
-          (tweetData) => tweetData.id === tweet.id,
-        ) !== -1
-      )
+      const { payload: tweet } = action;
+
+      if (!state.tweetsData) state.tweetsData = [];
+      if (state.tweetsData.some((tweetData) => tweetData.id === tweet.id))
         return;
-      if (state.tweetsData === null) state.tweetsData = [];
 
       state.tweetsData = [tweet, ...state.tweetsData];
     },
@@ -35,29 +34,39 @@ export const tweetSlice = createSlice({
       if (state.tweetsData === null) return;
 
       const { id, likesIds } = action.payload;
-      const tweetIndex = state.tweetsData.findIndex((tweet) => tweet.id === id);
-      if (tweetIndex === -1) return;
+      const updatedTweetsData = state.tweetsData.map((tweet) => {
+        if (tweet.id === id) {
+          return { ...tweet, likesIds: [...(likesIds ?? [])] };
+        }
+        return tweet;
+      });
 
-      state.tweetsData[tweetIndex].likesIds = [...(likesIds ?? [])];
+      state.tweetsData = updatedTweetsData;
     },
     editTweet: (state, action: PayloadAction<Tweet>) => {
       if (state.tweetsData === null) return;
 
-      const tweet = action.payload;
-      const index = state.tweetsData.findIndex(
-        (tweetData) => tweetData.id === tweet.id,
-      );
-      if (index === undefined || index === -1) return;
+      const { payload: tweet } = action;
+      const updatedTweetsData = state.tweetsData.map((tweetData) => {
+        if (tweetData.id === tweet.id) {
+          return tweet;
+        }
+        return tweetData;
+      });
 
-      state.tweetsData[index] = tweet;
+      state.tweetsData = updatedTweetsData;
     },
     removeTweet: (state, action: PayloadAction<Pick<Tweet, "id">>) => {
       if (state.tweetsData === null) return;
 
-      const tweetID = action.payload.id;
-      state.tweetsData = [
-        ...state.tweetsData.filter((tweet) => tweet.id !== tweetID),
-      ];
+      const {
+        payload: { id: tweetID },
+      } = action;
+      const filteredTweets = state.tweetsData.filter(
+        (tweet) => tweet.id !== tweetID,
+      );
+
+      state.tweetsData = filteredTweets;
     },
     resetTweets: (state) => {
       state.tweetsData = null;
@@ -65,36 +74,49 @@ export const tweetSlice = createSlice({
   },
 });
 
-export const selectCurrentTweets = (state: RootState) => {
-  const { userData, followingIds } = state.user;
-  const data = state.tweet.tweetsData;
-  const userId = userData!.uid;
-  if (!data) return data;
+const selectTweets = (state: RootState) => state.tweet.tweetsData;
 
-  const filteredTweets: Tweet[] = [];
+export const selectTweetsAmount = (state: RootState, authorId?: string) => {
+  const { tweetsData } = state.tweet;
+  const { uid } = state.user.userData!;
 
-  for (const tweet of data) {
-    if (tweet.authorId === userId || followingIds?.includes(tweet.authorId))
-      filteredTweets.push(tweet);
-  }
+  if (!tweetsData) return 0;
 
-  return filteredTweets;
+  return tweetsData.filter((tweet) => {
+    if (authorId !== undefined) return tweet.authorId === authorId;
+    return tweet.authorId === uid;
+  }).length;
 };
 
-export const selectTweetsLikes = (
-  id: string,
-): Selector<NonNullable<TweetsState["tweetsData"]>[number]["likesIds"]> =>
-  createSelector(
-    [(state: RootState) => state.tweet.tweetsData],
-    (tweetsData) => {
-      if (tweetsData === null) return;
+export const selectCurrentTweets = createSelector(
+  [
+    selectCurrentUser,
+    selectTweets,
+    (_state: RootState, filterId?: string) => filterId,
+  ],
+  (user, tweets, filterId) => {
+    const { userData, followingIds } = user;
+    const userId = userData!.uid;
+    if (!tweets) return null;
 
-      const tweetData = tweetsData.find((tweet) => tweet.id === id);
-      if (!tweetData) return;
+    return tweets.filter((tweet) => {
+      if (filterId !== undefined) return tweet.authorId === filterId;
+      return (
+        tweet.authorId === userId || followingIds?.includes(tweet.authorId)
+      );
+    });
+  },
+);
 
-      return tweetData.likesIds;
-    },
-  );
+export const selectTweetsLikes = (state: RootState, tweetId: string) => {
+  const { tweetsData } = state.tweet;
+  if (!tweetsData) return;
+
+  const tweetData = tweetsData.find((tweet) => tweet.id === tweetId);
+  if (!tweetData) return;
+
+  return tweetData.likesIds;
+};
 
 export const {
   setTweets,

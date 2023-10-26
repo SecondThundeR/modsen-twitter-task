@@ -1,18 +1,21 @@
 import { memo } from "react";
 
-import { TextProps } from "./interfaces";
+import type { TextProps } from "./interfaces";
 import { Wrapper } from "./Text.styled";
 
 export const Text = memo(function Text({
   text,
   children,
   size = "regular",
+  font = "regular",
   weight = "regular",
   isSubtext = false,
 }: TextProps) {
+  if (!text && !children) return null;
+
   return (
-    <Wrapper $size={size} $weight={weight} $isSubtext={isSubtext}>
-      {text ?? children}
+    <Wrapper $size={size} $font={font} $weight={weight} $isSubtext={isSubtext}>
+      {children ?? text}
     </Wrapper>
   );
 });

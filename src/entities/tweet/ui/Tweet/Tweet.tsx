@@ -1,11 +1,13 @@
 import { memo } from "react";
 
-import { LikeTweetButton } from "@/features/tweets/ui/LikeTweetButton/LikeTweetButton";
 import { useTweetAuthor, useTweetLikes } from "@/entities/tweet";
+import LikeIcon from "@/shared/assets/like.svg?react";
+import LikeFilledIcon from "@/shared/assets/likeFill.svg?react";
 import { formatTimeDifference } from "@/shared/helpers/date";
-import { AvatarPlaceholder, Text, Title } from "@/shared/ui";
+import { Link } from "@/shared/lib/router";
+import { Avatar, IconButton, Text, Title } from "@/shared/ui";
 
-import { TweetProps } from "./interfaces";
+import type { TweetProps } from "./interfaces";
 import {
   Wrapper,
   TweetDetailsWrapper,
@@ -20,34 +22,36 @@ export const Tweet = memo(function Tweet({
   createdAt,
   authorId,
 }: TweetProps) {
-  const { name, email } = useTweetAuthor(authorId);
+  const { name, email, userAvatar, profileLink } = useTweetAuthor(authorId);
   const { isUpdating, isLiked, likesAmount, onLikeClick } = useTweetLikes(id);
+
+  const formattedTweetTime = formatTimeDifference(createdAt);
+  const hasLikes = likesAmount > 0;
 
   return (
     <Wrapper>
-      <AvatarPlaceholder width={60} height={60} />
+      <Avatar width={60} height={60} src={userAvatar} />
       <TweetDetailsWrapper>
         <InfoWrapper>
           <InfoHeaderWrapper>
-            <Title
-              text={name}
-              width="fit"
-              size="extrasmall"
-              weight="bold"
-              font="serif"
-            />
+            <Title width="fit" size="extrasmall" weight="bold" font="serif">
+              <Link variant="regular" to={profileLink}>
+                {name}
+              </Link>
+            </Title>
             <Text text={email} isSubtext />
-            <Text text={formatTimeDifference(createdAt)} isSubtext />
+            <Text text={formattedTweetTime} isSubtext />
           </InfoHeaderWrapper>
           <Text text={text} />
         </InfoWrapper>
         <LikeButtonWrapper $isLiked={isLiked}>
-          <LikeTweetButton
-            isUpdating={isUpdating}
-            isLiked={isLiked}
-            onLikeClick={onLikeClick}
+          <IconButton
+            icon={isLiked ? <LikeFilledIcon /> : <LikeIcon />}
+            hasInvert={!isLiked}
+            disabled={isUpdating}
+            onClick={onLikeClick}
           />
-          {likesAmount > 0 && <Text text={String(likesAmount)} />}
+          {hasLikes && <Text text={String(likesAmount)} />}
         </LikeButtonWrapper>
       </TweetDetailsWrapper>
     </Wrapper>

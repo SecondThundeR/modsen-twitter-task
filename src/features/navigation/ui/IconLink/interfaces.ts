@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-import { RouteValues } from "@/shared/lib/router";
+import type { RouteValues } from "@/shared/lib/router";
 
 export interface IconLinkProps {
   icon: ReactNode;

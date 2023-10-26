@@ -1,6 +1,7 @@
 import { memo } from "react";
+
 import { Wrapper } from "./IconButton.styled";
-import { IconButtonProps } from "./interfaces";
+import type { IconButtonProps } from "./interfaces";
 
 export const IconButton = memo(function IconButton({
   icon,

@@ -1,6 +1,6 @@
-import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-import { AuthorState } from "./types";
+import type { AuthorState } from "./types";
 
 const initialState: AuthorState = {
   authorsArray: null,
@@ -21,22 +21,16 @@ export const authorSlice = createSlice({
       state,
       action: PayloadAction<NonNullable<AuthorState["authorsArray"]>>,
     ) => {
-      state.authorsArray = [...action.payload];
+      state.authorsArray = action.payload;
     },
     pushAuthor: (
       state,
       action: PayloadAction<NonNullable<AuthorState["authorsArray"]>[number]>,
     ) => {
-      const authorID = action.payload?.uid;
-      if (state.authorsArray === null) {
-        state.authorsArray = [];
-      }
+      if (state.authorsArray === null) state.authorsArray = [];
 
-      if (
-        state.authorsArray.findIndex((author) => author?.uid === authorID) !==
-        -1
-      )
-        return;
+      const authorID = action.payload?.uid;
+      if (state.authorsArray.some((author) => author?.uid === authorID)) return;
 
       state.authorsArray = [action.payload, ...state.authorsArray];
     },
@@ -44,9 +38,27 @@ export const authorSlice = createSlice({
       if (state.authorsArray === null) return;
 
       const authorID = action.payload;
-      state.authorsArray = [
-        ...state.authorsArray.filter((author) => author?.uid !== authorID),
-      ];
+      const filteredAuthors = state.authorsArray.filter(
+        (author) => author?.uid !== authorID,
+      );
+
+      state.authorsArray = filteredAuthors;
+    },
+    setFollowersIds: (
+      state,
+      action: PayloadAction<{ authorId: string; followers: string[] }>,
+    ) => {
+      if (!state.authorsArray) return;
+
+      const { authorId, followers } = action.payload;
+      const updatedAuthorsArray = state.authorsArray.map((authorData) => {
+        if (authorData?.uid === authorId) {
+          return { ...authorData, followersIds: [...followers] };
+        }
+        return authorData;
+      });
+
+      state.authorsArray = updatedAuthorsArray;
     },
     resetAuthors: (state) => {
       state.authorsArray = null;
@@ -54,16 +66,16 @@ export const authorSlice = createSlice({
   },
 });
 
-export const selectAuthorByID = (
-  id: string,
-): Selector<NonNullable<AuthorState["authorsArray"]>[number] | undefined> =>
-  createSelector(
-    [(state: RootState) => state.authors.authorsArray],
-    (authorsArray) => {
-      console.log("Triggered selector:", authorsArray);
-      return authorsArray?.find((authorData) => authorData?.uid == id);
-    },
+export const selectAuthorByID = (state: RootState, authorId?: string) => {
+  return state.authors.authorsArray?.find(
+    (authorData) => authorData?.uid == authorId,
   );
+};
 
-export const { setAuthorsData, pushAuthor, removeAuthor, resetAuthors } =
-  authorSlice.actions;
+export const {
+  setAuthorsData,
+  pushAuthor,
+  setFollowersIds,
+  removeAuthor,
+  resetAuthors,
+} = authorSlice.actions;

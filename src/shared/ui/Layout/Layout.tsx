@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Outlet } from "react-router-dom";
 
-import { LayoutProps } from "./interfaces";
+import type { LayoutProps } from "./interfaces";
 import { Wrapper, OutletWrapper } from "./Layout.styled";
 
 export const Layout = memo(function MainLayout({

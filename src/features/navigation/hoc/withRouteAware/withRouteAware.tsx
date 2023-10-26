@@ -1,9 +1,9 @@
-import { ComponentType, useCallback } from "react";
+import { type ComponentType, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { LocationState, RouteValues } from "@/shared/lib/router";
+import type { LocationState, RouteValues } from "@/shared/lib/router";
 
-import { WithRouteAwareProps } from "./interfaces";
+import type { WithRouteAwareProps } from "./interfaces";
 
 export function withRouteAware<P extends WithRouteAwareProps>(
   WrappedComponent: ComponentType<P>,

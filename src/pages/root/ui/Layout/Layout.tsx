@@ -1,6 +1,8 @@
 import { memo } from "react";
 
-import { LayoutProps } from "./interfaces";
+import { rootBackgroundPath } from "@/shared/constants/publicImagesPaths";
+
+import type { LayoutProps } from "./interfaces";
 import {
   Root,
   RootImage,
@@ -16,7 +18,7 @@ export const Layout = memo(function Layout({
   return (
     <Root>
       <Wrapper>
-        <RootImage $src="/rootBackground.png" />
+        <RootImage $src={rootBackgroundPath} />
         <ContentWrapper>{children}</ContentWrapper>
       </Wrapper>
       <Footer>{footerElementsSlot}</Footer>

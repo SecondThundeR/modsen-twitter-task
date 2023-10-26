@@ -1,4 +1,4 @@
-import { PropsWithChildren, memo } from "react";
+import { type PropsWithChildren, memo } from "react";
 
 import { Wrapper } from "./Layout.styled";
 

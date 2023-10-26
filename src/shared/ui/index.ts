@@ -1,12 +1,14 @@
 export { Alert } from "./Alert/Alert";
-export { AvatarPlaceholder } from "./AvatarPlaceholder/AvatarPlaceholder";
+export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
 export { Header } from "./Header/Header";
 export { IconButton } from "./IconButton/IconButton";
 export { Input } from "./Input/Input";
 export { Layout } from "./Layout/Layout";
+export { Modal } from "./Modal/Modal";
 export { SectionButton } from "./SectionButton/SectionButton";
 export { Select } from "./Select/Select";
+export { TabItem } from "./TabItem/TabItem";
 export { Text } from "./Text/Text";
 export { Textarea } from "./Textarea/Textarea";
 export { TextButton } from "./TextButton/TextButton";

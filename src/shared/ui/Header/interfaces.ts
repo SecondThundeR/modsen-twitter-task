@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface HeaderProps {
-  title: string;
+  title?: string | null;
   subtitle?: string;
   leftSlot?: ReactNode;
   rightSlot?: ReactNode;

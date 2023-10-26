@@ -1,7 +1,9 @@
-import { User } from "firebase/auth";
+import type { User } from "firebase/auth";
 
-type UserData =
+export type UserData =
   | (Pick<User, "uid" | "displayName" | "email"> & {
+      description?: string;
+      avatarURL?: string;
       phoneNumber?: string;
       dateOfBirth?: string;
     })
@@ -13,3 +15,8 @@ export type UserState = {
   followersIds?: string[] | null;
   followingIds?: string[] | null;
 };
+
+export type UserDBData = Omit<NonNullable<UserData>, "uid"> &
+  Omit<UserState, "userData">;
+
+export type UserDataUpdate = Partial<UserDBData>;
