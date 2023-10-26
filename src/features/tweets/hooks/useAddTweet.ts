@@ -1,9 +1,10 @@
-import { child, get, push, ref, update } from "firebase/database";
 import { useCallback, useState } from "react";
 
 import { type TweetDBInfo, type TweetType, addTweet } from "@/entities/tweet";
-import { pushTweetID } from "@/entities/user";
-import { database } from "@/shared/lib/firebase";
+import { pushTweetID, updateUserData } from "@/entities/user";
+import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseArray";
+import { getData } from "@/shared/lib/firebase";
+import { pushData } from "@/shared/lib/firebase/db/pushData";
 import { useAppDispatch } from "@/shared/lib/hooks";
 
 export function useAddTweet() {
@@ -16,38 +17,23 @@ export function useAddTweet() {
       setIsAdding(true);
       setError(null);
 
+      const authorDBPath = "users/" + authorId;
+      const authorDBTweetsPath = authorDBPath + "/tweetsIds";
+      const tweetsDBPath = "tweets/";
+
+      const tweet = {
+        text,
+        authorId,
+        createdAt: Date.now(),
+      } satisfies TweetDBInfo;
+
       try {
-        const usersRef = ref(database, "users/" + authorId);
-        const usersTweetsRef = child(usersRef, "/tweetsIds");
-        const tweetsRef = child(ref(database), "/tweets");
-        const createdAt = Date.now();
-        const tweet = {
-          text,
-          authorId,
-          createdAt,
-        } satisfies TweetDBInfo;
+        const tweetID = await pushData(tweetsDBPath, tweet);
+        const tweetsIds = await getData<string[]>(authorDBTweetsPath);
+        const deserializedTweetsIds = deserializeFirebaseArray(tweetsIds);
 
-        const pushedTweet = await push(tweetsRef, tweet);
-
-        if (!pushedTweet.key) {
-          throw new Error("Failed to extract tweet's key from DB");
-        }
-
-        const tweetID = pushedTweet.key;
-
-        const currentIdsArrays = await get(usersTweetsRef);
-        let idsData: string[];
-
-        if (currentIdsArrays.exists()) {
-          const data =
-            currentIdsArrays.exportVal() as FirebaseArrayValue<string>;
-          idsData = Object.values(data ?? {});
-        } else {
-          idsData = [];
-        }
-
-        await update(usersRef, {
-          tweetsIds: [...idsData, tweetID],
+        await updateUserData(authorId, {
+          tweetsIds: [...deserializedTweetsIds, tweetID],
         });
 
         dispatch(
