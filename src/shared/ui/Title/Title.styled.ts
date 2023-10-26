@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
 import { WEIGHTS_MAP } from "@/shared/constants/weights";
-import { getFontFamily } from "@/shared/helpers/generalStyles";
+import { getFontFamily } from "@/shared/helpers/getFontFamily";
 import { getFontSize, getFontSizePhone } from "@/shared/helpers/titleStyles";
 
 import { TitleWrapperProps } from "./interfaces";

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { TEXT_LINE_HEIGHT } from "@/shared/constants/sizing";
 import { WEIGHTS_MAP } from "@/shared/constants/weights";
-import { getFontFamily } from "@/shared/helpers/generalStyles";
+import { getFontFamily } from "@/shared/helpers/getFontFamily";
 import { getFontSize, getOpacity } from "@/shared/helpers/textStyles";
 
 import { TextStyleProps } from "./interfaces";

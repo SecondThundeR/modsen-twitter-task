@@ -25,7 +25,7 @@ import {
   getBorder,
   getHoverBackgroundColor,
 } from "@/shared/helpers/buttonStyles";
-import { getFontFamily } from "@/shared/helpers/generalStyles";
+import { getFontFamily } from "@/shared/helpers/getFontFamily";
 
 import { ButtonStyleProps } from "./interfaces";
 
