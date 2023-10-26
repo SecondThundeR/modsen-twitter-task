@@ -2,7 +2,7 @@ import { isDataExists, updateData } from "@/shared/lib/firebase";
 
 import { UserDataUpdate } from "../model/types";
 
-export const updateUserInfo = async (userId: string, data: UserDataUpdate) => {
+export const updateUserData = async (userId: string, data: UserDataUpdate) => {
   const dbPath = "/users/" + userId;
   const isUserInfoExists = await isDataExists(dbPath);
 

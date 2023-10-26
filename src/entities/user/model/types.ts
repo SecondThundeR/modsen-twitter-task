@@ -9,11 +9,14 @@ export type UserData =
     })
   | null;
 
-export type UserDataUpdate = Partial<Omit<NonNullable<UserData>, "uid">>;
-
 export type UserState = {
   userData: UserData;
   tweetsIds?: string[] | null;
   followersIds?: string[] | null;
   followingIds?: string[] | null;
 };
+
+export type UserDataUpdate = Partial<Omit<NonNullable<UserData>, "uid">>;
+
+export type UserDBData = Omit<NonNullable<UserData>, "uid"> &
+  Omit<UserState, "userData">;

@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-import { extractUserData } from "@/shared/helpers/database";
+import { getUserData } from "@/entities/user";
 import { auth } from "@/shared/lib/firebase";
 
 import { type SigninFormSchema } from "./signinFormSchema";
@@ -11,7 +11,7 @@ const handleSignin = async ({ email, password }: SigninFormSchema) => {
     const {
       user: { uid },
     } = credentials;
-    const additionalUserData = await extractUserData(uid);
+    const additionalUserData = await getUserData(uid);
 
     return {
       uid,

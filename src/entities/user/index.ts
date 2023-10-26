@@ -1,4 +1,6 @@
-export { type UserState, type UserData } from "./model/types";
+export { getUserData } from "./db/getUserData";
+export { updateUserData } from "./db/updateUserData";
+export type { UserState, UserData, UserDataUpdate } from "./model/types";
 export {
   userSlice,
   setUserInfo,
