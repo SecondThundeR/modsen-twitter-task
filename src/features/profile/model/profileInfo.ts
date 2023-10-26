@@ -1,6 +1,8 @@
 import { getAuth, updateProfile } from "firebase/auth";
 
-import { updateUserInfo } from "@/entities/user/db/updateUserInfo";
+import { updateUserData, type UserDataUpdate } from "@/entities/user";
+import { getFormattedDateOfBirth } from "@/shared/helpers/getFormattedDateOfBirth";
+
 import { uploadUserAvatar } from "../db/uploadUserAvatar";
 
 export type ProfileInfoUpdateParams = {
@@ -14,15 +16,18 @@ export type ProfileInfoUpdateParams = {
 };
 
 export const handleProfileInfoUpdate = async ({
+  name,
+  avatarImage,
   monthOfBirth,
   dayOfBirth,
   yearOfBirth,
-  avatarImage,
   ...rest
 }: ProfileInfoUpdateParams) => {
-  const formattedDateOfBirth = `${monthOfBirth.split("-")[1]}-${
-    dayOfBirth.split("-")[1]
-  }-${yearOfBirth.split("-")[1]}`;
+  const formattedDateOfBirth = getFormattedDateOfBirth(
+    monthOfBirth,
+    dayOfBirth,
+    yearOfBirth,
+  );
 
   const currentUser = getAuth().currentUser;
   if (!currentUser)
@@ -30,16 +35,16 @@ export const handleProfileInfoUpdate = async ({
 
   const dataToUpdate = {
     ...rest,
+    displayName: name,
     dateOfBirth: formattedDateOfBirth,
-  };
-
+  } satisfies UserDataUpdate;
   const avatarData = avatarImage?.item(0);
 
   try {
     await updateProfile(currentUser, {
-      displayName: dataToUpdate.name,
+      displayName: dataToUpdate.displayName,
     });
-    await updateUserInfo(currentUser.uid, dataToUpdate);
+    await updateUserData(currentUser.uid, dataToUpdate);
 
     if (avatarData) {
       const avatarArrayBuffer = await avatarData.arrayBuffer();
@@ -47,7 +52,6 @@ export const handleProfileInfoUpdate = async ({
         currentUser.uid,
         avatarArrayBuffer,
       );
-      console.log({ ...dataToUpdate, avatarURL });
       return { ...dataToUpdate, avatarURL };
     }
     return dataToUpdate;

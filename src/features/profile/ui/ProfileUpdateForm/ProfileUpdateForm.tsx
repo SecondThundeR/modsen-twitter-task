@@ -95,13 +95,7 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
 
       try {
         const res = await handleProfileInfoUpdate(params);
-        const { name, ...rest } = res;
-        dispatch(
-          updateUserInfo({
-            displayName: name,
-            ...rest,
-          }),
-        );
+        dispatch(updateUserInfo(res));
         onComplete?.();
       } catch (error) {
         setError("root", {
