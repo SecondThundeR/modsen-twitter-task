@@ -27,31 +27,40 @@ export function useAddTweet() {
         createdAt: Date.now(),
       } satisfies TweetDBInfo;
 
+      let tweetID: string | undefined,
+        tweetsIds: FirebaseArrayValue<string> | undefined;
+
       try {
-        const tweetID = await pushData(tweetsDBPath, tweet);
-        const tweetsIds = await getData<string[]>(authorDBTweetsPath);
-        const deserializedTweetsIds = deserializeFirebaseArray(tweetsIds);
-
-        await updateUserData(authorId, {
-          tweetsIds: [...deserializedTweetsIds, tweetID],
-        });
-
-        dispatch(
-          addTweet({
-            id: tweetID,
-            ...tweet,
-          }),
-        );
-        dispatch(pushTweetID(tweetID));
+        tweetID = await pushData(tweetsDBPath, tweet);
       } catch (error) {
         setError(
           new Error(
             `Failed to update tweets data! ${(error as Error).message}`,
           ),
         );
-      } finally {
-        setIsAdding(false);
       }
+
+      try {
+        tweetsIds = await getData<string[]>(authorDBTweetsPath);
+      } catch (error) {
+        console.warn("Failed to get users tweets, default to empty array");
+      }
+
+      const deserializedTweetsIds = deserializeFirebaseArray(tweetsIds);
+
+      await updateUserData(authorId, {
+        tweetsIds: [...deserializedTweetsIds, tweetID!],
+      });
+
+      dispatch(
+        addTweet({
+          id: tweetID!,
+          ...tweet,
+        }),
+      );
+      dispatch(pushTweetID(tweetID!));
+
+      setIsAdding(false);
     },
     [dispatch],
   );
