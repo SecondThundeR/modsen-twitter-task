@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { SectionButtonProps } from "./interfaces";
+import type { SectionButtonProps } from "./interfaces";
 import { Button } from "./SectionButton.styled";
 
 export const SectionButton = memo(function SectionButton({

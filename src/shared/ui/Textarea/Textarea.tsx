@@ -1,6 +1,6 @@
 import { forwardRef, memo } from "react";
 
-import { TextareaProps } from "./interfaces";
+import type { TextareaProps } from "./interfaces";
 import { ErrorMessage, ErrorWrapper, Wrapper } from "./Textarea.styled";
 
 export const Textarea = memo(

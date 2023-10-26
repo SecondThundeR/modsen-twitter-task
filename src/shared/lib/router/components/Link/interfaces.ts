@@ -1,4 +1,4 @@
-import { LinkProps as RouterLinkProps } from "react-router-dom";
+import type { LinkProps as RouterLinkProps } from "react-router-dom";
 
 type LinkPropsVariants = "regular" | "primary";
 

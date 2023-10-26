@@ -1,5 +1,5 @@
 export { getAuthorData } from "./db/getAuthorData";
-export { type AuthorData, type AuthorState } from "./model/types";
+export type { AuthorData, AuthorState } from "./model/types";
 export {
   authorSlice,
   setAuthorsData,

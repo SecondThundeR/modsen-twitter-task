@@ -2,7 +2,7 @@ import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
-import { FirebaseOptions, initializeApp } from "firebase/app";
+import { type FirebaseOptions, initializeApp } from "firebase/app";
 
 import { config } from "@/shared/lib/config";
 

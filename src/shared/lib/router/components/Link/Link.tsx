@@ -1,4 +1,4 @@
-import { LinkProps } from "./interfaces";
+import type { LinkProps } from "./interfaces";
 import { NavLink } from "./styled";
 
 export function Link({ variant = "primary", ...props }: LinkProps) {

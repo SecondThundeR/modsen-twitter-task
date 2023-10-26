@@ -12,7 +12,7 @@ import {
   GAP_MAP,
   PADDING_MAP,
 } from "@/shared/constants/sizing";
-import { TweetComposerStyledProps } from "./interfaces";
+import type { TweetComposerStyledProps } from "./interfaces";
 
 export const Wrapper = styled.div<TweetComposerStyledProps>`
   box-sizing: ${BORDER_BOX};

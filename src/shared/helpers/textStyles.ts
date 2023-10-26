@@ -1,6 +1,9 @@
+import {
+  INACTIVE_OPACITY,
+  REGULAR_OPACITY,
+} from "@/shared/constants/generalStyles";
 import { FONT_SIZE_MAP } from "@/shared/constants/sizing";
 import { TextSize } from "@/shared/ui/Text/interfaces";
-import { INACTIVE_OPACITY, REGULAR_OPACITY } from "../constants/generalStyles";
 
 export function getFontSize(size: TextSize) {
   return FONT_SIZE_MAP.text[size];

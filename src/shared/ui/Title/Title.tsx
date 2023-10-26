@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { TitleProps } from "./interfaces";
+import type { TitleProps } from "./interfaces";
 import { Wrapper } from "./Title.styled";
 
 export const Title = memo(function Title({

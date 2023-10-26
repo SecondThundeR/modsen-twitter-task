@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { AuthorData, pushAuthor } from "@/entities/author";
 import {
-  type Tweet,
+  type TweetType,
   type TweetDBInfo,
   selectCurrentTweets,
   setTweets,
@@ -41,7 +41,7 @@ export function useTweets(authorId?: string) {
             id,
             ...value,
           };
-        }) satisfies Tweet[];
+        }) satisfies TweetType[];
       dispatch(setTweets(tweetsArray));
     } catch (error) {
       throw new Error(

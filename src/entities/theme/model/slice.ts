@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Theme, ThemeState } from "./types";
+import type { Theme, ThemeState } from "./types";
 
 const initialState: ThemeState = {
   currentTheme: window.matchMedia("(prefers-color-scheme: dark)").matches

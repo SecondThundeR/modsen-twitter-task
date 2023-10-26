@@ -2,7 +2,7 @@ import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { selectCurrentUser } from "@/entities/user";
 
-import { Tweet, TweetsState } from "./types";
+import type { Tweet, TweetsState } from "./types";
 
 const initialState: TweetsState = {
   tweetsData: null,

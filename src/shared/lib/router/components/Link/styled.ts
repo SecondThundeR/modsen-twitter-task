@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { LinkStyledProps } from "./interfaces";
+import type { LinkStyledProps } from "./interfaces";
 
 export const NavLink = styled(Link)<LinkStyledProps>`
   text-decoration: none;

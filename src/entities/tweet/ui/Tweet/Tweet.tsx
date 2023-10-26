@@ -7,7 +7,7 @@ import { formatTimeDifference } from "@/shared/helpers/date";
 import { Link } from "@/shared/lib/router";
 import { Avatar, IconButton, Text, Title } from "@/shared/ui";
 
-import { TweetProps } from "./interfaces";
+import type { TweetProps } from "./interfaces";
 import {
   Wrapper,
   TweetDetailsWrapper,

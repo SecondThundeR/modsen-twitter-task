@@ -1,10 +1,9 @@
 import { useCallback, useState } from "react";
 
+import { manageFollowStatus } from "@/features/profile";
 import { selectAuthorByID, setFollowersIds } from "@/entities/author";
 import { selectCurrentUser, setFollowingIds } from "@/entities/user";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
-
-import { manageFollowStatus } from "..";
 
 export function useProfileFollow(authorId?: string) {
   const [isUpdating, setIsUpdating] = useState(false);

@@ -5,7 +5,7 @@ import { WEIGHTS_MAP } from "@/shared/constants/weights";
 import { getFontFamily } from "@/shared/helpers/getFontFamily";
 import { getFontSize, getFontSizePhone } from "@/shared/helpers/titleStyles";
 
-import { TitleWrapperProps } from "./interfaces";
+import type { TitleWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.h1<TitleWrapperProps>`
   width: ${({ $width }) => DIMENSIONS_MAP[$width]};

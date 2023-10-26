@@ -3,7 +3,7 @@ import { memo } from "react";
 import { Text, Title } from "@/shared/ui";
 
 import { LeftSlotWrapper, TextWrapper, Wrapper } from "./Header.styled";
-import { HeaderProps } from "./interfaces";
+import type { HeaderProps } from "./interfaces";
 
 export const Header = memo(function Header({
   title,

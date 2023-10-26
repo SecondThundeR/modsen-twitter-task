@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ComponentType, SVGProps } from "react";
+import type { ButtonHTMLAttributes, ComponentType, SVGProps } from "react";
 
 export interface SectionButtonProps
   extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {

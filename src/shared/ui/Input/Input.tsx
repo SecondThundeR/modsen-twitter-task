@@ -1,8 +1,9 @@
 import { forwardRef, memo } from "react";
 
-import { Text } from "..";
+import { Text } from "@/shared/ui";
+
 import { ErrorMessage, InputWrapper, Wrapper } from "./Input.styled";
-import { InputProps } from "./interfaces";
+import type { InputProps } from "./interfaces";
 
 export const Input = memo(
   forwardRef<HTMLInputElement, InputProps>(function Input(

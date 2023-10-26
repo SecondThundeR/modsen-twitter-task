@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-import { FontsVariants } from "@/shared/types/fontsVariants";
+import type { FontsVariants } from "@/shared/types/fontsVariants";
 
 export type TextWeight = "regular" | "medium" | "semibold" | "bold";
 export type TextSize = "small" | "regular" | "large";

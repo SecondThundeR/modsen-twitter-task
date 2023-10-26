@@ -1,8 +1,9 @@
 import { memo } from "react";
 
-import { Text, Title } from "..";
+import { Text, Title } from "@/shared/ui";
+
 import { Wrapper } from "./Alert.styled";
-import { AlertProps } from "./interfaces";
+import type { AlertProps } from "./interfaces";
 
 export const Alert = memo(function Alert({
   title,

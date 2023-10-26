@@ -12,7 +12,7 @@ import {
   PADDING_MAP,
 } from "@/shared/constants/sizing";
 
-import { RootImageProps } from "./interfaces";
+import type { RootImageProps } from "./interfaces";
 
 export const Root = styled.div`
   height: ${DIMENSIONS_MAP.fullScreen};

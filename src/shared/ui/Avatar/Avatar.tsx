@@ -1,9 +1,9 @@
 import { memo } from "react";
 
-import { AvatarImage } from "./Avatar.styled";
-import { AvatarProps } from "./interfaces";
+import { avatarPlaceholderPath } from "@/shared/constants/publicImagesPaths";
 
-const placeholderPath = "/avatarPlaceholder.png";
+import { AvatarImage } from "./Avatar.styled";
+import type { AvatarProps } from "./interfaces";
 
 export const Avatar = memo(function Avatar({
   width = 48,
@@ -11,6 +11,10 @@ export const Avatar = memo(function Avatar({
   src,
 }: AvatarProps) {
   return (
-    <AvatarImage $width={width} $height={height} src={src ?? placeholderPath} />
+    <AvatarImage
+      $width={width}
+      $height={height}
+      src={src ?? avatarPlaceholderPath}
+    />
   );
 });

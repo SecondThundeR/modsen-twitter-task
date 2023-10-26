@@ -1,4 +1,6 @@
-export type { Tweet, TweetDBInfo } from "./model/types";
+export * from "./db";
+export * from "./hooks";
+export { Tweet } from "./ui/Tweet/Tweet";
 export {
   tweetSlice,
   setTweets,
@@ -8,6 +10,7 @@ export {
   removeTweet,
   resetTweets,
   selectTweetsAmount,
+  selectTweetsLikes,
   selectCurrentTweets,
 } from "./model/slice";
-export * from "./hooks";
+export type { Tweet as TweetType, TweetDBInfo } from "./model/types";

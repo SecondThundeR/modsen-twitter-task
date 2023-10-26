@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-import { AuthorState } from "./types";
+import type { AuthorState } from "./types";
 
 const initialState: AuthorState = {
   authorsArray: null,

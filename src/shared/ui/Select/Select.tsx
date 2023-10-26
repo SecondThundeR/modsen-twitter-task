@@ -1,7 +1,8 @@
 import { forwardRef, memo } from "react";
 
-import { Text } from "..";
-import { SelectProps } from "./interfaces";
+import { Text } from "@/shared/ui";
+
+import type { SelectProps } from "./interfaces";
 import { ErrorMessage, SelectWrapper, Wrapper } from "./Select.styled";
 
 export const Select = memo(

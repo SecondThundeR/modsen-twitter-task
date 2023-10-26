@@ -1,7 +1,7 @@
 import { child, get, push, ref, update } from "firebase/database";
 import { useCallback, useState } from "react";
 
-import { type TweetDBInfo, type Tweet, addTweet } from "@/entities/tweet";
+import { type TweetDBInfo, type TweetType, addTweet } from "@/entities/tweet";
 import { pushTweetID } from "@/entities/user";
 import { database } from "@/shared/lib/firebase";
 import { useAppDispatch } from "@/shared/lib/hooks";
@@ -12,7 +12,7 @@ export function useAddTweet() {
   const [error, setError] = useState<unknown>(null);
 
   const addNewTweet = useCallback(
-    async ({ text, authorId }: Pick<Tweet, "text" | "authorId">) => {
+    async ({ text, authorId }: Pick<TweetType, "text" | "authorId">) => {
       setIsAdding(true);
       setError(null);
 
@@ -39,9 +39,9 @@ export function useAddTweet() {
         let idsData: string[];
 
         if (currentIdsArrays.exists()) {
-          idsData = Object.values(
-            currentIdsArrays.exportVal() as FirebaseArrayValue<string>,
-          );
+          const data =
+            currentIdsArrays.exportVal() as FirebaseArrayValue<string>;
+          idsData = Object.values(data ?? {});
         } else {
           idsData = [];
         }

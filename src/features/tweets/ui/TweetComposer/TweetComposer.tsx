@@ -1,5 +1,6 @@
-import { ChangeEventHandler, memo, useCallback, useState } from "react";
+import { type ChangeEventHandler, memo, useCallback, useState } from "react";
 
+import { useAddTweet } from "@/features/tweets";
 import { selectCurrentUser } from "@/entities/user";
 import ImageIcon from "@/shared/assets/image.svg?react";
 import {
@@ -10,8 +11,7 @@ import {
 import { useAppSelector } from "@/shared/lib/hooks";
 import { Alert, Avatar, Button, IconButton, Text, Textarea } from "@/shared/ui";
 
-import { useAddTweet } from "../..";
-import { TweetComposerProps } from "./interfaces";
+import type { TweetComposerProps } from "./interfaces";
 import {
   Wrapper,
   ComposerWrapper,

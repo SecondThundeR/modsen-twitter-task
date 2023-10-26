@@ -1,8 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { memo, useCallback, useMemo, useState } from "react";
 
+import { handleProfileInfoUpdate } from "@/features/profile/model/profileInfo";
 import {
-  ProfileInfoFormSchema,
+  type ProfileInfoFormSchema,
   profileInfoFormSchema,
 } from "@/features/profile/model/profileInfoFormSchema";
 import { selectCurrentUser, updateUserInfo } from "@/entities/user";
@@ -22,8 +23,7 @@ import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { useForm, useWatch } from "@/shared/lib/validation";
 import { Input, Button, Select, Alert } from "@/shared/ui";
 
-import { handleProfileInfoUpdate } from "../../model/profileInfo";
-import { ProfileUpdateFormProps } from "./interfaces";
+import type { ProfileUpdateFormProps } from "./interfaces";
 import { Wrapper, DateOfBirthWrapper } from "./ProfileUpdateForm.styled";
 
 const { month, day, year } = DOB_POSITIONS_INDEX;

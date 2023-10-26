@@ -1,6 +1,5 @@
+import type { UserDataUpdate } from "@/entities/user";
 import { isDataExists, updateData } from "@/shared/lib/firebase";
-
-import { UserDataUpdate } from "../model/types";
 
 export const updateUserData = async (userId: string, data: UserDataUpdate) => {
   const dbPath = "/users/" + userId;

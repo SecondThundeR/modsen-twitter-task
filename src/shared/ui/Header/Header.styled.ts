@@ -15,7 +15,7 @@ import {
   GAP_MAP,
   PADDING_MAP,
 } from "@/shared/constants/sizing";
-import { TextWrapperProps } from "./interfaces";
+import type { TextWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.header`
   position: ${POSITION_MAP.sticky};

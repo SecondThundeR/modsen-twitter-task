@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { Avatar, Button, Text, Title } from "@/shared/ui";
 
-import { ProfileBlockProps } from "./interfaces";
+import type { ProfileBlockProps } from "./interfaces";
 import {
   ProfileHeaderImage,
   MainWrapper,

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import {
   ACTIVE_SCALE_PRESSED,
   CURSOR_POINTER,
@@ -10,7 +11,8 @@ import {
   NO_PADDING,
 } from "@/shared/constants/generalStyles";
 import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
-import { IconButtonStyleProps } from "./interfaces";
+
+import type { IconButtonStyleProps } from "./interfaces";
 
 export const Wrapper = styled.button<IconButtonStyleProps>`
   cursor: ${CURSOR_POINTER};

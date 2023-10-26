@@ -8,6 +8,7 @@ import {
   POSITION_MAP,
   PROFILE_IMAGE_TRANSFORM,
 } from "@/shared/constants/generalStyles";
+import { profileHeaderPlaceholderPath } from "@/shared/constants/publicImagesPaths";
 import {
   DIMENSIONS_MAP,
   GAP_MAP,
@@ -23,7 +24,7 @@ export const MainWrapper = styled.div`
 export const ProfileHeaderImage = styled.img`
   width: ${DIMENSIONS_MAP.full};
   height: ${DIMENSIONS_MAP.profileHeaderImage};
-  background-image: url("/profileHeaderPlaceholder.png");
+  background-image: ${`url(${profileHeaderPlaceholderPath})`};
   background-position: ${IMAGE_PROPERTIES.position};
   background-repeat: ${IMAGE_PROPERTIES.repeat};
   background-clip: ${IMAGE_PROPERTIES.clip};

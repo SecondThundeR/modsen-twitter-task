@@ -1,11 +1,13 @@
 import { useCallback, useState } from "react";
 
+import {
+  addUserLike,
+  removeUserLike,
+  editLikes,
+  selectTweetsLikes,
+} from "@/entities/tweet";
 import { selectCurrentUser } from "@/entities/user";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
-
-import { addUserLike } from "../db/addUserLike";
-import { removeUserLike } from "../db/removeUserLike";
-import { editLikes, selectTweetsLikes } from "../model/slice";
 
 export function useTweetLikes(tweetId: string) {
   const userData = useAppSelector(selectCurrentUser);

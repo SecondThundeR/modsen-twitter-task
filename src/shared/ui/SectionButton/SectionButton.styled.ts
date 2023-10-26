@@ -12,7 +12,7 @@ import {
 import { FONT_SIZE_MAP, GAP_MAP } from "@/shared/constants/sizing";
 import { WEIGHTS_MAP } from "@/shared/constants/weights";
 
-import { SectionButtonStyleProps } from "./interfaces";
+import type { SectionButtonStyleProps } from "./interfaces";
 
 export const Button = styled.button<SectionButtonStyleProps>`
   cursor: ${CURSOR_POINTER};

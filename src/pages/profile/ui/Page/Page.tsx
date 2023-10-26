@@ -1,13 +1,16 @@
 import { memo } from "react";
 
-import { ProfileBlock } from "@/widgets/ProfileBlock/ProfileBlock";
-import { ProfileTabs } from "@/widgets/ProfileTabs/ProfileTabs";
-import { TweetsList } from "@/widgets/TweetsList/ui/TweetsList/TweetsList";
+import { ProfileBlock } from "@/widgets/ProfileBlock";
+import { ProfileTabs } from "@/widgets/ProfileTabs";
+import { TweetsList } from "@/widgets/TweetsList";
 import { BackButton } from "@/features/navigation";
-import { useProfileData, useProfileFollow } from "@/features/profile";
-import { ProfileUpdateForm } from "@/features/profile/ui/ProfileUpdateForm/ProfileUpdateForm";
+import {
+  useProfileData,
+  useProfileFollow,
+  ProfileUpdateForm,
+} from "@/features/profile";
 import { ChangeThemeToggle } from "@/features/theme";
-import { TweetComposer } from "@/features/tweets/ui/TweetComposer/TweetComposer";
+import { TweetComposer } from "@/features/tweets";
 import { getProfileButtonText } from "@/shared/helpers/getProfileButtonText";
 import { useModal } from "@/shared/lib/hooks";
 import { Header, Text, Modal } from "@/shared/ui";

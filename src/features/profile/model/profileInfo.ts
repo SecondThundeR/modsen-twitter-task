@@ -1,9 +1,8 @@
 import { getAuth, updateProfile } from "firebase/auth";
 
+import { uploadUserAvatar } from "@/features/profile";
 import { updateUserData, type UserDataUpdate } from "@/entities/user";
 import { getFormattedDateOfBirth } from "@/shared/helpers/getFormattedDateOfBirth";
-
-import { uploadUserAvatar } from "../db/uploadUserAvatar";
 
 export type ProfileInfoUpdateParams = {
   name: string;

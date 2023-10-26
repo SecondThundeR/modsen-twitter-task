@@ -5,7 +5,7 @@ import { WEIGHTS_MAP } from "@/shared/constants/weights";
 import { getFontFamily } from "@/shared/helpers/getFontFamily";
 import { getFontSize, getOpacity } from "@/shared/helpers/textStyles";
 
-import { TextStyleProps } from "./interfaces";
+import type { TextStyleProps } from "./interfaces";
 
 export const Wrapper = styled.p<TextStyleProps>`
   font-size: ${({ $size }) => getFontSize($size)};

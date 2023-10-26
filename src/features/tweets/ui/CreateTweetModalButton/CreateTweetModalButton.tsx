@@ -1,9 +1,8 @@
 import { memo } from "react";
 
+import { TweetComposer } from "@/features/tweets";
 import { useModal } from "@/shared/lib/hooks";
 import { Button, Modal } from "@/shared/ui";
-
-import { TweetComposer } from "../TweetComposer/TweetComposer";
 
 export const CreateTweetModalButton = memo(function CreateTweetModalButton() {
   const {

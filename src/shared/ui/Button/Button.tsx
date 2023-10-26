@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import { Wrapper } from "./Button.styled";
-import { ButtonProps } from "./interfaces";
+import type { ButtonProps } from "./interfaces";
 
 export const Button = memo(function Button({
   text,

@@ -1,11 +1,11 @@
-import { object, string, InferType, mixed } from "yup";
+import { object, string, type InferType, mixed } from "yup";
+
 import {
   PHONE_MAX_LENGTH,
   PHONE_NUMBER_REGEX,
 } from "@/shared/constants/validate";
 
 const FIVE_MB_FILE_SIZE = 5242880;
-
 const validImageExtensions = ["jpg", "png", "jpeg"];
 
 export const profileInfoFormSchema = object({

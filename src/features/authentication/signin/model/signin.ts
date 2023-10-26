@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { getUserData } from "@/entities/user";
 import { auth } from "@/shared/lib/firebase";
 
-import { type SigninFormSchema } from "./signinFormSchema";
+import type { SigninFormSchema } from "./signinFormSchema";
 
 const handleSignin = async ({ email, password }: SigninFormSchema) => {
   try {

@@ -1,4 +1,4 @@
-import { object, string, InferType } from "yup";
+import { object, string, type InferType } from "yup";
 
 import {
   PHONE_NUMBER_REGEX,

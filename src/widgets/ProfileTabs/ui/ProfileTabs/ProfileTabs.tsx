@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { TabItem } from "@/shared/ui/TabItem/TabItem";
+import { TabItem } from "@/shared/ui";
 
 import { Wrapper } from "./ProfileTabs.styled";
 

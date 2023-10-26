@@ -8,7 +8,8 @@ import {
   UNDERLINE_DECORATION,
 } from "@/shared/constants/generalStyles";
 import { DIMENSIONS_MAP, FONT_SIZE_MAP } from "@/shared/constants/sizing";
-import { TextButtonStyleProps } from "./interfaces";
+
+import type { TextButtonStyleProps } from "./interfaces";
 
 export const Button = styled.button<TextButtonStyleProps>`
   cursor: ${CURSOR_POINTER};

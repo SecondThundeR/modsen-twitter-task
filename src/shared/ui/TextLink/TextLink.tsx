@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { TextLinkProps } from "./interfaces";
+import type { TextLinkProps } from "./interfaces";
 import { Link } from "./TextLink.styled";
 
 export const TextLink = memo(function TextLink({

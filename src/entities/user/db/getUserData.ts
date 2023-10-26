@@ -1,7 +1,6 @@
+import type { UserDBData } from "@/entities/user";
 import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseArray";
 import { getData } from "@/shared/lib/firebase";
-
-import { UserDBData } from "../model/types";
 
 export const getUserData = async (userID: string) => {
   try {
