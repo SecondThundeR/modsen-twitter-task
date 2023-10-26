@@ -13,7 +13,7 @@ import {
   RADIUS_MAP,
 } from "@/shared/constants/sizing";
 
-export const ErrorWrapper = styled.div`
+export const SelectWrapper = styled.div`
   width: ${DIMENSIONS_MAP.full};
   display: ${DISPLAY_MAP.flex};
   flex-direction: ${FLEX_PROPERTIES.column};

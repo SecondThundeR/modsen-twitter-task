@@ -1,11 +1,12 @@
 import { forwardRef, memo } from "react";
 
-import { ErrorMessage, ErrorWrapper, Wrapper } from "./Input.styled";
+import { Text } from "..";
+import { ErrorMessage, InputWrapper, Wrapper } from "./Input.styled";
 import { InputProps } from "./interfaces";
 
 export const Input = memo(
   forwardRef<HTMLInputElement, InputProps>(function Input(
-    { errorMessage, ...props },
+    { errorMessage, label, ...props },
     ref,
   ) {
     const extractedMessage =
@@ -14,10 +15,11 @@ export const Input = memo(
         : errorMessage;
 
     return (
-      <ErrorWrapper>
+      <InputWrapper>
+        <Text text={label} isSubtext />
         <Wrapper ref={ref} {...props} />
         <ErrorMessage>{extractedMessage}</ErrorMessage>
-      </ErrorWrapper>
+      </InputWrapper>
     );
   }),
 );

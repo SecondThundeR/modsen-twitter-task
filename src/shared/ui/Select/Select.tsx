@@ -1,11 +1,12 @@
 import { forwardRef, memo } from "react";
 
+import { Text } from "..";
 import { SelectProps } from "./interfaces";
-import { ErrorMessage, ErrorWrapper, Wrapper } from "./Select.styled";
+import { ErrorMessage, SelectWrapper, Wrapper } from "./Select.styled";
 
 export const Select = memo(
   forwardRef<HTMLSelectElement, SelectProps>(function Select(
-    { errorMessage, options, ...props },
+    { errorMessage, options, label, ...props },
     ref,
   ) {
     const extractedMessage =
@@ -14,7 +15,8 @@ export const Select = memo(
         : errorMessage;
 
     return (
-      <ErrorWrapper>
+      <SelectWrapper>
+        <Text text={label} isSubtext />
         <Wrapper ref={ref} {...props}>
           {options.map((option) => {
             const { name, value, isDisabled } = option;
@@ -26,7 +28,7 @@ export const Select = memo(
           })}
         </Wrapper>
         <ErrorMessage>{extractedMessage}</ErrorMessage>
-      </ErrorWrapper>
+      </SelectWrapper>
     );
   }),
 );

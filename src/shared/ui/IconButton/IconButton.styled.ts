@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {
-  ACTIVE_SCALE_ICON,
+  ACTIVE_SCALE_PRESSED,
   CURSOR_POINTER,
   CURSOR_REGULAR,
   FULL_INVERT,
@@ -36,7 +36,7 @@ export const Wrapper = styled.button<IconButtonStyleProps>`
   }
 
   &:active {
-    transform: ${`scale(${ACTIVE_SCALE_ICON})`};
+    transform: ${`scale(${ACTIVE_SCALE_PRESSED})`};
   }
 
   &:disabled {

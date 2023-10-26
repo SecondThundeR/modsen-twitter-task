@@ -1,7 +1,7 @@
 export interface AvatarProps {
   width?: number;
   height?: number;
-  src?: string;
+  src?: string | null;
 }
 
 export interface AvatarStyleProps {
