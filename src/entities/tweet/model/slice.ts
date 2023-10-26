@@ -1,6 +1,7 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { selectCurrentUser } from "@/entities/user";
+
 import { Tweet, TweetsState } from "./types";
 
 const initialState: TweetsState = {
@@ -15,17 +16,14 @@ export const tweetSlice = createSlice({
       state,
       action: PayloadAction<NonNullable<TweetsState["tweetsData"]>>,
     ) => {
-      state.tweetsData = [...action.payload];
+      state.tweetsData = action.payload;
     },
     addTweet: (state, action: PayloadAction<Tweet>) => {
-      const tweet = action.payload;
-      if (
-        state.tweetsData?.findIndex(
-          (tweetData) => tweetData.id === tweet.id,
-        ) !== -1
-      )
+      const { payload: tweet } = action;
+
+      if (!state.tweetsData) state.tweetsData = [];
+      if (state.tweetsData.some((tweetData) => tweetData.id === tweet.id))
         return;
-      if (state.tweetsData === null) state.tweetsData = [];
 
       state.tweetsData = [tweet, ...state.tweetsData];
     },
@@ -36,29 +34,39 @@ export const tweetSlice = createSlice({
       if (state.tweetsData === null) return;
 
       const { id, likesIds } = action.payload;
-      const tweetIndex = state.tweetsData.findIndex((tweet) => tweet.id === id);
-      if (tweetIndex === -1) return;
+      const updatedTweetsData = state.tweetsData.map((tweet) => {
+        if (tweet.id === id) {
+          return { ...tweet, likesIds: [...(likesIds ?? [])] };
+        }
+        return tweet;
+      });
 
-      state.tweetsData[tweetIndex].likesIds = [...(likesIds ?? [])];
+      state.tweetsData = updatedTweetsData;
     },
     editTweet: (state, action: PayloadAction<Tweet>) => {
       if (state.tweetsData === null) return;
 
-      const tweet = action.payload;
-      const index = state.tweetsData.findIndex(
-        (tweetData) => tweetData.id === tweet.id,
-      );
-      if (index === undefined || index === -1) return;
+      const { payload: tweet } = action;
+      const updatedTweetsData = state.tweetsData.map((tweetData) => {
+        if (tweetData.id === tweet.id) {
+          return tweet;
+        }
+        return tweetData;
+      });
 
-      state.tweetsData[index] = tweet;
+      state.tweetsData = updatedTweetsData;
     },
     removeTweet: (state, action: PayloadAction<Pick<Tweet, "id">>) => {
       if (state.tweetsData === null) return;
 
-      const tweetID = action.payload.id;
-      state.tweetsData = [
-        ...state.tweetsData.filter((tweet) => tweet.id !== tweetID),
-      ];
+      const {
+        payload: { id: tweetID },
+      } = action;
+      const filteredTweets = state.tweetsData.filter(
+        (tweet) => tweet.id !== tweetID,
+      );
+
+      state.tweetsData = filteredTweets;
     },
     resetTweets: (state) => {
       state.tweetsData = null;
@@ -71,7 +79,9 @@ const selectTweets = (state: RootState) => state.tweet.tweetsData;
 export const selectTweetsAmount = (state: RootState, authorId?: string) => {
   const { tweetsData } = state.tweet;
   const { uid } = state.user.userData!;
+
   if (!tweetsData) return 0;
+
   return tweetsData.filter((tweet) => {
     if (authorId !== undefined) return tweet.authorId === authorId;
     return tweet.authorId === uid;

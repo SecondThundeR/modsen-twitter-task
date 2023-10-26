@@ -21,22 +21,16 @@ export const authorSlice = createSlice({
       state,
       action: PayloadAction<NonNullable<AuthorState["authorsArray"]>>,
     ) => {
-      state.authorsArray = [...action.payload];
+      state.authorsArray = action.payload;
     },
     pushAuthor: (
       state,
       action: PayloadAction<NonNullable<AuthorState["authorsArray"]>[number]>,
     ) => {
-      const authorID = action.payload?.uid;
-      if (state.authorsArray === null) {
-        state.authorsArray = [];
-      }
+      if (state.authorsArray === null) state.authorsArray = [];
 
-      if (
-        state.authorsArray.findIndex((author) => author?.uid === authorID) !==
-        -1
-      )
-        return;
+      const authorID = action.payload?.uid;
+      if (state.authorsArray.some((author) => author?.uid === authorID)) return;
 
       state.authorsArray = [action.payload, ...state.authorsArray];
     },
@@ -44,28 +38,27 @@ export const authorSlice = createSlice({
       if (state.authorsArray === null) return;
 
       const authorID = action.payload;
-      state.authorsArray = [
-        ...state.authorsArray.filter((author) => author?.uid !== authorID),
-      ];
+      const filteredAuthors = state.authorsArray.filter(
+        (author) => author?.uid !== authorID,
+      );
+
+      state.authorsArray = filteredAuthors;
     },
     setFollowersIds: (
       state,
       action: PayloadAction<{ authorId: string; followers: string[] }>,
     ) => {
-      const { authorId, followers } = action.payload;
       if (!state.authorsArray) return;
 
-      const authorIndex = state.authorsArray.findIndex(
-        (authorData) => authorData?.uid == authorId,
-      );
-      if (authorIndex === -1) return;
+      const { authorId, followers } = action.payload;
+      const updatedAuthorsArray = state.authorsArray.map((authorData) => {
+        if (authorData?.uid === authorId) {
+          return { ...authorData, followersIds: [...followers] };
+        }
+        return authorData;
+      });
 
-      const authorData = { ...state.authorsArray[authorIndex]! };
-
-      state.authorsArray[authorIndex] = {
-        ...authorData,
-        followersIds: [...followers],
-      };
+      state.authorsArray = updatedAuthorsArray;
     },
     resetAuthors: (state) => {
       state.authorsArray = null;
