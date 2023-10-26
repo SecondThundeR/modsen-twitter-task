@@ -8,7 +8,7 @@ import { useProfileData, useProfileFollow } from "@/features/profile";
 import { ProfileUpdateForm } from "@/features/profile/ui/ProfileUpdateForm/ProfileUpdateForm";
 import { ChangeThemeToggle } from "@/features/theme";
 import { TweetComposer } from "@/features/tweets/ui/TweetComposer/TweetComposer";
-import { getProfileButtonText } from "@/shared/helpers/profile";
+import { getProfileButtonText } from "@/shared/helpers/getProfileButtonText";
 import { useModal } from "@/shared/lib/hooks";
 import { Header, Text, Modal } from "@/shared/ui";
 
