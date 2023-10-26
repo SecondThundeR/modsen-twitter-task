@@ -3,7 +3,7 @@ import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseAr
 import { getData } from "@/shared/lib/firebase";
 
 export const getAuthorData = async (authorId: string) => {
-  const dbPath = "/users/" + authorId;
+  const dbPath = "users/" + authorId;
   const authorData = await getData<AuthorData>(dbPath);
 
   return {

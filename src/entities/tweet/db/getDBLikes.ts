@@ -3,7 +3,7 @@ import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseAr
 import { getData } from "@/shared/lib/firebase";
 
 export const getDBLikes = async (tweetId: string) => {
-  const dbPath = "/tweets/" + tweetId;
+  const dbPath = "tweets/" + tweetId;
   const tweetData = await getData<TweetType>(dbPath);
   const convertedLikes = deserializeFirebaseArray(tweetData.likesIds);
 
