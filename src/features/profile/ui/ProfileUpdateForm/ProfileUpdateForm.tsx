@@ -23,7 +23,7 @@ import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { useForm, useWatch } from "@/shared/lib/validation";
 import { Input, Title, Text, Button, Select, Alert } from "@/shared/ui";
 
-import { initiateProfileInfoUpdate } from "../../model/profileInfo";
+import { handleProfileInfoUpdate } from "../../model/profileInfo";
 import { ProfileUpdateFormProps } from "./interfaces";
 import { Wrapper, DateOfBirthWrapper } from "./ProfileUpdateForm.styled";
 
@@ -95,7 +95,7 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
       setIsLoading(true);
 
       try {
-        const res = await initiateProfileInfoUpdate(params);
+        const res = await handleProfileInfoUpdate(params);
         const { name, ...rest } = res;
         dispatch(
           updateUserInfo({
@@ -119,7 +119,14 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
       <Input
-        placeholder="Name"
+        label="Avatar image"
+        errorMessage={errors.avatarImage?.message}
+        accept="image/png,image/jpeg,image/jpg"
+        type="file"
+        {...register("avatarImage")}
+      />
+      <Input
+        placeholder="Enter your name"
         errorMessage={errors.name?.message}
         {...register("name")}
       />

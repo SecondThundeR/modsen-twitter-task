@@ -1,6 +1,7 @@
 import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage";
 import { FirebaseOptions, initializeApp } from "firebase/app";
 
 import { config } from "@/shared/lib/config";
@@ -24,5 +25,6 @@ googleAuthProvider.addScope("profile");
 googleAuthProvider.addScope("email");
 
 export const database = getDatabase(app);
+export const storage = getStorage(app);
 
 export default app;

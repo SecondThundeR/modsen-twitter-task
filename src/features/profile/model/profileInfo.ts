@@ -1,6 +1,7 @@
 import { getAuth, updateProfile } from "firebase/auth";
 
 import { updateUserInfo } from "@/entities/user/db/updateUserInfo";
+import { uploadUserAvatar } from "../db/uploadUserAvatar";
 
 export type ProfileInfoUpdateParams = {
   name: string;
@@ -9,12 +10,14 @@ export type ProfileInfoUpdateParams = {
   monthOfBirth: string;
   dayOfBirth: string;
   yearOfBirth: string;
+  avatarImage?: FileList;
 };
 
-const handleProfileInfoUpdate = async ({
+export const handleProfileInfoUpdate = async ({
   monthOfBirth,
   dayOfBirth,
   yearOfBirth,
+  avatarImage,
   ...rest
 }: ProfileInfoUpdateParams) => {
   const formattedDateOfBirth = `${monthOfBirth.split("-")[1]}-${
@@ -30,22 +33,27 @@ const handleProfileInfoUpdate = async ({
     dateOfBirth: formattedDateOfBirth,
   };
 
+  const avatarData = avatarImage?.item(0);
+
   try {
     await updateProfile(currentUser, {
       displayName: dataToUpdate.name,
     });
     await updateUserInfo(currentUser.uid, dataToUpdate);
 
+    if (avatarData) {
+      const avatarArrayBuffer = await avatarData.arrayBuffer();
+      const avatarURL = await uploadUserAvatar(
+        currentUser.uid,
+        avatarArrayBuffer,
+      );
+      console.log({ ...dataToUpdate, avatarURL });
+      return { ...dataToUpdate, avatarURL };
+    }
     return dataToUpdate;
   } catch (error) {
     throw new Error(
       `Failed to update user's profile info! ${(error as Error).message}`,
     );
   }
-};
-
-export const initiateProfileInfoUpdate = async (
-  params: ProfileInfoUpdateParams,
-) => {
-  return await handleProfileInfoUpdate(params);
 };
