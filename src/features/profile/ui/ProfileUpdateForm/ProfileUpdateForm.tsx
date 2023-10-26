@@ -7,7 +7,6 @@ import {
 } from "@/features/profile/model/profileInfoFormSchema";
 import { selectCurrentUser, updateUserInfo } from "@/entities/user";
 import {
-  DATE_OF_BIRTH_INFO,
   MONTHS_DATA,
   DAYS_DATA,
   YEARS_DATA,
@@ -21,7 +20,7 @@ import {
 import { getDaysAmount } from "@/shared/helpers/date";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { useForm, useWatch } from "@/shared/lib/validation";
-import { Input, Title, Text, Button, Select, Alert } from "@/shared/ui";
+import { Input, Button, Select, Alert } from "@/shared/ui";
 
 import { handleProfileInfoUpdate } from "../../model/profileInfo";
 import { ProfileUpdateFormProps } from "./interfaces";
@@ -126,41 +125,40 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
         {...register("avatarImage")}
       />
       <Input
+        label="Name"
         placeholder="Enter your name"
         errorMessage={errors.name?.message}
         {...register("name")}
       />
       <Input
-        placeholder="Description"
+        label="Description"
+        placeholder="Enter your description"
         errorMessage={errors.name?.message}
         {...register("description")}
       />
       <Input
-        placeholder="Phone number"
+        label="Phone number"
+        placeholder="Enter your phone number"
         errorMessage={errors.phoneNumber?.message}
         {...register("phoneNumber")}
       />
-      <Title
-        text="Date of birth"
-        size="extrasmall"
-        weight="bold"
-        font="serif"
-      />
-      <Text text={DATE_OF_BIRTH_INFO} size="large" isSubtext />
       <DateOfBirthWrapper>
         <Select
+          label="Month"
           defaultValue="month"
           options={MONTHS_DATA}
           errorMessage={errors.monthOfBirth?.message}
           {...register("monthOfBirth")}
         />
         <Select
+          label="Day"
           defaultValue="day"
           options={daysSlice}
           errorMessage={errors.dayOfBirth?.message}
           {...register("dayOfBirth")}
         />
         <Select
+          label="Year"
           defaultValue="year"
           options={YEARS_DATA}
           errorMessage={errors.yearOfBirth?.message}
