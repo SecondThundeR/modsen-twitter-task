@@ -1,7 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { ref, set } from "firebase/database";
 
-import { auth, database } from "@/shared/lib/firebase";
+import { auth, updateData } from "@/shared/lib/firebase";
 
 export type SignupParams = {
   name: string;
@@ -40,7 +39,8 @@ const handleSignup = async ({
       phoneNumber,
     };
 
-    await set(ref(database, "users/" + user.uid), additionalUserData);
+    const userDBPath = "users/" + user.uid;
+    await updateData(userDBPath, additionalUserData);
 
     return {
       ...user,
