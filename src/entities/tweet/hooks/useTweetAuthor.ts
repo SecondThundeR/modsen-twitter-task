@@ -18,6 +18,7 @@ export function useTweetAuthor(authorId: string) {
 
   const name = userData?.displayName ?? authorData?.displayName;
   const email = userData?.email ?? authorData?.email;
+  const userAvatar = userData?.avatarURL ?? authorData?.avatarURL;
   const profileLink =
     authorData !== undefined
       ? `${RoutePaths.profile}/${authorData?.uid}`
@@ -35,6 +36,7 @@ export function useTweetAuthor(authorId: string) {
   return {
     name,
     email,
+    userAvatar,
     profileLink,
   };
 }

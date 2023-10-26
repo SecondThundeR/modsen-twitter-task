@@ -18,6 +18,7 @@ export const getAuthorData = async (authorId: string) => {
     uid: authorId,
     displayName: authorData?.displayName ?? "Author " + authorId,
     description: authorData?.description,
+    avatarURL: authorData?.avatarURL,
     email: authorData?.email ?? "Unknown email",
     followersIds: deserializeFirebaseArrays(
       authorData?.followersIds as FirebaseArrayValue<string>,

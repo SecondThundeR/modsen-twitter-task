@@ -1,10 +1,7 @@
 import { UserData, UserState } from "@/entities/user";
 
 export type AuthorData =
-  | (Pick<
-      NonNullable<UserData>,
-      "uid" | "displayName" | "email" | "description"
-    > &
+  | (Omit<NonNullable<UserData>, "phoneNumber" | "dateOfBirth"> &
       Omit<UserState, "userData" | "tweetsIds">)
   | null;
 

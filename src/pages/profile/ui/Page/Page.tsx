@@ -47,6 +47,7 @@ const Page = memo(function Page() {
           />
           <ProfileBlock
             buttonText={buttonText}
+            avatarURL={data.avatarURL}
             name={data.displayName}
             username={data.email}
             description={data.description}

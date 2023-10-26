@@ -42,6 +42,7 @@ export const userSlice = createSlice({
         displayName: newData.displayName ?? currentData.displayName ?? null,
         email: newData.email ?? currentData.email ?? null,
         description: newData.description ?? currentData.description,
+        avatarURL: newData.avatarURL ?? currentData.avatarURL,
         phoneNumber: newData.phoneNumber ?? currentData.phoneNumber,
         dateOfBirth: newData.dateOfBirth ?? currentData.dateOfBirth,
       };

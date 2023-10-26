@@ -3,6 +3,7 @@ import { User } from "firebase/auth";
 export type UserData =
   | (Pick<User, "uid" | "displayName" | "email"> & {
       description?: string;
+      avatarURL?: string;
       phoneNumber?: string;
       dateOfBirth?: string;
     })

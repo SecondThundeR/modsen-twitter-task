@@ -37,6 +37,12 @@ export const PaddingWrapper = styled.div`
 export const ColumnGapWrapper = styled.div`
   display: ${DISPLAY_MAP.flex};
   flex-direction: ${FLEX_PROPERTIES.column};
+  gap: ${GAP_MAP.medium};
+`;
+
+export const ProfileDetailsWrapper = styled.div`
+  display: ${DISPLAY_MAP.flex};
+  flex-direction: ${FLEX_PROPERTIES.column};
   gap: ${GAP_MAP.regular};
 `;
 

@@ -21,12 +21,12 @@ export const Tweet = memo(function Tweet({
   createdAt,
   authorId,
 }: TweetProps) {
-  const { name, email, profileLink } = useTweetAuthor(authorId);
+  const { name, email, userAvatar, profileLink } = useTweetAuthor(authorId);
   const { isUpdating, isLiked, likesAmount, onLikeClick } = useTweetLikes(id);
 
   return (
     <Wrapper>
-      <Avatar width={60} height={60} />
+      <Avatar width={60} height={60} src={userAvatar} />
       <TweetDetailsWrapper>
         <InfoWrapper>
           <InfoHeaderWrapper>

@@ -12,11 +12,13 @@ import {
   ProfileImageWrapper,
   PaddingWrapper,
   TextGapWrapper,
+  ProfileDetailsWrapper,
 } from "./ProfileBlock.styled";
 
 export const ProfileBlock = memo(function ProfileBlock({
   buttonText,
   isDisabled = false,
+  avatarURL,
   name,
   username,
   description,
@@ -31,7 +33,7 @@ export const ProfileBlock = memo(function ProfileBlock({
         <ColumnGapWrapper>
           <ProfileInfoHeader>
             <ProfileImageWrapper>
-              <Avatar width={150} height={150} />
+              <Avatar width={150} height={150} src={avatarURL} />
             </ProfileImageWrapper>
             <Button
               text={buttonText}
@@ -41,7 +43,7 @@ export const ProfileBlock = memo(function ProfileBlock({
               disabled={isDisabled}
             />
           </ProfileInfoHeader>
-          <ColumnGapWrapper>
+          <ProfileDetailsWrapper>
             <Title
               text={name}
               font="serif"
@@ -51,7 +53,7 @@ export const ProfileBlock = memo(function ProfileBlock({
             />
             <Text text={username} size="small" isSubtext />
             <Text text={description} />
-          </ColumnGapWrapper>
+          </ProfileDetailsWrapper>
           <RowGapWrapper>
             {following !== null && (
               <TextGapWrapper>
