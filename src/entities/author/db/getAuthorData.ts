@@ -1,18 +1,11 @@
-import { get, ref } from "firebase/database";
-
-import { deserializeFirebaseArrays } from "@/shared/helpers/database";
-import { database } from "@/shared/lib/firebase";
+import { deserializeFirebaseArray } from "@/shared/helpers/database";
+import { getData } from "@/shared/lib/firebase";
 
 import { AuthorData } from "..";
 
 export const getAuthorData = async (authorId: string) => {
-  const authorRef = ref(database, "/users/" + authorId);
-  const currentAuthorData = await get(authorRef);
-
-  if (!currentAuthorData.exists())
-    throw new Error("Failed to retrieve data for author: " + authorId);
-
-  const authorData = currentAuthorData.exportVal() as AuthorData;
+  const dbPath = "/users/" + authorId;
+  const authorData = await getData<AuthorData>(dbPath);
 
   return {
     uid: authorId,
@@ -20,11 +13,7 @@ export const getAuthorData = async (authorId: string) => {
     description: authorData?.description,
     avatarURL: authorData?.avatarURL,
     email: authorData?.email ?? "Unknown email",
-    followersIds: deserializeFirebaseArrays(
-      authorData?.followersIds as FirebaseArrayValue<string>,
-    ),
-    followingIds: deserializeFirebaseArrays(
-      authorData?.followingIds as FirebaseArrayValue<string>,
-    ),
+    followersIds: deserializeFirebaseArray(authorData?.followersIds),
+    followingIds: deserializeFirebaseArray(authorData?.followingIds),
   };
 };

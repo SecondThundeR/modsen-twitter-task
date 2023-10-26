@@ -1,34 +1,20 @@
-import { child, get, ref } from "firebase/database";
-
 import { UserData, UserState } from "@/entities/user";
 
-import { database } from "../lib/firebase";
+import { getData } from "../lib/firebase";
 
 type ExtractedUserData = Omit<NonNullable<UserData>, "uid"> &
   Omit<UserState, "userData">;
 
 export const extractUserData = async (userID: string) => {
   try {
-    const refDB = ref(database, "users/" + userID);
-    const data = await get(child(refDB, "/"));
-    if (!data.exists())
-      throw new Error("Failed to find any data for specific user!");
+    const dbPath = "users/" + userID;
+    const userData = await getData<ExtractedUserData>(dbPath);
 
-    const extractedData = data.exportVal() as ExtractedUserData;
-    if (!extractedData)
-      throw new Error("Failed to extract any data for specific user!");
-
-    const deserializedData: ExtractedUserData = {
-      ...extractedData,
-      tweetsIds: deserializeFirebaseArrays(
-        extractedData.tweetsIds as FirebaseArrayValue<string>,
-      ),
-      followersIds: deserializeFirebaseArrays(
-        extractedData.followersIds as FirebaseArrayValue<string>,
-      ),
-      followingIds: deserializeFirebaseArrays(
-        extractedData.followingIds as FirebaseArrayValue<string>,
-      ),
+    const deserializedData = {
+      ...userData,
+      tweetsIds: deserializeFirebaseArray(userData.tweetsIds),
+      followersIds: deserializeFirebaseArray(userData.followersIds),
+      followingIds: deserializeFirebaseArray(userData.followingIds),
     };
 
     return deserializedData;
@@ -37,7 +23,7 @@ export const extractUserData = async (userID: string) => {
   }
 };
 
-export const deserializeFirebaseArrays = <T>(data: FirebaseArrayValue<T>) => {
+export const deserializeFirebaseArray = <T>(data: FirebaseArrayValue<T>) => {
   if (data === undefined) return [];
   return Object.values(data);
 };

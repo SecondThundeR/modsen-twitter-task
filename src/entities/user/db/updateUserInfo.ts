@@ -1,17 +1,18 @@
-import { get, ref, update } from "firebase/database";
-
-import { database } from "@/shared/lib/firebase";
+import { isDataExists, updateData } from "@/shared/lib/firebase";
 
 import { UserDataUpdate } from "../model/types";
 
 export const updateUserInfo = async (userId: string, data: UserDataUpdate) => {
-  const userRef = ref(database, "/users/" + userId);
-  const userDataCheck = await get(userRef);
-  if (!userDataCheck.exists()) {
-    throw new Error("Failed to find data for certain user id");
+  const dbPath = "/users/" + userId;
+  const isUserInfoExists = await isDataExists(dbPath);
+
+  if (!isUserInfoExists) {
+    throw new Error(
+      `Can't update data for user ${userId} as there are no records for it`,
+    );
   }
 
-  await update(userRef, {
+  await updateData(dbPath, {
     ...data,
   });
 };
