@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Params, useNavigate, useParams } from "react-router-dom";
 
 import { getAuthorData, pushAuthor, selectAuthorByID } from "@/entities/author";
 import { selectTweetsAmount } from "@/entities/tweet";
@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { RoutePaths } from "@/shared/lib/router";
 
 export function useProfileData() {
-  const { id } = useParams<{ id?: string }>();
+  const { id } = useParams<Params<"id">>();
   const navigate = useNavigate();
 
   const currentUserData = useAppSelector(selectCurrentUser);

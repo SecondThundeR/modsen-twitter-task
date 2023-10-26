@@ -1,2 +1,2 @@
 export { useProfileFollow } from "./useProfileFollow";
-export { useProfileData } from "./useProfileData/useProfileData";
+export { useProfileData } from "./useProfileData";
