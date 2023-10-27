@@ -5,7 +5,7 @@ import LikeIcon from "@/shared/assets/like.svg?react";
 import LikeFilledIcon from "@/shared/assets/likeFill.svg?react";
 import { formatTimeDifference } from "@/shared/helpers/date";
 import { Link } from "@/shared/lib/router";
-import { Avatar, IconButton, Text, Title } from "@/shared/ui";
+import { Avatar, IconButton, Image, Text, Title } from "@/shared/ui";
 
 import type { TweetProps } from "./interfaces";
 import {
@@ -18,9 +18,10 @@ import {
 
 export const Tweet = memo(function Tweet({
   id,
-  text,
-  createdAt,
   authorId,
+  text,
+  imageURL,
+  createdAt,
 }: TweetProps) {
   const { name, email, userAvatar, profileLink } = useTweetAuthor(authorId);
   const { isUpdating, isLiked, likesAmount, onLikeClick } = useTweetLikes(id);
@@ -43,6 +44,7 @@ export const Tweet = memo(function Tweet({
             <Text text={formattedTweetTime} isSubtext />
           </InfoHeaderWrapper>
           <Text text={text} />
+          <Image src={imageURL} />
         </InfoWrapper>
         <LikeButtonWrapper $isLiked={isLiked}>
           <IconButton

@@ -3,6 +3,7 @@ export type Tweet = {
   text: string;
   authorId: string;
   createdAt: number;
+  imageURL?: string;
   likesIds?: string[];
 };
 
