@@ -6,6 +6,7 @@ export { Header } from "./Header/Header";
 export { IconButton } from "./IconButton/IconButton";
 export { Input } from "./Input/Input";
 export { Layout } from "./Layout/Layout";
+export { Loader } from "./Loader/Loader";
 export { Modal } from "./Modal/Modal";
 export { SectionButton } from "./SectionButton/SectionButton";
 export { Select } from "./Select/Select";

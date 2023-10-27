@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { useTweets } from "@/features/tweets";
 import { Tweet } from "@/entities/tweet";
-import { Alert, Text } from "@/shared/ui";
+import { Alert, Loader, Text } from "@/shared/ui";
 
 import type { TweetsListProps } from "./interface";
 import { AlertWrapper, PlaceholderWrapper, Wrapper } from "./TweetsList.styled";
@@ -23,14 +23,11 @@ export const TweetsList = memo(function TweetsList({
           />
         </AlertWrapper>
       )}
-      {!tweets && (
+      {isLoading && <Loader text="Loading tweets feed..." />}
+      {!tweets && !isLoading && (
         <PlaceholderWrapper>
           <Text
-            text={
-              isLoading
-                ? "Loading tweets feed..."
-                : "Slightly empty here. Try to add new tweet or follow someone"
-            }
+            text="Slightly empty here. Try to add new tweet or follow someone"
             isSubtext
           />
         </PlaceholderWrapper>

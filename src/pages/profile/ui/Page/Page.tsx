@@ -13,9 +13,7 @@ import { ChangeThemeToggle } from "@/features/theme";
 import { TweetComposer } from "@/features/tweets";
 import { getProfileButtonText } from "@/shared/helpers/getProfileButtonText";
 import { useModal } from "@/shared/lib/hooks";
-import { Header, Text, Modal } from "@/shared/ui";
-
-import { PlaceholderWrapper } from "./Page.styled";
+import { Header, Modal, Loader } from "@/shared/ui";
 
 const Page = memo(function Page() {
   const {
@@ -35,11 +33,7 @@ const Page = memo(function Page() {
 
   return (
     <>
-      {isLoading && (
-        <PlaceholderWrapper>
-          <Text text="Loading profile data..." />
-        </PlaceholderWrapper>
-      )}
+      {isLoading && <Loader text="Loading profile data..." />}
       {data && (
         <>
           <Header
