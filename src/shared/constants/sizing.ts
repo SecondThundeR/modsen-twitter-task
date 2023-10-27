@@ -50,6 +50,7 @@ export const MARGIN_MAP = {
     regular: "16px auto",
     phone: "16px",
   },
+  errorBoundary: "32px auto",
 } as const;
 
 export const RADIUS_MAP = {

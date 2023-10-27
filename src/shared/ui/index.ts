@@ -1,6 +1,7 @@
 export { Alert } from "./Alert/Alert";
 export { Avatar } from "./Avatar/Avatar";
 export { Button } from "./Button/Button";
+export { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary";
 export { Header } from "./Header/Header";
 export { IconButton } from "./IconButton/IconButton";
 export { Input } from "./Input/Input";
