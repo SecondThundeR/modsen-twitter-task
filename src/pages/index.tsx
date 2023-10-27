@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import { LayoutMobileNavigation } from "@/widgets/LayoutMobileNavigation";
 import { LayoutNavigation } from "@/widgets/LayoutNavigation";
 import { RoutePaths, ProtectedRoute, RegularRoute } from "@/shared/lib/router";
 import { Layout } from "@/shared/ui";
@@ -11,7 +12,16 @@ import ProfilePage from "./profile";
 import RegisterPage from "./register";
 import RootPage from "./root";
 
-const HomeLayout = <Layout navSlot={<LayoutNavigation />} />;
+const HomeLayout = (
+  <Layout
+    navSlot={
+      <>
+        <LayoutNavigation />
+        <LayoutMobileNavigation />
+      </>
+    }
+  />
+);
 
 export const Routing = memo(function Routing() {
   return (
