@@ -13,6 +13,7 @@ export const DIMENSIONS_MAP = {
 export const GAP_MAP = {
   small: "4px",
   regular: "8px",
+  compact: "12px",
   medium: "16px",
   semiLarge: "18px",
   large: "24px",
@@ -36,7 +37,7 @@ export const PADDING_MAP = {
     phone: "0px 16px",
   },
   alert: "32px 24px",
-  placeholder: "16px",
+  placeholder: "18px",
   tweetWrapper: "16px 24px",
   composerWrapper: "18px 24px",
   modal: "16px 20px",

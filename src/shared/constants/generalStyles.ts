@@ -9,6 +9,7 @@ export const DISPLAY_MAP = {
   none: "none",
   flex: "flex",
   grid: "grid",
+  inlineBlock: "inline-block",
 } as const;
 export const FLEX_PROPERTIES = {
   column: "column",

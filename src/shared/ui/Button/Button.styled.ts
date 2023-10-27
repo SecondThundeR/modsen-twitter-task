@@ -36,7 +36,7 @@ export const Wrapper = styled.button<ButtonStyleProps>`
   display: ${DISPLAY_MAP.flex};
   justify-content: ${FLEX_PROPERTIES.justifyCenter};
   align-items: ${FLEX_PROPERTIES.alignCenter};
-  gap: ${GAP_MAP.regular};
+  gap: ${GAP_MAP.compact};
   font-family: ${({ $font }) => getFontFamily($font)};
   background-color: ${({ theme, $variant }) =>
     getBackgroundColor($variant, theme)};
