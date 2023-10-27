@@ -12,10 +12,11 @@ import {
   PADDING_MAP,
   RADIUS_MAP,
 } from "@/shared/constants/sizing";
+import { InputStyleProps } from "./interfaces";
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<InputStyleProps>`
   width: ${DIMENSIONS_MAP.full};
-  display: ${DISPLAY_MAP.flex};
+  display: ${({ $isHidden }) => DISPLAY_MAP[$isHidden ? "none" : "flex"]};
   flex-direction: ${FLEX_PROPERTIES.column};
   gap: ${GAP_MAP.regular};
 `;

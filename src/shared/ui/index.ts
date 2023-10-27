@@ -4,6 +4,7 @@ export { Button } from "./Button/Button";
 export { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary";
 export { Header } from "./Header/Header";
 export { IconButton } from "./IconButton/IconButton";
+export { Image } from "./Image/Image";
 export { Input } from "./Input/Input";
 export { Layout } from "./Layout/Layout";
 export { Loader } from "./Loader/Loader";

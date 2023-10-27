@@ -7,7 +7,7 @@ import type { InputProps } from "./interfaces";
 
 export const Input = memo(
   forwardRef<HTMLInputElement, InputProps>(function Input(
-    { errorMessage, label, ...props },
+    { errorMessage, label, isHidden = false, ...props },
     ref,
   ) {
     const extractedMessage =
@@ -16,7 +16,7 @@ export const Input = memo(
         : errorMessage;
 
     return (
-      <InputWrapper>
+      <InputWrapper $isHidden={isHidden}>
         <Text text={label} isSubtext />
         <Wrapper ref={ref} {...props} />
         <ErrorMessage>{extractedMessage}</ErrorMessage>
