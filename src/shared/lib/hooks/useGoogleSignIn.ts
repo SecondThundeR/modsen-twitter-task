@@ -22,7 +22,7 @@ export function useGoogleSignIn() {
       const isNewUser =
         additionalInfo !== null ? additionalInfo.isNewUser : true;
       const { uid } = result.user;
-      const { displayName, email, dateOfBirth, phoneNumber, ...rest } =
+      const { followersIds, followingIds, tweetsIds, ...rest } =
         await getUserData(uid);
 
       if (!isNewUser) {
@@ -30,20 +30,18 @@ export function useGoogleSignIn() {
           setUserInfo({
             userData: {
               uid,
-              displayName,
-              email,
-              dateOfBirth,
-              phoneNumber,
+              ...rest,
             },
-            ...rest,
+            followersIds,
+            followingIds,
+            tweetsIds,
           }),
         );
       } else {
         dispatch(
           setUserData({
             uid,
-            displayName,
-            email,
+            ...rest,
           }),
         );
       }

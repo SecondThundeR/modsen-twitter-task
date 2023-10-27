@@ -37,28 +37,15 @@ export const SigninForm = memo(function SigninForm({
 
       try {
         const res = await initiateSignin(params);
-        const {
-          uid,
-          displayName,
-          description,
-          avatarURL,
-          email,
-          phoneNumber,
-          dateOfBirth,
-          ...rest
-        } = res;
+        const { followersIds, followingIds, tweetsIds, ...rest } = res;
         dispatch(
           setUserInfo({
             userData: {
-              uid,
-              displayName,
-              description,
-              avatarURL,
-              email,
-              phoneNumber,
-              dateOfBirth,
+              ...rest,
             },
-            ...rest,
+            followersIds,
+            followingIds,
+            tweetsIds,
           }),
         );
         onComplete?.();
