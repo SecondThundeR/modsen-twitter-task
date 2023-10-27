@@ -59,6 +59,7 @@ export const RADIUS_MAP = {
   modal: "12px",
   alert: "8px",
   input: "6px",
+  image: "16px",
 } as const;
 
 export const FONT_SIZE_MAP = {
