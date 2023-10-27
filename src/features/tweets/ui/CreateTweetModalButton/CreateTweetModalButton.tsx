@@ -1,10 +1,15 @@
 import { memo } from "react";
 
 import { TweetComposer } from "@/features/tweets";
+import PostTweetIcon from "@/shared/assets/postTweet.svg?react";
 import { useModal } from "@/shared/lib/hooks";
-import { Button, Modal } from "@/shared/ui";
+import { Button, IconButton, Modal } from "@/shared/ui";
 
-export const CreateTweetModalButton = memo(function CreateTweetModalButton() {
+import type { CreateTweetModalButtonProps } from "./interfaces";
+
+export const CreateTweetModalButton = memo(function CreateTweetModalButton({
+  useIcon = false,
+}: CreateTweetModalButtonProps) {
   const {
     isOpened,
     handlers: { onOpen, onClose },
@@ -12,10 +17,19 @@ export const CreateTweetModalButton = memo(function CreateTweetModalButton() {
 
   return (
     <>
-      <Button text="Tweet" font="serif" variant="primary" onClick={onOpen} />
+      {useIcon ? (
+        <IconButton
+          icon={<PostTweetIcon />}
+          onClick={onOpen}
+          hasInvert
+          fullHeight
+        />
+      ) : (
+        <Button text="Tweet" font="serif" variant="primary" onClick={onOpen} />
+      )}
       {isOpened && (
         <Modal closeModal={onClose}>
-          <TweetComposer isStandalone onAdd={onClose} />
+          <TweetComposer isStandalone hideAvatar onAdd={onClose} />
         </Modal>
       )}
     </>

@@ -25,6 +25,7 @@ import {
 
 export const TweetComposer = memo(function TweetComposer({
   isStandalone = false,
+  hideAvatar = false,
   onAdd,
 }: TweetComposerProps) {
   const { userData, tweetsIds } = useAppSelector(selectCurrentUser);
@@ -69,7 +70,7 @@ export const TweetComposer = memo(function TweetComposer({
     );
 
   return (
-    <Wrapper $isStandalone={isStandalone}>
+    <Wrapper $isStandalone={isStandalone} $hideAvatar={hideAvatar}>
       <Avatar width={52} height={52} src={userAvatar} />
       <ComposerWrapper>
         <Textarea
