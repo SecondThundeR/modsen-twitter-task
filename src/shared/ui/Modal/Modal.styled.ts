@@ -5,6 +5,7 @@ import {
   POSITION_MAP,
   FLEX_PROPERTIES,
   TOP_INDEX,
+  NONE,
 } from "@/shared/constants/generalStyles";
 import {
   DIMENSIONS_MAP,
@@ -37,4 +38,10 @@ export const ContentWrapper = styled.div`
   border-radius: ${RADIUS_MAP.modal};
   justify-content: ${FLEX_PROPERTIES.justifyCenter};
   align-items: ${FLEX_PROPERTIES.alignCenter};
+
+  @media only screen and (max-width: 768px) {
+    margin: ${PADDING_MAP.modal};
+    padding: ${NONE};
+    width: ${DIMENSIONS_MAP.full};
+  }
 `;

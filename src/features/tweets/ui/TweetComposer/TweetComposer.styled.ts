@@ -19,9 +19,16 @@ export const Wrapper = styled.div<TweetComposerStyledProps>`
   width: ${DIMENSIONS_MAP.full};
   display: ${DISPLAY_MAP.flex};
   gap: ${GAP_MAP.medium};
-  padding: ${PADDING_MAP.composerWrapper};
+  padding: ${({ $isStandalone }) =>
+    $isStandalone ? NONE : PADDING_MAP.composerWrapper};
   border-bottom: ${({ $isStandalone }) =>
     $isStandalone ? NONE : `1px solid ${COLORS.sectionBorder}`};
+
+  @media only screen and (max-width: 768px) {
+    & > img {
+      display: ${({ $hideAvatar }) => ($hideAvatar ? NONE : DISPLAY_MAP.flex)};
+    }
+  }
 `;
 
 export const ComposerWrapper = styled.div`

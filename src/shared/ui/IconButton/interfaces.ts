@@ -7,8 +7,10 @@ export interface IconButtonProps
   > {
   icon: ReactNode;
   hasInvert?: boolean;
+  fullHeight?: boolean;
 }
 
 export interface IconButtonStyleProps {
   $hasInvert: boolean;
+  $fullHeight: boolean;
 }

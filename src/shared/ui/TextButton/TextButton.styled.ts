@@ -19,8 +19,12 @@ export const Button = styled.button<TextButtonStyleProps>`
   border: ${NONE};
   outline: ${NONE};
   background-color: ${COLORS.transparent};
-  font-size: ${FONT_SIZE_MAP.textButton};
+  font-size: ${FONT_SIZE_MAP.textButton.regular};
   color: ${({ theme: { accent } }) => accent};
+
+  @media only screen and (max-width: 768px) {
+    font-size: ${FONT_SIZE_MAP.textButton.phone};
+  }
 
   &:hover {
     text-decoration: ${UNDERLINE_DECORATION};

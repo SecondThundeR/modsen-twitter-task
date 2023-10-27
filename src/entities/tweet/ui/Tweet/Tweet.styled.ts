@@ -9,8 +9,12 @@ import type { TweetLikeButtonWrapperProps } from "./interfaces";
 export const Wrapper = styled.div`
   display: ${DISPLAY_MAP.flex};
   gap: ${GAP_MAP.medium};
-  padding: ${PADDING_MAP.tweetWrapper};
+  padding: ${PADDING_MAP.tweetWrapper.regular};
   border-bottom: ${`1px solid ${COLORS.sectionBorder}`};
+
+  @media only screen and (max-width: 768px) {
+    padding: ${PADDING_MAP.tweetWrapper.phone};
+  }
 `;
 
 export const TweetDetailsWrapper = styled.div`
@@ -30,8 +34,14 @@ export const InfoHeaderWrapper = styled.div`
   display: ${DISPLAY_MAP.flex};
   gap: ${GAP_MAP.small};
 
-  & > p:nth-last-child(1)::before {
-    content: "· ";
+  @media only screen and (max-width: 768px) {
+    flex-direction: ${FLEX_PROPERTIES.column};
+  }
+
+  @media only screen and (min-width: 768px) {
+    & > p:nth-last-child(1)::before {
+      content: "· ";
+    }
   }
 `;
 
