@@ -1,15 +1,18 @@
 import { type ChangeEventHandler, memo, useCallback, useState } from "react";
 
-import { useAddTweet } from "@/features/tweets";
+import {
+  useAddTweet,
+  TweetImageUploadButton,
+  useAddTweetImage,
+} from "@/features/tweets";
 import { selectCurrentUser } from "@/entities/user";
-import ImageIcon from "@/shared/assets/image.svg?react";
 import {
   MAX_CHARS,
   WARNING_THRESHOLD,
   MAX_ROWS,
 } from "@/shared/constants/composer";
 import { useAppSelector } from "@/shared/lib/hooks";
-import { Alert, Avatar, Button, IconButton, Text, Textarea } from "@/shared/ui";
+import { Alert, Avatar, Button, Image, Text, Textarea } from "@/shared/ui";
 
 import type { TweetComposerProps } from "./interfaces";
 import {
@@ -24,12 +27,18 @@ export const TweetComposer = memo(function TweetComposer({
   isStandalone = false,
   onAdd,
 }: TweetComposerProps) {
-  const userData = useAppSelector((state) => selectCurrentUser(state).userData);
-  const authorId = userData!.uid;
-  const userAvatar = userData!.avatarURL;
-  const { isAdding, error, addNewTweet } = useAddTweet();
+  const { userData, tweetsIds } = useAppSelector(selectCurrentUser);
+  const { isAdding, error, addNewTweet } = useAddTweet(tweetsIds ?? []);
+  const {
+    selectedFile,
+    previewImage,
+    inputRef,
+    handlers: { handleFileClear, ...otherHandlers },
+  } = useAddTweetImage();
   const [tweetText, setTweetText] = useState("");
 
+  const authorId = userData!.uid;
+  const userAvatar = userData!.avatarURL;
   const buttonText = isAdding ? "Posting..." : "Tweet";
   const buttonDisabled = tweetText.length === 0 || isAdding;
   const charsDifference = MAX_CHARS - tweetText.length;
@@ -44,10 +53,13 @@ export const TweetComposer = memo(function TweetComposer({
 
   const onClick = useCallback(async () => {
     if (!tweetText) return;
-    await addNewTweet({ text: tweetText, authorId });
+
+    await addNewTweet({ text: tweetText, authorId, selectedFile });
     setTweetText("");
+    handleFileClear();
+
     onAdd && onAdd();
-  }, [addNewTweet, authorId, onAdd, tweetText]);
+  }, [addNewTweet, authorId, handleFileClear, onAdd, selectedFile, tweetText]);
 
   if (error !== null)
     return (
@@ -68,8 +80,13 @@ export const TweetComposer = memo(function TweetComposer({
           maxLength={MAX_CHARS}
           disabled={isAdding}
         />
+        <Image
+          src={previewImage}
+          buttonText="Remove image"
+          onClick={handleFileClear}
+        />
         <ControlsWrapper>
-          <IconButton icon={<ImageIcon />} />
+          <TweetImageUploadButton inputRef={inputRef} {...otherHandlers} />
           <ButtonWrapper>
             {isDifferenceShown && (
               <Text text={`${charsDifference} chars available`} isSubtext />
