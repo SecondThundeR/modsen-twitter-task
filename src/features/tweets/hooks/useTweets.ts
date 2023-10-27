@@ -24,7 +24,7 @@ export function useTweets(authorId?: string) {
 
   const fetchTweets = useCallback(async () => {
     const tweetsDBPath = "tweets/";
-    let tweetsData: FirebaseArrayValue<TweetDBInfo> | undefined;
+    let tweetsData: FirebaseDatabaseType<TweetDBInfo[]> | undefined;
     try {
       tweetsData = await getData<TweetDBInfo[]>(tweetsDBPath);
     } catch (error) {
@@ -32,13 +32,15 @@ export function useTweets(authorId?: string) {
       return [];
     }
 
-    const tweetsArray = Object.entries(tweetsData!)
+    const tweetsArray = Object.entries(tweetsData)
       .reverse()
       .map((data) => {
         const [id, value] = data;
+        const { likesIds, ...rest } = value;
         return {
           id,
-          ...value,
+          likesIds: deserializeFirebaseArray(likesIds),
+          ...rest,
         };
       }) satisfies TweetType[];
     dispatch(setTweets(tweetsArray));
