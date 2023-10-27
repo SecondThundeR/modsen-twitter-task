@@ -4,6 +4,7 @@ export const DIMENSIONS_MAP = {
   half: "50%",
   fullScreen: "100vh",
   header: "86px",
+  mobileNavigation: "64px",
   profileHeaderImage: "280px",
   narrowLayoutBlock: "1408px",
   narrowSignupBlock: "670px",
@@ -22,10 +23,10 @@ export const GAP_MAP = {
 
 export const PADDING_MAP = {
   button: {
-    regular: "18px 80px",
+    regular: "18px 64px",
     compact: "16px 32px",
     small: "12px 24px",
-    phone: "18px 16px",
+    phone: "18px 36px",
   },
   input: "20px 24px",
   textArea: "4px",
@@ -38,15 +39,19 @@ export const PADDING_MAP = {
   },
   alert: "32px 24px",
   placeholder: "18px",
-  tweetWrapper: "16px 24px",
+  tweetWrapper: {
+    regular: "16px 24px",
+    phone: "16px",
+  },
   composerWrapper: "18px 24px",
   modal: "16px 20px",
   profileBlock: "24px 16px",
+  mobileNavigation: "0px 16px",
 } as const;
 
 export const MARGIN_MAP = {
   footer: "0px auto",
-  navigation: "32px 32px 0 0",
+  navigation: "32px",
   registerWrapper: {
     regular: "16px auto",
     phone: "16px",
@@ -97,7 +102,10 @@ export const FONT_SIZE_MAP = {
     small: "16px",
   },
   input: "18px",
-  textButton: "18px",
+  textButton: {
+    regular: "18px",
+    phone: "16px",
+  },
 } as const;
 
 export const TEXT_LINE_HEIGHT = 1.3;

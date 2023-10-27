@@ -25,7 +25,7 @@ export const Button = styled.button<SectionButtonStyleProps>`
   outline: ${NONE};
   font-family: ${({ $isActive }) =>
     $isActive ? FONT_FAMILY_MAP.robotoSerif : FONT_FAMILY_MAP.roboto};
-  font-size: ${FONT_SIZE_MAP.textButton};
+  font-size: ${FONT_SIZE_MAP.textButton.regular};
   font-weight: ${({ $isActive }) =>
     $isActive ? WEIGHTS_MAP.bold : WEIGHTS_MAP.semibold};
 

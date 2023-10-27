@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Outlet } from "react-router-dom";
 
 import type { LayoutProps } from "./interfaces";
-import { Wrapper, OutletWrapper } from "./Layout.styled";
+import { Wrapper, OutletWrapper, SidebarWrapper } from "./Layout.styled";
 
 export const Layout = memo(function MainLayout({
   navSlot,
@@ -14,7 +14,7 @@ export const Layout = memo(function MainLayout({
       <OutletWrapper>
         <Outlet />
       </OutletWrapper>
-      {sidebarSlot}
+      <SidebarWrapper>{sidebarSlot}</SidebarWrapper>
     </Wrapper>
   );
 });

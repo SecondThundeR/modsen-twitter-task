@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { COLORS } from "@/shared/constants/colors";
 import {
   ACTIVE_SCALE_PRESSED,
   CURSOR_POINTER,
@@ -17,10 +18,10 @@ import type { IconButtonStyleProps } from "./interfaces";
 export const Wrapper = styled.button<IconButtonStyleProps>`
   cursor: ${CURSOR_POINTER};
   width: ${DIMENSIONS_MAP.fit};
-  height: ${DIMENSIONS_MAP.fit};
+  height: ${({ $fullHeight }) => DIMENSIONS_MAP[$fullHeight ? "full" : "fit"]};
   padding: ${NO_PADDING};
   border: ${NONE};
-  background-color: transparent;
+  background-color: ${COLORS.transparent};
 
   & > svg {
     -webkit-filter: ${({ theme: { iconInvert }, $hasInvert }) => {

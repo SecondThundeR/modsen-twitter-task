@@ -6,11 +6,17 @@ import type { IconButtonProps } from "./interfaces";
 export const IconButton = memo(function IconButton({
   icon,
   hasInvert = true,
+  fullHeight = false,
   onClick,
   disabled,
 }: IconButtonProps) {
   return (
-    <Wrapper $hasInvert={hasInvert} onClick={onClick} disabled={disabled}>
+    <Wrapper
+      $hasInvert={hasInvert}
+      $fullHeight={fullHeight}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {icon}
     </Wrapper>
   );
