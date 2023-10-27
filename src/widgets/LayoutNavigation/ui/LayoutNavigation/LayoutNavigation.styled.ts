@@ -8,4 +8,8 @@ export const Wrapper = styled.nav`
   flex-direction: ${FLEX_PROPERTIES.column};
   gap: ${GAP_MAP.extraLarge};
   margin: ${MARGIN_MAP.navigation};
+
+  @media only screen and (max-width: 768px) {
+    display: ${DISPLAY_MAP.none};
+  }
 `;
