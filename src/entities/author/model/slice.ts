@@ -1,4 +1,11 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import {
+  createSelector,
+  createSlice,
+  type PayloadAction,
+} from "@reduxjs/toolkit";
+
+import type { TweetType } from "@/entities/tweet";
+import { selectCurrentUser } from "@/entities/user";
 
 import type { AuthorState } from "./types";
 
@@ -65,6 +72,31 @@ export const authorSlice = createSlice({
     },
   },
 });
+
+const selectAuthorsArray = (state: RootState) => state.authors.authorsArray;
+
+export const selectAllAuthors = createSelector(
+  [selectCurrentUser, selectAuthorsArray],
+  (user, authorsArray) => {
+    const { uid: currentUserId } = user.userData!;
+    return authorsArray?.filter(
+      (authorData) => authorData?.uid !== currentUserId,
+    );
+  },
+);
+
+export const selectAuthorsByTweets = createSelector(
+  [
+    selectAuthorsArray,
+    (_state: RootState, tweetsData: TweetType[] | null) => tweetsData,
+  ],
+  (authorsArray, tweetsData) => {
+    const authorsIds = tweetsData?.map((data) => data.authorId) ?? [];
+    return authorsArray?.filter(
+      (authorData) => authorData && authorsIds.includes(authorData.uid),
+    );
+  },
+);
 
 export const selectAuthorByID = (state: RootState, authorId?: string) => {
   return state.authors.authorsArray?.find(

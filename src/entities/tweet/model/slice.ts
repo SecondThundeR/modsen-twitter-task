@@ -92,15 +92,22 @@ export const selectCurrentTweets = createSelector(
   [
     selectCurrentUser,
     selectTweets,
-    (_state: RootState, filterId?: string) => filterId,
+    (_state: RootState, filterId?: string, queryString?: string) => [
+      filterId,
+      queryString,
+    ],
   ],
-  (user, tweets, filterId) => {
+  (user, tweets, [filterId, queryString]) => {
     const { userData, followingIds } = user;
     const userId = userData!.uid;
     if (!tweets) return null;
 
     return tweets.filter((tweet) => {
       if (filterId !== undefined) return tweet.authorId === filterId;
+      if (queryString !== undefined)
+        return tweet.text
+          .toLocaleLowerCase()
+          .includes(queryString.toLocaleLowerCase());
       return (
         tweet.authorId === userId || followingIds?.includes(tweet.authorId)
       );

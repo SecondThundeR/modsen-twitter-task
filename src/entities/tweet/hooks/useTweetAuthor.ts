@@ -19,10 +19,8 @@ export function useTweetAuthor(authorId: string) {
   const name = userData?.displayName ?? authorData?.displayName;
   const email = userData?.email ?? authorData?.email;
   const userAvatar = userData?.avatarURL ?? authorData?.avatarURL;
-  const profileLink =
-    authorData !== undefined
-      ? `${RoutePaths.profile}/${authorData?.uid}`
-      : RoutePaths.profile;
+  const userID = userData?.uid ?? authorData?.uid;
+  const profileLink = `${RoutePaths.profile}/${userID}`;
 
   const updateAuthor = useCallback(async () => {
     const authorData = await getAuthorData(authorId);
