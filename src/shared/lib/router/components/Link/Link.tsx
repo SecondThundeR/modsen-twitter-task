@@ -1,9 +1,6 @@
-import { LinkProps as RouterLinkProps } from "react-router-dom";
-
+import type { LinkProps } from "./interfaces";
 import { NavLink } from "./styled";
 
-export interface LinkProps extends RouterLinkProps {}
-
-export function Link({ ...props }: LinkProps) {
-  return <NavLink {...props} />;
+export function Link({ variant = "primary", ...props }: LinkProps) {
+  return <NavLink $variant={variant} {...props} />;
 }

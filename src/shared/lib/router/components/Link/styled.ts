@@ -1,7 +1,14 @@
-import { Link, LinkProps as RouterLinkProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const NavLink = styled(Link)<RouterLinkProps>`
-  text-decoration: "none";
-  color: "inherit";
+import type { LinkStyledProps } from "./interfaces";
+
+export const NavLink = styled(Link)<LinkStyledProps>`
+  text-decoration: none;
+  color: ${({ theme: { accent, color }, $variant }) =>
+    $variant === "primary" ? accent : color};
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
