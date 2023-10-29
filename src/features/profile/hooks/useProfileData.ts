@@ -18,7 +18,9 @@ export function useProfileData() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const isOwnProfile = id === undefined;
+  const hasBackButton = id !== undefined;
+  const isOwnProfile =
+    id === undefined ? true : id === currentUserData.userData?.uid;
 
   const getCurrentProfileData = useCallback(() => {
     if (isOwnProfile) {
@@ -58,6 +60,7 @@ export function useProfileData() {
     data: getCurrentProfileData(),
     general: {
       isLoading,
+      hasBackButton,
       isOwnProfile,
     },
   };

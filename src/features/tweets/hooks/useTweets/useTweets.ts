@@ -13,13 +13,16 @@ import { getData } from "@/shared/lib/firebase";
 import { useAppSelector, useAppDispatch } from "@/shared/lib/hooks";
 import { FirebaseDatabaseType } from "@/shared/types/firebase";
 
-export function useTweets(authorId?: string) {
+import type { UseTweetsOptions } from "./interfaces";
+
+export function useTweets({ authorId, queryString }: UseTweetsOptions) {
   const { userData } = useAppSelector(selectCurrentUser);
   const tweets = useAppSelector((state) =>
-    selectCurrentTweets(state, authorId),
+    selectCurrentTweets(state, authorId, queryString),
   );
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const [currentQuery, setCurrentQuery] = useState("");
   const [error, setError] = useState<unknown>(null);
 
   const fetchTweets = useCallback(async () => {
@@ -74,7 +77,7 @@ export function useTweets(authorId?: string) {
     }
   }, [dispatch, tweets, userData?.uid]);
 
-  const loadTweets = useCallback(async () => {
+  const loadTweetData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -88,9 +91,15 @@ export function useTweets(authorId?: string) {
   }, [fetchTweets, fetchTweetsAuthors]);
 
   useEffect(() => {
-    if (tweets !== null) return;
-    loadTweets().catch(console.error);
-  }, [loadTweets, tweets]);
+    if (tweets !== null) {
+      if (queryString && queryString !== currentQuery) {
+        loadTweetData().catch(console.error);
+        setCurrentQuery(queryString);
+      }
+      return;
+    }
+    loadTweetData().catch(console.error);
+  }, [currentQuery, loadTweetData, queryString, tweets]);
 
   return {
     tweets,
