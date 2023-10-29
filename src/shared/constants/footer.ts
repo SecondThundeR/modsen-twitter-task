@@ -15,3 +15,12 @@ export const ROOT_FOOTER_DATA = [
   { id: "dir", text: "Directory" },
   { id: "settings", text: "Settings" },
 ];
+
+export const SIDEBAR_FOOTER_DATA = [
+  { id: "tos", text: "Terms of Service" },
+  { id: "private", text: "Privacy Policy" },
+  { id: "cookie", text: "Cookie Policy" },
+  { id: "imprint", text: "Imprint" },
+  { id: "ads", text: "Ads Info" },
+  { id: "more", text: "More ···" },
+];

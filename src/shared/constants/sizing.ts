@@ -47,11 +47,14 @@ export const PADDING_MAP = {
   modal: "16px 20px",
   profileBlock: "24px 16px",
   mobileNavigation: "0px 16px",
+  search: "12px 16px",
+  sidebarBlock: "18px",
 } as const;
 
 export const MARGIN_MAP = {
   footer: "0px auto",
   navigation: "32px",
+  sidebar: "20px 24px",
   registerWrapper: {
     regular: "16px auto",
     phone: "16px",
@@ -60,11 +63,13 @@ export const MARGIN_MAP = {
 } as const;
 
 export const RADIUS_MAP = {
-  button: "42px",
   modal: "12px",
   alert: "8px",
   input: "6px",
   image: "16px",
+  sidebarBlock: "18px",
+  search: "32px",
+  button: "42px",
 } as const;
 
 export const FONT_SIZE_MAP = {

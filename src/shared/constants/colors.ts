@@ -17,6 +17,12 @@ export const COLORS = {
   secondaryDark: "#c6cccd",
   secondaryDarkHover: "#808080",
 
+  searchBackground: "#eff3f4",
+  searchForeground: "#5c6c79",
+
+  searchBackgroundDark: "#333",
+  searchForegroundDark: "#fff",
+
   white: "#fff",
   white20: "rgba(255, 255, 255, 0.2)",
   white60: "rgba(255, 255, 255, 0.6)",
@@ -29,6 +35,6 @@ export const COLORS = {
 
   border: "#e4eaed",
   sectionBorder: "#c4c4c4",
-  slotBorder: "#312f2f",
+  slotBorder: "#9f9898",
   transparent: "transparent",
 } as const;
