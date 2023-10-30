@@ -48,3 +48,4 @@ export const STICKY_TOP = 0;
 export const TOP_INDEX = 1000;
 export const BORDER_CIRCLE = "100%";
 export const PROFILE_IMAGE_TRANSFORM = "translateY(-100px)";
+export const NO_OVERFLOW = "hidden";

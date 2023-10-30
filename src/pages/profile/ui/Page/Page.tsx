@@ -19,7 +19,7 @@ const Page = memo(function Page() {
   const {
     tweetsLength,
     data,
-    general: { isLoading, isOwnProfile },
+    general: { isLoading, isOwnProfile, hasBackButton },
   } = useProfileData();
   const { isUpdating, isFollowedByUser, updateFollowStatus } = useProfileFollow(
     data?.uid,
@@ -39,7 +39,7 @@ const Page = memo(function Page() {
           <Header
             title={data.displayName}
             subtitle={`${tweetsLength} tweets`}
-            leftSlot={!isOwnProfile && <BackButton />}
+            leftSlot={hasBackButton && <BackButton />}
             rightSlot={<ChangeThemeToggle />}
           />
           <ProfileBlock

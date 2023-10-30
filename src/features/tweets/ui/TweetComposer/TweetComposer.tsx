@@ -84,6 +84,7 @@ export const TweetComposer = memo(function TweetComposer({
         <Image
           src={previewImage}
           buttonText="Remove image"
+          isButtonDisabled={isAdding}
           onClick={handleFileClear}
         />
         <ControlsWrapper>

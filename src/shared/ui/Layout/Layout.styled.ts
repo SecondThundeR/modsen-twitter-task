@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   height: ${DIMENSIONS_MAP.full};
   max-width: ${DIMENSIONS_MAP.narrowLayoutBlock};
   display: ${DISPLAY_MAP.grid};
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   margin: ${MARGIN_AUTO};
 
   @media only screen and (max-width: 768px) {

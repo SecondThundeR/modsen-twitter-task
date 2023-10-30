@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import { LayoutMobileNavigation } from "@/widgets/LayoutMobileNavigation";
 import { LayoutNavigation } from "@/widgets/LayoutNavigation";
+import { Sidebar } from "@/widgets/Sidebar";
 import { RoutePaths, ProtectedRoute, RegularRoute } from "@/shared/lib/router";
 import { Layout } from "@/shared/ui";
 
@@ -11,6 +12,7 @@ import LoginPage from "./login";
 import ProfilePage from "./profile";
 import RegisterPage from "./register";
 import RootPage from "./root";
+import SearchPage from "./search";
 
 const HomeLayout = (
   <Layout
@@ -20,6 +22,7 @@ const HomeLayout = (
         <LayoutMobileNavigation />
       </>
     }
+    sidebarSlot={<Sidebar />}
   />
 );
 
@@ -34,6 +37,7 @@ export const Routing = memo(function Routing() {
       <Route element={<ProtectedRoute />}>
         <Route element={HomeLayout}>
           <Route path={RoutePaths.home} element={<HomePage />} />
+          <Route path={RoutePaths.search} element={<SearchPage />} />
           <Route
             path={RoutePaths.profileOptionalID}
             element={<ProfilePage />}

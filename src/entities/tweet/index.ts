@@ -11,6 +11,7 @@ export {
   resetTweets,
   selectTweetsAmount,
   selectTweetsLikes,
+  selectTweetsImages,
   selectCurrentTweets,
 } from "./model/slice";
 export type { Tweet as TweetType, TweetDBInfo } from "./model/types";

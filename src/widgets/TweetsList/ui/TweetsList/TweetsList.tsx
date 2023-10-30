@@ -9,8 +9,12 @@ import { AlertWrapper, PlaceholderWrapper, Wrapper } from "./TweetsList.styled";
 
 export const TweetsList = memo(function TweetsList({
   filterAuthorId,
+  queryString,
 }: TweetsListProps) {
-  const { isLoading, error, tweets } = useTweets(filterAuthorId);
+  const { isLoading, error, tweets } = useTweets({
+    authorId: filterAuthorId,
+    queryString,
+  });
 
   return (
     <Wrapper>
@@ -32,7 +36,8 @@ export const TweetsList = memo(function TweetsList({
           />
         </PlaceholderWrapper>
       )}
-      {tweets?.map((tweet) => <Tweet key={tweet.id} {...tweet} />)}
+      {!isLoading &&
+        tweets?.map((tweet) => <Tweet key={tweet.id} {...tweet} />)}
     </Wrapper>
   );
 });

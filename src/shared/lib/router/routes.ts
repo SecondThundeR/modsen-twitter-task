@@ -3,6 +3,7 @@ export const RoutePaths = {
   register: "/register",
   login: "/login",
   home: "/home",
+  search: "/search",
   profile: "/profile",
   profileOptionalID: `/profile/:id?`,
   notFound: "*",

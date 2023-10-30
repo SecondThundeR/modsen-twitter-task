@@ -76,7 +76,10 @@ export const tweetSlice = createSlice({
 
 const selectTweets = (state: RootState) => state.tweet.tweetsData;
 
-export const selectTweetsAmount = (state: RootState, authorId?: string) => {
+export const selectTweetsAmount = (
+  state: RootState,
+  authorId?: string | null,
+) => {
   const { tweetsData } = state.tweet;
   const { uid } = state.user.userData!;
 
@@ -92,19 +95,48 @@ export const selectCurrentTweets = createSelector(
   [
     selectCurrentUser,
     selectTweets,
-    (_state: RootState, filterId?: string) => filterId,
+    (_state: RootState, filterId?: string, queryString?: string) => [
+      filterId,
+      queryString,
+    ],
   ],
-  (user, tweets, filterId) => {
+  (user, tweets, [filterId, queryString]) => {
     const { userData, followingIds } = user;
     const userId = userData!.uid;
     if (!tweets) return null;
 
     return tweets.filter((tweet) => {
       if (filterId !== undefined) return tweet.authorId === filterId;
+      if (queryString !== undefined)
+        return tweet.text
+          .toLocaleLowerCase()
+          .includes(queryString.toLocaleLowerCase());
       return (
         tweet.authorId === userId || followingIds?.includes(tweet.authorId)
       );
     });
+  },
+);
+
+export const selectTweetsImages = createSelector(
+  [
+    selectCurrentUser,
+    selectTweets,
+    (_state: RootState, authorId?: string) => authorId,
+  ],
+  (user, tweets, authorId) => {
+    const { userData } = user;
+    const userId = userData!.uid;
+    if (!tweets) return [];
+
+    return tweets
+      .filter((tweet) => {
+        if (!tweet.imageURL) return false;
+        return authorId !== undefined
+          ? tweet.authorId === authorId
+          : tweet.authorId === userId;
+      })
+      .map((tweet) => tweet.imageURL!);
   },
 );
 
