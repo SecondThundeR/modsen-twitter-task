@@ -98,7 +98,10 @@ export const selectAuthorsByTweets = createSelector(
   },
 );
 
-export const selectAuthorByID = (state: RootState, authorId?: string) => {
+export const selectAuthorByID = (
+  state: RootState,
+  authorId?: string | null,
+) => {
   return state.authors.authorsArray?.find(
     (authorData) => authorData?.uid == authorId,
   );
