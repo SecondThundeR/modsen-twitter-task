@@ -14,7 +14,13 @@ export const Text = memo(function Text({
   if (!text && !children) return null;
 
   return (
-    <Wrapper $size={size} $font={font} $weight={weight} $isSubtext={isSubtext}>
+    <Wrapper
+      $size={size}
+      $font={font}
+      $weight={weight}
+      $isSubtext={isSubtext}
+      data-cy="text"
+    >
       {children ?? text}
     </Wrapper>
   );

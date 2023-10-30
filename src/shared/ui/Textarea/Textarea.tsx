@@ -15,7 +15,7 @@ export const Textarea = memo(
 
     return (
       <ErrorWrapper>
-        <Wrapper ref={ref} {...props} />
+        <Wrapper ref={ref} data-cy="textarea" {...props} />
         <ErrorMessage>{extractedMessage}</ErrorMessage>
       </ErrorWrapper>
     );

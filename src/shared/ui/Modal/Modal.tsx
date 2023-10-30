@@ -17,8 +17,8 @@ export const Modal = memo(function Modal({
   );
 
   return createPortal(
-    <Wrapper onClick={closeModal}>
-      <ContentWrapper onClick={stopContentPropagation}>
+    <Wrapper onClick={closeModal} data-cy="modal-container">
+      <ContentWrapper onClick={stopContentPropagation} data-cy="modal-content">
         <Title text={title} size="small" />
         {children}
         <Text text="Click outside to close this modal" size="small" isSubtext />

@@ -27,14 +27,15 @@ export async function pushNewTweet(
       imageURL = await uploadImage(tweetsStoragePath, fileData);
     }
 
-    await Promise.all([
-      updateUserData(authorId, {
-        tweetsIds: [...currentTweetsIds, tweetID],
-      }),
-      updateData(tweetsDBPath + tweetID, {
+    await updateUserData(authorId, {
+      tweetsIds: [...currentTweetsIds, tweetID],
+    });
+
+    if (selectedFile) {
+      await updateData(tweetsDBPath + tweetID, {
         imageURL,
-      }),
-    ]);
+      });
+    }
   } catch (error) {
     throw new Error(
       `Failed to update tweets data! ${(error as Error).message}`,

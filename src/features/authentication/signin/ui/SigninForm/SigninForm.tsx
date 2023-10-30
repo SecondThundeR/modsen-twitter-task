@@ -67,12 +67,14 @@ export const SigninForm = memo(function SigninForm({
         <Alert title="Error!" text={errors.root.message} variant="error" />
       )}
       <Input
+        id="email"
         type="email"
         placeholder="Email address"
         errorMessage={errors.email?.message}
         {...register("email")}
       />
       <Input
+        id="password"
         type="password"
         placeholder="Password"
         errorMessage={errors.password?.message}
