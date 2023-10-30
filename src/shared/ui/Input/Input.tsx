@@ -18,7 +18,7 @@ export const Input = memo(
     return (
       <InputWrapper $isHidden={isHidden}>
         <Text text={label} isSubtext />
-        <Wrapper ref={ref} {...props} />
+        <Wrapper ref={ref} data-cy="input" {...props} />
         <ErrorMessage>{extractedMessage}</ErrorMessage>
       </InputWrapper>
     );

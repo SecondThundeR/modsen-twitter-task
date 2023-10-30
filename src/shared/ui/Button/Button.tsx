@@ -20,6 +20,7 @@ export const Button = memo(function Button({
       $size={size}
       $font={font}
       $variant={variant}
+      data-cy="button"
     >
       {leftSlot}
       {text}
