@@ -49,5 +49,5 @@ export const LikeButtonWrapper = styled.div<TweetLikeButtonWrapperProps>`
   display: ${DISPLAY_MAP.flex};
   gap: ${GAP_MAP.regular};
   align-items: ${FLEX_PROPERTIES.alignCenter};
-  color: ${({ theme, $isLiked }) => ($isLiked ? theme.liked : theme.body)};
+  color: ${({ theme, $isLiked }) => ($isLiked ? theme.liked : theme.color)};
 `;
