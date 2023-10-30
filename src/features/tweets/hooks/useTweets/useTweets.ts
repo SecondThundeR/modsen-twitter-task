@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { AuthorData, pushAuthor } from "@/entities/author";
+import { AuthorData, pushAuthor, selectAllAuthors } from "@/entities/author";
 import {
   type TweetType,
   type TweetDBInfo,
@@ -17,6 +17,7 @@ import type { UseTweetsOptions } from "./interfaces";
 
 export function useTweets({ authorId, queryString }: UseTweetsOptions) {
   const { userData } = useAppSelector(selectCurrentUser);
+  const authors = useAppSelector(selectAllAuthors);
   const tweets = useAppSelector((state) =>
     selectCurrentTweets(state, authorId, queryString),
   );
@@ -24,6 +25,16 @@ export function useTweets({ authorId, queryString }: UseTweetsOptions) {
   const [isLoading, setIsLoading] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
   const [error, setError] = useState<unknown>(null);
+
+  const shouldFetchAuthor = useCallback(
+    (fetchId: string) => {
+      const currAuthors = authors ?? [];
+      return (
+        currAuthors.filter((author) => author?.uid === fetchId).length === 0
+      );
+    },
+    [authors],
+  );
 
   const fetchTweets = useCallback(async () => {
     const tweetsDBPath = "tweets/";
@@ -47,42 +58,55 @@ export function useTweets({ authorId, queryString }: UseTweetsOptions) {
         };
       }) satisfies TweetType[];
     dispatch(setTweets(tweetsArray));
+
+    return tweetsArray;
   }, [dispatch]);
 
-  const fetchTweetsAuthors = useCallback(async () => {
-    if (tweets === null) return;
+  const fetchTweetsAuthors = useCallback(
+    async (tweetsData: TweetType[]) => {
+      if (!tweetsData) return;
+      const alreadyFetchedIds = new Set<string>();
 
-    for (const tweet of tweets) {
-      if (tweet.authorId === userData?.uid) continue;
-      const authorDBPath = "users/" + tweet.authorId;
+      for (const tweet of tweetsData) {
+        const tweetAuthorId = tweet.authorId;
 
-      let authorData: FirebaseDatabaseType<AuthorData> | undefined;
+        if (tweetAuthorId === userData?.uid) continue;
+        if (!shouldFetchAuthor(tweetAuthorId)) continue;
+        if (alreadyFetchedIds.has(tweetAuthorId)) continue;
 
-      try {
-        authorData = await getData<AuthorData>(authorDBPath);
-      } catch (error) {
-        console.error(
-          `Failed to fetch authors data! ${(error as Error).message}`,
-        );
-        continue;
+        const authorDBPath = "users/" + tweetAuthorId;
+        let authorData: FirebaseDatabaseType<AuthorData> | undefined;
+
+        try {
+          authorData = await getData<AuthorData>(authorDBPath);
+          alreadyFetchedIds.add(tweetAuthorId);
+        } catch (error) {
+          console.error(
+            `Failed to fetch authors data! ${(error as Error).message}`,
+          );
+          continue;
+        }
+
+        const deserializedData = {
+          ...authorData!,
+          uid: tweetAuthorId,
+          followersIds: deserializeFirebaseArray(authorData!.followersIds),
+          followingIds: deserializeFirebaseArray(authorData!.followingIds),
+        } satisfies AuthorData;
+
+        dispatch(pushAuthor(deserializedData));
       }
-
-      const deserializedData = {
-        ...authorData!,
-        followersIds: deserializeFirebaseArray(authorData!.followersIds),
-        followingIds: deserializeFirebaseArray(authorData!.followingIds),
-      } satisfies AuthorData;
-
-      dispatch(pushAuthor(deserializedData));
-    }
-  }, [dispatch, tweets, userData?.uid]);
+    },
+    [dispatch, shouldFetchAuthor, userData?.uid],
+  );
 
   const loadTweetData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      await Promise.all([fetchTweets(), fetchTweetsAuthors()]);
+      const fetchedTweets = await fetchTweets();
+      await fetchTweetsAuthors(fetchedTweets);
     } catch (error) {
       setError(error);
     } finally {

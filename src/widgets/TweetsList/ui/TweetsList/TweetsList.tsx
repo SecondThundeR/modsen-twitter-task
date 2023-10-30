@@ -36,7 +36,8 @@ export const TweetsList = memo(function TweetsList({
           />
         </PlaceholderWrapper>
       )}
-      {tweets?.map((tweet) => <Tweet key={tweet.id} {...tweet} />)}
+      {!isLoading &&
+        tweets?.map((tweet) => <Tweet key={tweet.id} {...tweet} />)}
     </Wrapper>
   );
 });
