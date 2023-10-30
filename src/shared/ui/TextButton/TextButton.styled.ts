@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { COLORS } from "@/shared/constants/colors";
 import {
   CURSOR_POINTER,
+  INACTIVE_OPACITY,
   NONE,
+  NO_DECORATION,
   NO_PADDING,
   UNDERLINE_DECORATION,
 } from "@/shared/constants/generalStyles";
@@ -28,5 +30,10 @@ export const Button = styled.button<TextButtonStyleProps>`
 
   &:hover {
     text-decoration: ${UNDERLINE_DECORATION};
+  }
+
+  &:disabled {
+    text-decoration: ${NO_DECORATION};
+    opacity: ${INACTIVE_OPACITY};
   }
 `;

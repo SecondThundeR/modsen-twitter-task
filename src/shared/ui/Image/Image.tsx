@@ -8,6 +8,7 @@ import type { ImageProps } from "./interfaces";
 export const Image = memo(function PreviewImage({
   src,
   buttonText,
+  isButtonDisabled = false,
   onClick,
 }: ImageProps) {
   if (!src) return null;
@@ -16,7 +17,11 @@ export const Image = memo(function PreviewImage({
     <Wrapper>
       <StyledImage src={src} />
       {onClick && (
-        <TextButton text={buttonText ?? "Button"} onClick={onClick} />
+        <TextButton
+          text={buttonText ?? "Button"}
+          onClick={onClick}
+          disabled={isButtonDisabled}
+        />
       )}
     </Wrapper>
   );

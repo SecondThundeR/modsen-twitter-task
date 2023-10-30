@@ -5,6 +5,7 @@ export const DIMENSIONS_MAP = {
   fullScreen: "100vh",
   header: "86px",
   mobileNavigation: "64px",
+  sidebarImage: "150px",
   profileHeaderImage: "280px",
   narrowLayoutBlock: "1408px",
   narrowSignupBlock: "670px",
