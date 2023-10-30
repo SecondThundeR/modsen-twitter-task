@@ -1,5 +1,13 @@
+import type { ReactNode } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-export const withRouter = (component: () => React.ReactNode) => () => (
-  <BrowserRouter>{component()}</BrowserRouter>
+import { ScrollToTop } from "@/features/navigation";
+
+export const withRouter = (component: () => ReactNode) => () => (
+  <BrowserRouter>
+    <>
+      <ScrollToTop />
+      {component()}
+    </>
+  </BrowserRouter>
 );

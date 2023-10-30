@@ -2,7 +2,7 @@ import { memo, useMemo } from "react";
 
 import { SignoutButton } from "@/features/authentication/signout";
 import { withRouteAware } from "@/features/navigation";
-import { CreateTweetModalButton } from "@/features/tweets";
+import { CreateTweetModalButton } from "@/features/tweet";
 import { NAV_BUTTONS } from "@/shared/constants/navButtons";
 import { SectionButton } from "@/shared/ui";
 

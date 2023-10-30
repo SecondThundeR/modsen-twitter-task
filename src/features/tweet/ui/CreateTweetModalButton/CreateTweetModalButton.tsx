@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { TweetComposer } from "@/features/tweets";
+import { TweetComposer } from "@/features/tweet";
 import PostTweetIcon from "@/shared/assets/postTweet.svg?react";
 import { useModal } from "@/shared/lib/hooks";
 import { Button, IconButton, Modal } from "@/shared/ui";

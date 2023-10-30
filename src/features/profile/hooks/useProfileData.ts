@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import { Params, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+import { useProfileID } from "@/features/profile";
 import { getAuthorData, pushAuthor, selectAuthorByID } from "@/entities/author";
 import { selectTweetsAmount } from "@/entities/tweet";
 import { selectCurrentUser } from "@/entities/user";
@@ -8,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { RoutePaths } from "@/shared/lib/router";
 
 export function useProfileData() {
-  const { id } = useParams<Params<"id">>();
+  const id = useProfileID();
   const navigate = useNavigate();
 
   const currentUserData = useAppSelector(selectCurrentUser);
@@ -18,7 +19,9 @@ export function useProfileData() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const isOwnProfile = id === undefined;
+  const hasBackButton = id !== undefined;
+  const isOwnProfile =
+    id === undefined ? true : id === currentUserData.userData?.uid;
 
   const getCurrentProfileData = useCallback(() => {
     if (isOwnProfile) {
@@ -58,6 +61,7 @@ export function useProfileData() {
     data: getCurrentProfileData(),
     general: {
       isLoading,
+      hasBackButton,
       isOwnProfile,
     },
   };

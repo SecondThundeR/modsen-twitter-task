@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { pushNewTweet } from "@/features/tweets";
+import { pushNewTweet } from "@/features/tweet";
 import { type TweetType, addTweet } from "@/entities/tweet";
 import { pushTweetID } from "@/entities/user";
 import { useAppDispatch } from "@/shared/lib/hooks";

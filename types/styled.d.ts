@@ -4,6 +4,8 @@ declare module "styled-components" {
   export interface DefaultTheme {
     body: string;
     bodyModal: string;
+    sidebarBlockBody: string;
+    sidebarBlockText: string;
     liked: string;
     color: string;
     colorAlert: string;

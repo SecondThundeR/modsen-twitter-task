@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { HomeNavigationButtons } from "@/widgets/HomeNavigationButtons";
 import { ProfileDetails } from "@/features/profile";
-import { CreateTweetModalButton } from "@/features/tweets";
+import { CreateTweetModalButton } from "@/features/tweet";
 import TwitterLogo from "@/shared/assets/logo.svg?react";
 import { COLORS } from "@/shared/constants/colors";
 
