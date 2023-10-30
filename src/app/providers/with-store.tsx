@@ -11,3 +11,7 @@ export const withStore = (component: () => ReactNode) => () => (
     </PersistGate>
   </Provider>
 );
+
+if (window.Cypress) {
+  window.store = appStore;
+}
