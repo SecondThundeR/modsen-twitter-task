@@ -1,4 +1,4 @@
-import { useAddTweetImage } from "@/features/tweets";
+import { useAddTweetImage } from "@/features/tweet";
 
 export interface TweetImageUploadButtonProps
   extends Omit<

@@ -4,7 +4,7 @@ import {
   AuthorSidebarDetails,
   useRecommendedAuthors,
   useSearchAuthors,
-} from "@/features/authors";
+} from "@/features/author";
 import { Alert, DetailsBlock, Loader, TextLink } from "@/shared/ui";
 
 export const SidebarAuthorsBlock = memo(function SidebarAuthorsBlock() {

@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { SidebarFooterElements } from "@/widgets/SidebarFooterElements";
 import { SidebarSearch } from "@/widgets/SidebarSearch";
-import { SidebarAuthorsBlock } from "@/features/authors";
+import { SidebarAuthorsBlock } from "@/features/author";
 import { ProfileImages, useProfileID } from "@/features/profile";
 
 import { Footer, Wrapper } from "./Sidebar.styled";

@@ -4,7 +4,7 @@ import {
   useAddTweet,
   TweetImageUploadButton,
   useAddTweetImage,
-} from "@/features/tweets";
+} from "@/features/tweet";
 import { selectCurrentUser } from "@/entities/user";
 import {
   MAX_CHARS,

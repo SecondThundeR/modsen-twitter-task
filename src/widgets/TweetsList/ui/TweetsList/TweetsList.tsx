@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { useTweets } from "@/features/tweets";
+import { useTweets } from "@/features/tweet";
 import { Tweet } from "@/entities/tweet";
 import { Alert, Loader, Text } from "@/shared/ui";
 

@@ -10,7 +10,7 @@ import {
   ProfileUpdateForm,
 } from "@/features/profile";
 import { ChangeThemeToggle } from "@/features/theme";
-import { TweetComposer } from "@/features/tweets";
+import { TweetComposer } from "@/features/tweet";
 import { getProfileButtonText } from "@/shared/helpers/getProfileButtonText";
 import { useModal } from "@/shared/lib/hooks";
 import { Header, Modal, Loader } from "@/shared/ui";
