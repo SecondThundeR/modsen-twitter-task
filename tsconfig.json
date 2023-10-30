@@ -15,13 +15,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["@testing-library/jest-dom", "jest-styled-components"],
+    "types": ["@testing-library/jest-dom", "jest-styled-components", "cypress"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "types"],
+  "include": ["src", "types", "cypress"],
   "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
