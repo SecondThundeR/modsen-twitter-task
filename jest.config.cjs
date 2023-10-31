@@ -5,13 +5,14 @@ module.exports = {
   collectCoverageFrom: [
     "src/shared/**/*.{ts,tsx}",
     "src/pages/**/*.{ts,tsx}",
+    "!src/pages/**/Page.{ts,tsx}",
     "!src/shared/constants/*.{ts,tsx}",
     "!src/shared/lib/config/*.{ts,tsx}",
     "!src/shared/lib/firebase/app/*.{ts,tsx}",
     "!src/shared/lib/hooks/*.{ts,tsx}",
     "!src/shared/lib/theme/*.{ts,tsx}",
     "!src/shared/lib/router/*.{ts,tsx}",
-    "!src/**/index.ts",
+    "!src/**/index.{ts,tsx}",
   ],
   coveragePathIgnorePatterns: [],
   transform: {
