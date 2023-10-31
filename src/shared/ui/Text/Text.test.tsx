@@ -1,5 +1,3 @@
-import { render } from "@testing-library/react";
-
 import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
 import {
   INACTIVE_OPACITY,
@@ -9,6 +7,7 @@ import { WEIGHTS_MAP } from "@/shared/constants/weights";
 import { getFontSize } from "@/shared/helpers/textStyles";
 
 import { Text } from "./Text";
+import { render } from "~/testUtils";
 
 describe("Text", () => {
   it("should render the text prop", () => {

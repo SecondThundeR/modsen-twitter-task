@@ -1,11 +1,10 @@
-import { render } from "@testing-library/react";
-
 import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
 import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
 import { WEIGHTS_MAP } from "@/shared/constants/weights";
 import { getFontSize } from "@/shared/helpers/titleStyles";
 
 import { Title } from "./Title";
+import { render } from "~/testUtils";
 
 describe("Title", () => {
   it("should render the text prop", () => {
