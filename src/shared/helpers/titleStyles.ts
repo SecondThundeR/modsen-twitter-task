@@ -14,7 +14,7 @@ export function getFontSize(size: TitleSizes) {
 export function getFontSizePhone(size: TitleSizes) {
   if (size === "regular") return regular.phone;
   if (size === "small") return small.phone;
-  if (size === "compact") return compact.desktop;
+  if (size === "compact") return compact.phone;
   if (size === "extrasmall") return extrasmall.phone;
   return large.phone;
 }
