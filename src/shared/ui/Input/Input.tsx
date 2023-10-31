@@ -16,9 +16,9 @@ export const Input = memo(
         : errorMessage;
 
     return (
-      <InputWrapper $isHidden={isHidden}>
+      <InputWrapper $isHidden={isHidden} data-testid="input-wrapper">
         <Text text={label} isSubtext />
-        <Wrapper ref={ref} {...props} />
+        <Wrapper ref={ref} data-cy="input" data-testid="input" {...props} />
         <ErrorMessage>{extractedMessage}</ErrorMessage>
       </InputWrapper>
     );

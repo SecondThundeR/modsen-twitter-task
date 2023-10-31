@@ -92,22 +92,26 @@ export const SignupForm = memo(function SignupForm({
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
       <Input
+        id="name"
         placeholder="Name"
         errorMessage={errors.name?.message}
         {...register("name")}
       />
       <Input
+        id="phoneNumber"
         placeholder="Phone number"
         errorMessage={errors.phoneNumber?.message}
         {...register("phoneNumber")}
       />
       <Input
+        id="email"
         type="email"
         placeholder="Email"
         errorMessage={errors.email?.message}
         {...register("email")}
       />
       <Input
+        id="password"
         type="password"
         placeholder="Password"
         errorMessage={errors.password?.message}
@@ -122,18 +126,21 @@ export const SignupForm = memo(function SignupForm({
       <Text text={DATE_OF_BIRTH_INFO} size="large" isSubtext />
       <DateOfBirthWrapper>
         <Select
+          id="month"
           defaultValue="month"
           options={MONTHS_DATA}
           errorMessage={errors.monthOfBirth?.message}
           {...register("monthOfBirth")}
         />
         <Select
+          id="day"
           defaultValue="day"
           options={daysSlice}
           errorMessage={errors.dayOfBirth?.message}
           {...register("dayOfBirth")}
         />
         <Select
+          id="year"
           defaultValue="year"
           options={YEARS_DATA}
           errorMessage={errors.yearOfBirth?.message}

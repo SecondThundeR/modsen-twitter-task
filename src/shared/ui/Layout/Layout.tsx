@@ -1,19 +1,17 @@
 import { memo } from "react";
-import { Outlet } from "react-router-dom";
 
 import type { LayoutProps } from "./interfaces";
 import { Wrapper, OutletWrapper, SidebarWrapper } from "./Layout.styled";
 
 export const Layout = memo(function MainLayout({
+  outletSlot,
   navSlot,
   sidebarSlot,
 }: LayoutProps) {
   return (
     <Wrapper>
       {navSlot}
-      <OutletWrapper>
-        <Outlet />
-      </OutletWrapper>
+      <OutletWrapper>{outletSlot}</OutletWrapper>
       <SidebarWrapper>{sidebarSlot}</SidebarWrapper>
     </Wrapper>
   );

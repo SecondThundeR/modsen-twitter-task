@@ -22,7 +22,7 @@ export const ChangeThemeToggle = memo(function ChangeThemeToggle() {
 
   return (
     <Wrapper onClick={onThemeSwitch}>
-      <Input checked={isDarkMode} type="checkbox" readOnly />
+      <Input data-cy="toggle" checked={isDarkMode} type="checkbox" readOnly />
       <Switch />
     </Wrapper>
   );

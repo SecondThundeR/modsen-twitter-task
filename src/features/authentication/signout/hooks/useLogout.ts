@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { resetAuthors } from "@/entities/author";
 import { resetTweets } from "@/entities/tweet";
 import { resetUser } from "@/entities/user";
-
-import { auth } from "../firebase";
-import { RoutePaths } from "../router";
+import { auth } from "@/shared/lib/firebase";
+import { RoutePaths } from "@/shared/lib/router";
 
 export function useLogout() {
   const [isLoading, setIsLoading] = useState(false);

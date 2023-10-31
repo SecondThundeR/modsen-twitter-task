@@ -13,6 +13,7 @@ export const TweetImageUploadButton = memo(function TweetImageUploadButton({
     <>
       <IconButton icon={<ImageIcon />} onClick={handleClick} />
       <Input
+        id="attachment"
         ref={inputRef}
         accept="image/png,image/jpeg,image/jpg"
         type="file"

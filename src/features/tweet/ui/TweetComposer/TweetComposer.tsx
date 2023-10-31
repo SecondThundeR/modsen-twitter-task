@@ -74,6 +74,7 @@ export const TweetComposer = memo(function TweetComposer({
       <Avatar width={52} height={52} src={userAvatar} />
       <ComposerWrapper>
         <Textarea
+          id="tweetComposer"
           placeholder="What's happening"
           value={tweetText}
           onChange={onChange}

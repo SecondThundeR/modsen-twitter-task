@@ -1,0 +1,27 @@
+name: Run unit tests and linter
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    - run: pnpm install --frozen-lockfile
+    - run: pnpm lint
+    - run: pnpm test

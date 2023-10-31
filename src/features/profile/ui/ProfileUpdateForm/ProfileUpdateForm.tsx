@@ -112,6 +112,7 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
   return (
     <Wrapper onSubmit={handleSubmit(onSubmit)}>
       <Input
+        id="image"
         label="Avatar image"
         errorMessage={errors.avatarImage?.message}
         accept="image/png,image/jpeg,image/jpg"
@@ -119,18 +120,21 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
         {...register("avatarImage")}
       />
       <Input
+        id="name"
         label="Name"
         placeholder="Enter your name"
         errorMessage={errors.name?.message}
         {...register("name")}
       />
       <Input
+        id="desc"
         label="Description"
         placeholder="Enter your description"
         errorMessage={errors.name?.message}
         {...register("description")}
       />
       <Input
+        id="phoneNumber"
         label="Phone number"
         placeholder="Enter your phone number"
         errorMessage={errors.phoneNumber?.message}
@@ -139,6 +143,7 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
       <DateOfBirthWrapper>
         <Select
           label="Month"
+          id="month"
           defaultValue="month"
           options={MONTHS_DATA}
           errorMessage={errors.monthOfBirth?.message}
@@ -146,6 +151,7 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
         />
         <Select
           label="Day"
+          id="day"
           defaultValue="day"
           options={daysSlice}
           errorMessage={errors.dayOfBirth?.message}
@@ -153,6 +159,7 @@ export const ProfileUpdateForm = memo(function ProfileUpdateForm({
         />
         <Select
           label="Year"
+          id="year"
           defaultValue="year"
           options={YEARS_DATA}
           errorMessage={errors.yearOfBirth?.message}

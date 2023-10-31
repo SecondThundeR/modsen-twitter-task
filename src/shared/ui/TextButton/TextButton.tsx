@@ -10,7 +10,12 @@ export const TextButton = memo(function TextButton({
   onClick,
 }: TextButtonProps) {
   return (
-    <Button $alignment={alignment} onClick={onClick} disabled={disabled}>
+    <Button
+      $alignment={alignment}
+      onClick={onClick}
+      disabled={disabled}
+      data-cy="text-button"
+    >
       {text}
     </Button>
   );
