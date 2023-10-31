@@ -1,7 +1,7 @@
 import { memo } from "react";
 
+import { useLogout } from "@/features/authentication/signout";
 import LogoutIcon from "@/shared/assets/logout.svg?react";
-import { useLogout } from "@/shared/lib/hooks";
 import { Alert, Button, IconButton } from "@/shared/ui";
 
 import type { SignoutButtonProps } from "./interface";

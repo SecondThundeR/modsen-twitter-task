@@ -4,7 +4,8 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { LayoutMobileNavigation } from "@/widgets/LayoutMobileNavigation";
 import { LayoutNavigation } from "@/widgets/LayoutNavigation";
 import { Sidebar } from "@/widgets/Sidebar";
-import { RoutePaths, ProtectedRoute, RegularRoute } from "@/shared/lib/router";
+import { ProtectedRoute, RegularRoute } from "@/features/navigation";
+import { RoutePaths } from "@/shared/lib/router";
 import { Layout } from "@/shared/ui";
 
 import HomePage from "./home";
