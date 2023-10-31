@@ -18,10 +18,11 @@
     "types": ["@testing-library/jest-dom", "jest-styled-components", "cypress"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["jest/*"],
     }
   },
-  "include": ["src", "types", "cypress"],
+  "include": ["src", "types", "cypress", "jest"],
   "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

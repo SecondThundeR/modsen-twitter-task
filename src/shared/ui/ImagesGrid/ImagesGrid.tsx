@@ -15,9 +15,9 @@ export const ImagesGrid = memo(function ImagesGrid({
     return imagesRows
       .filter((images) => images.length > 0)
       .map((images, index) => (
-        <Row key={index}>
+        <Row key={index} data-testid="row">
           {images.map((url) => (
-            <Image key={url} $src={url} />
+            <Image key={url} $src={url} data-testid="image" />
           ))}
         </Row>
       ));

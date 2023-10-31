@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { getUserData, setUserData, setUserInfo } from "@/entities/user";
 import { auth, googleAuthProvider } from "@/shared/lib/firebase";
-
-import { RoutePaths } from "../router";
+import { RoutePaths } from "@/shared/lib/router";
 
 export function useGoogleSignIn() {
   const navigate = useNavigate();

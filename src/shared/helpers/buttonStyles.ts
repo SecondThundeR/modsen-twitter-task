@@ -1,6 +1,7 @@
 import { DefaultTheme } from "styled-components";
 
 import { COLORS } from "@/shared/constants/colors";
+import { NONE } from "@/shared/constants/generalStyles";
 import { ButtonVariant } from "@/shared/ui/Button/interfaces";
 
 export function getBackgroundColor(
@@ -30,5 +31,5 @@ export function getTextColor(variant: ButtonVariant) {
 }
 
 export function getBorder(variant: ButtonVariant) {
-  return variant === "regular" ? `1px solid ${COLORS.border}` : "none";
+  return variant === "regular" ? `1px solid ${COLORS.border}` : NONE;
 }

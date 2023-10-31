@@ -16,12 +16,14 @@ export const Layout = memo(function Layout({
   footerElementsSlot,
 }: LayoutProps) {
   return (
-    <Root>
-      <Wrapper>
-        <RootImage $src={rootBackgroundPath} />
-        <ContentWrapper>{children}</ContentWrapper>
+    <Root data-testid="root">
+      <Wrapper data-testid="wrapper">
+        <RootImage data-testid="root-image" $src={rootBackgroundPath} />
+        <ContentWrapper data-testid="content-wrapper">
+          {children}
+        </ContentWrapper>
       </Wrapper>
-      <Footer>{footerElementsSlot}</Footer>
+      <Footer data-testid="footer">{footerElementsSlot}</Footer>
     </Root>
   );
 });

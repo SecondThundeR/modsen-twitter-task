@@ -24,7 +24,7 @@ export const Wrapper = styled.button<IconButtonStyleProps>`
   background-color: ${COLORS.transparent};
 
   & > svg {
-    -webkit-filter: ${({ theme: { iconInvert }, $hasInvert }) => {
+    --webkit-filter: ${({ theme: { iconInvert }, $hasInvert }) => {
       if (iconInvert === FULL_INVERT && !$hasInvert) return NO_INVERT;
       return iconInvert;
     }};
