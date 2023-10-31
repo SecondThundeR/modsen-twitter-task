@@ -12,6 +12,7 @@ export const IconButton = memo(function IconButton({
 }: IconButtonProps) {
   return (
     <Wrapper
+      data-testid="icon-button"
       $hasInvert={hasInvert}
       $fullHeight={fullHeight}
       onClick={onClick}

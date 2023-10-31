@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 export interface LayoutProps {
-  navSlot: ReactNode;
+  outletSlot: ReactNode;
+  navSlot?: ReactNode;
   sidebarSlot?: ReactNode;
 }

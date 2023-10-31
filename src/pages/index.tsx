@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
 import { LayoutMobileNavigation } from "@/widgets/LayoutMobileNavigation";
 import { LayoutNavigation } from "@/widgets/LayoutNavigation";
@@ -16,6 +16,7 @@ import SearchPage from "./search";
 
 const HomeLayout = (
   <Layout
+    outletSlot={<Outlet />}
     navSlot={
       <>
         <LayoutNavigation />

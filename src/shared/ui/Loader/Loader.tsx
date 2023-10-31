@@ -11,7 +11,7 @@ export const Loader = memo(function Loader({
 }: LoaderProps) {
   return (
     <LoaderWrapper $disablePadding={inline}>
-      <Spinner $inline={inline} />
+      <Spinner $inline={inline} data-testid="spinner" />
       <Text text={text} size="large" isSubtext />
     </LoaderWrapper>
   );
