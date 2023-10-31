@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle, darkTheme, lightTheme } from "../../src/shared/lib/theme";
+import { GlobalStyle, darkTheme, lightTheme } from "@/shared/lib/theme";
 
 export function MockThemeProvider({ children }: PropsWithChildren) {
   return (
