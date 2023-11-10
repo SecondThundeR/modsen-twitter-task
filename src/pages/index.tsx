@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, lazy, ReactNode, Suspense } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
 import { LayoutMobileNavigation } from "@/widgets/LayoutMobileNavigation";
@@ -6,14 +6,14 @@ import { LayoutNavigation } from "@/widgets/LayoutNavigation";
 import { Sidebar } from "@/widgets/Sidebar";
 import { ProtectedRoute, RegularRoute } from "@/features/navigation";
 import { RoutePaths } from "@/shared/lib/router";
-import { Layout } from "@/shared/ui";
+import { Layout, Loader } from "@/shared/ui";
 
-import HomePage from "./home";
-import LoginPage from "./login";
-import ProfilePage from "./profile";
-import RegisterPage from "./register";
-import RootPage from "./root";
-import SearchPage from "./search";
+const HomePage = lazy(() => import("./home"));
+const LoginPage = lazy(() => import("./login"));
+const ProfilePage = lazy(() => import("./profile"));
+const RegisterPage = lazy(() => import("./register"));
+const RootPage = lazy(() => import("./root"));
+const SearchPage = lazy(() => import("./search"));
 
 const HomeLayout = (
   <Layout
@@ -28,21 +28,40 @@ const HomeLayout = (
   />
 );
 
+const SuspenseWrapper = (node: ReactNode) => (
+  <Suspense fallback={<Loader />}>{node}</Suspense>
+);
+
 export const Routing = memo(function Routing() {
   return (
     <Routes>
       <Route element={<RegularRoute />}>
-        <Route path={RoutePaths.landing} element={<RootPage />} />
-        <Route path={RoutePaths.login} element={<LoginPage />} />
-        <Route path={RoutePaths.register} element={<RegisterPage />} />
+        <Route
+          path={RoutePaths.landing}
+          element={SuspenseWrapper(<RootPage />)}
+        />
+        <Route
+          path={RoutePaths.login}
+          element={SuspenseWrapper(<LoginPage />)}
+        />
+        <Route
+          path={RoutePaths.register}
+          element={SuspenseWrapper(<RegisterPage />)}
+        />
       </Route>
       <Route element={<ProtectedRoute />}>
         <Route element={HomeLayout}>
-          <Route path={RoutePaths.home} element={<HomePage />} />
-          <Route path={RoutePaths.search} element={<SearchPage />} />
+          <Route
+            path={RoutePaths.home}
+            element={SuspenseWrapper(<HomePage />)}
+          />
+          <Route
+            path={RoutePaths.search}
+            element={SuspenseWrapper(<SearchPage />)}
+          />
           <Route
             path={RoutePaths.profileOptionalID}
-            element={<ProfilePage />}
+            element={SuspenseWrapper(<ProfilePage />)}
           />
         </Route>
       </Route>
