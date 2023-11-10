@@ -29,14 +29,15 @@ export const Wrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   width: ${DIMENSIONS_MAP.half};
-  height: ${DIMENSIONS_MAP.fit};
+  min-height: ${DIMENSIONS_MAP.fit};
+  max-height: ${DIMENSIONS_MAP.modalMaxHeight};
   background-color: ${({ theme }) => theme.body};
   display: ${DISPLAY_MAP.flex};
   flex-direction: ${FLEX_PROPERTIES.column};
   padding: ${PADDING_MAP.modal};
+  overflow-y: auto;
   gap: ${GAP_MAP.medium};
   border-radius: ${RADIUS_MAP.modal};
-  justify-content: ${FLEX_PROPERTIES.justifyCenter};
   align-items: ${FLEX_PROPERTIES.alignCenter};
 
   @media only screen and (max-width: 768px) {

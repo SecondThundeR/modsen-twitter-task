@@ -2,6 +2,7 @@ export const DIMENSIONS_MAP = {
   fit: "fit-content",
   full: "100%",
   half: "50%",
+  modalMaxHeight: "80%",
   fullScreen: "100vh",
   header: "86px",
   mobileNavigation: "64px",
