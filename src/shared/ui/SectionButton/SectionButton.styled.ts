@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
+import { COLORS } from "../../constants/colors";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
 import {
   CURSOR_POINTER,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   INACTIVE_OPACITY,
   NONE,
-} from "@/shared/constants/generalStyles";
-import { FONT_SIZE_MAP, GAP_MAP } from "@/shared/constants/sizing";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
+} from "../../constants/generalStyles";
+import { FONT_SIZE_MAP, GAP_MAP } from "../../constants/sizing";
+import { WEIGHTS_MAP } from "../../constants/weights";
 
 import type { SectionButtonStyleProps } from "./interfaces";
 

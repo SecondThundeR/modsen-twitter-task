@@ -4,8 +4,8 @@ import {
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   TEXT_CENTER,
-} from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP, GAP_MAP, MARGIN_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP, GAP_MAP, MARGIN_MAP } from "../../constants/sizing";
 
 export const Wrapper = styled.div`
   margin: ${MARGIN_MAP.errorBoundary};

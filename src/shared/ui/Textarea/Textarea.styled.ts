@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
 import {
   BORDER_BOX,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   NONE,
-} from "@/shared/constants/generalStyles";
+} from "../../constants/generalStyles";
 import {
   DIMENSIONS_MAP,
   FONT_SIZE_MAP,
   GAP_MAP,
   PADDING_MAP,
-} from "@/shared/constants/sizing";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
+} from "../../constants/sizing";
+import { WEIGHTS_MAP } from "../../constants/weights";
 
 export const ErrorWrapper = styled.div`
   width: ${DIMENSIONS_MAP.full};

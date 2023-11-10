@@ -1,9 +1,9 @@
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   NO_DECORATION,
   UNDERLINE_DECORATION,
-} from "@/shared/constants/generalStyles";
-import { FONT_SIZE_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { FONT_SIZE_MAP } from "../../constants/sizing";
 
 import {
   getTextColor,

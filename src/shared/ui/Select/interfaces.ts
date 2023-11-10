@@ -1,6 +1,6 @@
 import type { SelectHTMLAttributes } from "react";
 
-import type { OptionItem } from "@/shared/types/optionItem";
+import type { OptionItem } from "../../types/optionItem";
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: OptionItem[];

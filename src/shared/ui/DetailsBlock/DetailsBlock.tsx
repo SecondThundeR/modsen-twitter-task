@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Title } from "@/shared/ui";
+import { Title } from "../";
 
 import { Wrapper } from "./DetailsBlock.styled";
 import type { DetailsBlockProps } from "./interfaces";

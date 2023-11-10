@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   MARGIN_AUTO,
   NONE,
-} from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP } from "../../constants/sizing";
 
 export const Wrapper = styled.div`
   height: ${DIMENSIONS_MAP.full};

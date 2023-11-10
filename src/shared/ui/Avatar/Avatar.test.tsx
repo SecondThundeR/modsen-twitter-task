@@ -1,6 +1,6 @@
 import "jest-styled-components";
 
-import { avatarPlaceholderPath } from "@/shared/constants/publicImagesPaths";
+import { avatarPlaceholderPath } from "../../constants/publicImagesPaths";
 
 import { Avatar } from "./Avatar";
 import { render } from "~/testUtils";

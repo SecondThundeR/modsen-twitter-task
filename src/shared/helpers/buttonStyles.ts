@@ -1,8 +1,8 @@
 import { DefaultTheme } from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
-import { NONE } from "@/shared/constants/generalStyles";
-import { ButtonVariant } from "@/shared/ui/Button/interfaces";
+import { COLORS } from "../constants/colors";
+import { NONE } from "../constants/generalStyles";
+import { ButtonVariant } from "../ui/Button/interfaces";
 
 export function getBackgroundColor(
   variant: ButtonVariant,

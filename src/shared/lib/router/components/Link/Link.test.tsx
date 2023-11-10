@@ -1,8 +1,8 @@
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../../../constants/colors";
 import {
   NO_DECORATION,
   UNDERLINE_DECORATION,
-} from "@/shared/constants/generalStyles";
+} from "../../../../constants/generalStyles";
 import { Link } from "./Link";
 import { render } from "~/testUtils";
 

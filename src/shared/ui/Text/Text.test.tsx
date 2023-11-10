@@ -1,10 +1,10 @@
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
 import {
   INACTIVE_OPACITY,
   REGULAR_OPACITY,
-} from "@/shared/constants/generalStyles";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
-import { getFontSize } from "@/shared/helpers/textStyles";
+} from "../../constants/generalStyles";
+import { WEIGHTS_MAP } from "../../constants/weights";
+import { getFontSize } from "../../helpers/textStyles";
 
 import { Text } from "./Text";
 import { render } from "~/testUtils";

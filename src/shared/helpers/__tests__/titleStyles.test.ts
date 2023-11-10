@@ -1,5 +1,4 @@
-import { FONT_SIZE_MAP } from "@/shared/constants/sizing";
-
+import { FONT_SIZE_MAP } from "../../constants/sizing";
 import { getFontSize, getFontSizePhone } from "../titleStyles";
 
 const { extrasmall, compact, small, regular, large } = FONT_SIZE_MAP.title;

@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Text } from "@/shared/ui";
+import { Text } from "../";
 
 import type { TabItemProps } from "./interfaces";
 import { Wrapper } from "./TabItem.styled";

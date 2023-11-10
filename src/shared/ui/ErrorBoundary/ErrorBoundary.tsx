@@ -1,7 +1,7 @@
 import { Component } from "react";
 import type { ErrorInfo } from "react";
 
-import { Title, Text } from "@/shared/ui";
+import { Title, Text } from "../";
 
 import { Wrapper } from "./ErrorBoundary.styled";
 import type { ErrorBoundaryProps, ErrorBoundaryState } from "./interfaces";

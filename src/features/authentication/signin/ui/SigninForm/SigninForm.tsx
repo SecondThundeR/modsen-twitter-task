@@ -1,15 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { memo, useState, useCallback } from "react";
 
-import { initiateSignin } from "@/features/authentication/signin/model/signin";
-import {
-  type SigninFormSchema,
-  signinFormSchema,
-} from "@/features/authentication/signin/model/signinFormSchema";
 import { setUserInfo } from "@/entities/user";
 import { useAppDispatch } from "@/shared/lib/hooks";
 import { useForm } from "@/shared/lib/validation";
 import { Alert, Button, Input } from "@/shared/ui";
+import { initiateSignin } from "../../model/signin";
+import {
+  type SigninFormSchema,
+  signinFormSchema,
+} from "../../model/signinFormSchema";
 
 import type { SigninFormProps } from "./interfaces";
 import { Wrapper } from "./SigninForm.styled";

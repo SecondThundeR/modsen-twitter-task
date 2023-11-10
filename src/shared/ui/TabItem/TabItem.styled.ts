@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
-import { TEXT_CENTER } from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP, PADDING_MAP } from "@/shared/constants/sizing";
+import { COLORS } from "../../constants/colors";
+import { TEXT_CENTER } from "../../constants/generalStyles";
+import { DIMENSIONS_MAP, PADDING_MAP } from "../../constants/sizing";
 
 export const Wrapper = styled.div`
   width: ${DIMENSIONS_MAP.full};

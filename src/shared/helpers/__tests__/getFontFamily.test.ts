@@ -1,4 +1,4 @@
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
 
 import { getFontFamily } from "../getFontFamily";
 

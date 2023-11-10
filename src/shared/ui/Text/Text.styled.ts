@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { TEXT_LINE_HEIGHT } from "@/shared/constants/sizing";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
-import { getFontFamily } from "@/shared/helpers/getFontFamily";
-import { getFontSize, getOpacity } from "@/shared/helpers/textStyles";
+import { TEXT_LINE_HEIGHT } from "../../constants/sizing";
+import { WEIGHTS_MAP } from "../../constants/weights";
+import { getFontFamily } from "../../helpers/getFontFamily";
+import { getFontSize, getOpacity } from "../../helpers/textStyles";
 
 import type { TextStyleProps } from "./interfaces";
 

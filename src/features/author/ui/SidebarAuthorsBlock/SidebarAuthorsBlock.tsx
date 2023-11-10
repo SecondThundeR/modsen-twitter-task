@@ -1,11 +1,11 @@
 import { memo } from "react";
 
+import { Alert, DetailsBlock, Loader, TextLink } from "@/shared/ui";
 import {
   AuthorSidebarDetails,
   useRecommendedAuthors,
   useSearchAuthors,
-} from "@/features/author";
-import { Alert, DetailsBlock, Loader, TextLink } from "@/shared/ui";
+} from "../../";
 
 export const SidebarAuthorsBlock = memo(function SidebarAuthorsBlock() {
   const { slicedAuthors, isLoading, error } = useRecommendedAuthors();

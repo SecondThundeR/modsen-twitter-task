@@ -1,7 +1,7 @@
 import { get, ref } from "firebase/database";
 
-import { database } from "@/shared/lib/firebase";
-import type { FirebaseDatabaseType } from "@/shared/types/firebase";
+import { database } from "..";
+import type { FirebaseDatabaseType } from "../../../types/firebase";
 
 export async function getData<T>(path: string) {
   const dbRef = ref(database, path);

@@ -1,6 +1,6 @@
 import { ref, update } from "firebase/database";
 
-import { database } from "@/shared/lib/firebase";
+import { database } from "..";
 
 export async function updateData<T>(path: string, data: Partial<T>) {
   try {

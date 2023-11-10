@@ -1,5 +1,5 @@
-import { COLORS } from "@/shared/constants/colors";
-import { SPINNER_SIZING } from "@/shared/constants/spinnerStyles";
+import { COLORS } from "../../constants/colors";
+import { SPINNER_SIZING } from "../../constants/spinnerStyles";
 
 import { Loader } from "./Loader";
 import { render } from "~/testUtils";

@@ -6,9 +6,7 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { RoutePaths } from "@/shared/lib/router";
-
-import { useSearchQuery } from "..";
+import { RoutePaths, useSearchQuery } from "@/shared/lib/router";
 
 export function useSearchInput() {
   const searchQuery = useSearchQuery();

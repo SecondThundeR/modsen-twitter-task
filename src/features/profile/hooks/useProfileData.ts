@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { useProfileID } from "@/features/profile";
 import { getAuthorData, pushAuthor, selectAuthorByID } from "@/entities/author";
 import { selectTweetsAmount } from "@/entities/tweet";
 import { selectCurrentUser } from "@/entities/user";
 import { useAppDispatch, useAppSelector } from "@/shared/lib/hooks";
 import { RoutePaths } from "@/shared/lib/router";
+import { useProfileID } from ".";
 
 export function useProfileData() {
   const id = useProfileID();

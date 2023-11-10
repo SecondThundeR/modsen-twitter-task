@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   ACTIVE_SCALE,
   CURSOR_POINTER,
@@ -10,22 +10,22 @@ import {
   INACTIVE_OPACITY,
   TEXT_CENTER,
   TRANSITION_TIME,
-} from "@/shared/constants/generalStyles";
+} from "../../constants/generalStyles";
 import {
   DIMENSIONS_MAP,
   FONT_SIZE_MAP,
   GAP_MAP,
   PADDING_MAP,
   RADIUS_MAP,
-} from "@/shared/constants/sizing";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
+} from "../../constants/sizing";
+import { WEIGHTS_MAP } from "../../constants/weights";
 import {
   getBackgroundColor,
   getTextColor,
   getBorder,
   getHoverBackgroundColor,
-} from "@/shared/helpers/buttonStyles";
-import { getFontFamily } from "@/shared/helpers/getFontFamily";
+} from "../../helpers/buttonStyles";
+import { getFontFamily } from "../../helpers/getFontFamily";
 
 import type { ButtonStyleProps } from "./interfaces";
 

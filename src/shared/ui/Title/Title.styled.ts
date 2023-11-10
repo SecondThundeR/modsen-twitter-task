@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
-import { getFontFamily } from "@/shared/helpers/getFontFamily";
-import { getFontSize, getFontSizePhone } from "@/shared/helpers/titleStyles";
+import { DIMENSIONS_MAP } from "../../constants/sizing";
+import { WEIGHTS_MAP } from "../../constants/weights";
+import { getFontFamily } from "../../helpers/getFontFamily";
+import { getFontSize, getFontSizePhone } from "../../helpers/titleStyles";
 
 import type { TitleWrapperProps } from "./interfaces";
 

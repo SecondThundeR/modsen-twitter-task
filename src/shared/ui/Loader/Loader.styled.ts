@@ -1,18 +1,18 @@
 import styled, { keyframes } from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   BORDER_BOX,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
   NONE,
-} from "@/shared/constants/generalStyles";
-import { GAP_MAP, PADDING_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { GAP_MAP, PADDING_MAP } from "../../constants/sizing";
 import {
   ANIMATION_DURATION,
   KEYFRAMES,
   SPINNER_SIZING,
-} from "@/shared/constants/spinnerStyles";
+} from "../../constants/spinnerStyles";
 
 import type { LoaderWrapperStyleProps, LoaderStyleProps } from "./interfaces";
 

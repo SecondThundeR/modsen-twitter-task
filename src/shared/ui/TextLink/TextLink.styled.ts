@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import { NO_DECORATION } from "@/shared/constants/generalStyles";
+import { NO_DECORATION } from "../../constants/generalStyles";
 import {
   getFontSize,
   getTextColor,
   getTextDecoration,
-} from "@/shared/helpers/textLinkStyles";
+} from "../../helpers/textLinkStyles";
 
 import type { TextLinkStyledProps } from "./interfaces";
 

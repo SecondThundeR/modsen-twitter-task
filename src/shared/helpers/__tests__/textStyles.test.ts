@@ -1,8 +1,8 @@
 import {
   INACTIVE_OPACITY,
   REGULAR_OPACITY,
-} from "@/shared/constants/generalStyles";
-import { FONT_SIZE_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { FONT_SIZE_MAP } from "../../constants/sizing";
 
 import { getFontSize, getOpacity } from "../textStyles";
 

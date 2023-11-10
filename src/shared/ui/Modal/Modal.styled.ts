@@ -6,13 +6,13 @@ import {
   FLEX_PROPERTIES,
   TOP_INDEX,
   NONE,
-} from "@/shared/constants/generalStyles";
+} from "../../constants/generalStyles";
 import {
   DIMENSIONS_MAP,
   GAP_MAP,
   PADDING_MAP,
   RADIUS_MAP,
-} from "@/shared/constants/sizing";
+} from "../../constants/sizing";
 
 export const Wrapper = styled.div`
   position: ${POSITION_MAP.fixed};

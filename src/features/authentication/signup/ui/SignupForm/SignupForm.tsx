@@ -1,11 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { memo, useCallback, useMemo, useState } from "react";
 
-import { initiateSignup } from "@/features/authentication/signup/model/signup";
-import {
-  type SignupFormSchema,
-  signupFormSchema,
-} from "@/features/authentication/signup/model/signupFormSchema";
 import { setUserData } from "@/entities/user";
 import {
   DATE_OF_BIRTH_INFO,
@@ -20,6 +15,11 @@ import { getDaysAmount } from "@/shared/helpers/date";
 import { useAppDispatch } from "@/shared/lib/hooks";
 import { useForm, useWatch } from "@/shared/lib/validation";
 import { Input, Title, Text, Button, Select, Alert } from "@/shared/ui";
+import { initiateSignup } from "../../model/signup";
+import {
+  type SignupFormSchema,
+  signupFormSchema,
+} from "../../model/signupFormSchema";
 
 import type { SignupFormProps } from "./interfaces";
 import { Wrapper, DateOfBirthWrapper } from "./SignupForm.styled";

@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Text } from "@/shared/ui";
+import { Text } from "../";
 
 import type { LoaderProps } from "./interfaces";
 import { LoaderWrapper, Spinner } from "./Loader.styled";

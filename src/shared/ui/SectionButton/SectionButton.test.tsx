@@ -1,5 +1,5 @@
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
+import { WEIGHTS_MAP } from "../../constants/weights";
 import { SectionButton } from "./SectionButton";
 import { render, fireEvent } from "~/testUtils";
 

@@ -4,14 +4,14 @@ import {
   BORDER_BOX,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
-} from "@/shared/constants/generalStyles";
+} from "../../constants/generalStyles";
 import {
   DIMENSIONS_MAP,
   FONT_SIZE_MAP,
   GAP_MAP,
   PADDING_MAP,
   RADIUS_MAP,
-} from "@/shared/constants/sizing";
+} from "../../constants/sizing";
 
 export const SelectWrapper = styled.div`
   width: ${DIMENSIONS_MAP.full};

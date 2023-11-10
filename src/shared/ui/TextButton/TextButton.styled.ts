@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   CURSOR_POINTER,
   INACTIVE_OPACITY,
@@ -8,8 +8,8 @@ import {
   NO_DECORATION,
   NO_PADDING,
   UNDERLINE_DECORATION,
-} from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP, FONT_SIZE_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP, FONT_SIZE_MAP } from "../../constants/sizing";
 
 import type { TextButtonStyleProps } from "./interfaces";
 

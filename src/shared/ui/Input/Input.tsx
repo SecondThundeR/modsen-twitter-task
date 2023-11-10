@@ -1,6 +1,6 @@
 import { forwardRef, memo } from "react";
 
-import { Text } from "@/shared/ui";
+import { Text } from "../";
 
 import { ErrorMessage, InputWrapper, Wrapper } from "./Input.styled";
 import type { InputProps } from "./interfaces";

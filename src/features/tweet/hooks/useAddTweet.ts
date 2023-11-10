@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
 
-import { pushNewTweet } from "@/features/tweet";
 import { type TweetType, addTweet } from "@/entities/tweet";
 import { pushTweetID } from "@/entities/user";
 import { useAppDispatch } from "@/shared/lib/hooks";
+import { pushNewTweet } from "..";
 
 export function useAddTweet(tweetsIds: string[]) {
   const dispatch = useAppDispatch();

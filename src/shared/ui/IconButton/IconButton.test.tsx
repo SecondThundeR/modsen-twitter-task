@@ -1,5 +1,5 @@
-import { FULL_INVERT, NO_INVERT } from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
+import { FULL_INVERT, NO_INVERT } from "../../constants/generalStyles";
+import { DIMENSIONS_MAP } from "../../constants/sizing";
 import { IconButton } from "./IconButton";
 import { render, darkRender, fireEvent } from "~/testUtils";
 

@@ -1,7 +1,7 @@
 import { memo, type MouseEventHandler, useCallback } from "react";
 import { createPortal } from "react-dom";
 
-import { Text, Title } from "@/shared/ui";
+import { Text, Title } from "../";
 
 import type { ModalProps } from "./interfaces";
 import { ContentWrapper, Wrapper } from "./Modal.styled";

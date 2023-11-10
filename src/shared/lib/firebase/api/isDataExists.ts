@@ -1,6 +1,6 @@
 import { get, ref } from "firebase/database";
 
-import { database } from "@/shared/lib/firebase";
+import { database } from "..";
 
 export async function isDataExists(path: string) {
   const dbRef = ref(database, path);

@@ -1,10 +1,10 @@
 import { memo } from "react";
 
-import { SignoutButton } from "@/features/authentication/signout";
 import { selectCurrentUser } from "@/entities/user";
 import { useAppSelector } from "@/shared/lib/hooks";
 import { Avatar, Text } from "@/shared/ui";
 
+import { SignoutButton } from "../../";
 import { Wrapper, InfoWrapper, DetailsWrapper } from "./ProfileDetails.styled";
 
 export const ProfileDetails = memo(function ProfileDetails() {

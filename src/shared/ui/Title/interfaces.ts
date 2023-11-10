@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import type { FontsVariants } from "@/shared/types/fontsVariants";
+import type { FontsVariants } from "../../types/fontsVariants";
 
 export type TitleWeights =
   | "regular"

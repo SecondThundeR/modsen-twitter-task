@@ -1,7 +1,7 @@
-import { useSearchQuery } from "@/features/search";
 import { selectAuthorsByTweets } from "@/entities/author";
 import { selectCurrentTweets } from "@/entities/tweet";
 import { useAppSelector } from "@/shared/lib/hooks";
+import { useSearchQuery } from "@/shared/lib/router";
 
 export function useSearchAuthors() {
   const queryString = useSearchQuery();

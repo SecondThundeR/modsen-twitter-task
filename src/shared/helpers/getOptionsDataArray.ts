@@ -1,4 +1,4 @@
-import { OptionItem } from "@/shared/types/optionItem";
+import { OptionItem } from "../types/optionItem";
 
 export function getOptionsDataArray(
   length: number,

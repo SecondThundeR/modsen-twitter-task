@@ -1,19 +1,19 @@
 import "jest-styled-components";
 
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
 import {
   DIMENSIONS_MAP,
   FONT_SIZE_MAP,
   PADDING_MAP,
-} from "@/shared/constants/sizing";
+} from "../../constants/sizing";
 import {
   getBackgroundColor,
   getBorder,
   getHoverBackgroundColor,
   getTextColor,
-} from "@/shared/helpers/buttonStyles";
-import { lightTheme } from "@/shared/lib/theme";
-import { FontsVariants } from "@/shared/types/fontsVariants";
+} from "../../helpers/buttonStyles";
+import { lightTheme } from "../../lib/theme";
+import { FontsVariants } from "../../types/fontsVariants";
 
 import { Button } from "./Button";
 import type { ButtonSizes, ButtonVariant, ButtonWidths } from "./interfaces";

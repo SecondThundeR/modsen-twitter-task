@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   BORDER_BOX,
   DISPLAY_MAP,
@@ -9,12 +9,8 @@ import {
   POSITION_MAP,
   STICKY_TOP,
   TOP_INDEX,
-} from "@/shared/constants/generalStyles";
-import {
-  DIMENSIONS_MAP,
-  GAP_MAP,
-  PADDING_MAP,
-} from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP, GAP_MAP, PADDING_MAP } from "../../constants/sizing";
 import type { TextWrapperProps } from "./interfaces";
 
 export const Wrapper = styled.header`

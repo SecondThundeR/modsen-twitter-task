@@ -1,4 +1,4 @@
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 
 import { Alert } from "./Alert";
 import { render } from "~/testUtils";

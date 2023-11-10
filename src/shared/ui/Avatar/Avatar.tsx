@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { avatarPlaceholderPath } from "@/shared/constants/publicImagesPaths";
+import { avatarPlaceholderPath } from "../../constants/publicImagesPaths";
 
 import { AvatarImage } from "./Avatar.styled";
 import type { AvatarProps } from "./interfaces";

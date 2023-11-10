@@ -1,5 +1,5 @@
-import { COLORS } from "@/shared/constants/colors";
-import { NONE } from "@/shared/constants/generalStyles";
+import { COLORS } from "../../constants/colors";
+import { NONE } from "../../constants/generalStyles";
 
 import {
   getBackgroundColor,

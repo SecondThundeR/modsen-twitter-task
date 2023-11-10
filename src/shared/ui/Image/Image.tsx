@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { TextButton } from "@/shared/ui";
+import { TextButton } from "../";
 
 import { Wrapper, Image as StyledImage } from "./Image.styled";
 import type { ImageProps } from "./interfaces";

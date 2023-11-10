@@ -1,9 +1,9 @@
 import { createGlobalStyle, type DefaultTheme } from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
-import { FONT_FAMILY_MAP } from "@/shared/constants/fontFamily";
-import { FULL_INVERT, NO_INVERT } from "@/shared/constants/generalStyles";
-import { WEIGHTS_MAP } from "@/shared/constants/weights";
+import { COLORS } from "../../constants/colors";
+import { FONT_FAMILY_MAP } from "../../constants/fontFamily";
+import { FULL_INVERT, NO_INVERT } from "../../constants/generalStyles";
+import { WEIGHTS_MAP } from "../../constants/weights";
 
 export const GlobalStyle = createGlobalStyle`
   body {

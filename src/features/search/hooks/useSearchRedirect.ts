@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useSearchQuery } from "@/features/search";
-import { RoutePaths } from "@/shared/lib/router";
+import { RoutePaths, useSearchQuery } from "@/shared/lib/router";
 
 export function useSearchRedirect() {
   const searchQuery = useSearchQuery();

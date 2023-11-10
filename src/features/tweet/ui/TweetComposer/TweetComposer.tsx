@@ -1,10 +1,5 @@
 import { type ChangeEventHandler, memo, useCallback, useState } from "react";
 
-import {
-  useAddTweet,
-  TweetImageUploadButton,
-  useAddTweetImage,
-} from "@/features/tweet";
 import { selectCurrentUser } from "@/entities/user";
 import {
   MAX_CHARS,
@@ -13,6 +8,7 @@ import {
 } from "@/shared/constants/composer";
 import { useAppSelector } from "@/shared/lib/hooks";
 import { Alert, Avatar, Button, Image, Text, Textarea } from "@/shared/ui";
+import { useAddTweet, TweetImageUploadButton, useAddTweetImage } from "../..";
 
 import type { TweetComposerProps } from "./interfaces";
 import {

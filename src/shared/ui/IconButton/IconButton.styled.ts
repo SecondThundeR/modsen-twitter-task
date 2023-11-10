@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { COLORS } from "@/shared/constants/colors";
+import { COLORS } from "../../constants/colors";
 import {
   ACTIVE_SCALE_PRESSED,
   CURSOR_POINTER,
@@ -10,8 +10,8 @@ import {
   NONE,
   NO_INVERT,
   NO_PADDING,
-} from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP } from "../../constants/sizing";
 
 import type { IconButtonStyleProps } from "./interfaces";
 

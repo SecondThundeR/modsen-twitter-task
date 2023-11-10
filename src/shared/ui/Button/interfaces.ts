@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-import type { FontsVariants } from "@/shared/types/fontsVariants";
+import type { FontsVariants } from "../../types/fontsVariants";
 
 export type ButtonVariant = "regular" | "primary" | "secondary";
 export type ButtonWidths = "full" | "fit";

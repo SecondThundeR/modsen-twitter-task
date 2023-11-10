@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Text, Title } from "@/shared/ui";
+import { Text, Title } from "../";
 
 import { LeftSlotWrapper, TextWrapper, Wrapper } from "./Header.styled";
 import type { HeaderProps } from "./interfaces";

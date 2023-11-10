@@ -4,7 +4,7 @@ import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
 import { type FirebaseOptions, initializeApp } from "firebase/app";
 
-import { config } from "@/shared/lib/config";
+import { config } from "../../config";
 
 const firebaseConfig: FirebaseOptions = {
   apiKey: config.API_KEY,

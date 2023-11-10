@@ -1,9 +1,9 @@
 import {
   NO_DECORATION,
   UNDERLINE_DECORATION,
-} from "@/shared/constants/generalStyles";
-import { getFontSize, getTextColor } from "@/shared/helpers/textLinkStyles";
-import { lightTheme } from "@/shared/lib/theme";
+} from "../../constants/generalStyles";
+import { getFontSize, getTextColor } from "../../helpers/textLinkStyles";
+import { lightTheme } from "../../lib/theme";
 
 import { TextLink } from "./TextLink";
 import { render } from "~/testUtils";

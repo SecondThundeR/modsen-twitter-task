@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { BORDER_CIRCLE } from "@/shared/constants/generalStyles";
+import { BORDER_CIRCLE } from "../../constants/generalStyles";
 
 import type { AvatarStyleProps } from "./interfaces";
 

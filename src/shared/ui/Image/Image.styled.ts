@@ -4,8 +4,8 @@ import {
   BORDER_BOX,
   DISPLAY_MAP,
   FLEX_PROPERTIES,
-} from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP, GAP_MAP, RADIUS_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP, GAP_MAP, RADIUS_MAP } from "../../constants/sizing";
 
 export const Wrapper = styled.div`
   width: ${DIMENSIONS_MAP.full};

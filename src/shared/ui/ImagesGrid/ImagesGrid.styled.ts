@@ -5,8 +5,8 @@ import {
   FLEX_PROPERTIES,
   IMAGE_PROPERTIES,
   NO_OVERFLOW,
-} from "@/shared/constants/generalStyles";
-import { DIMENSIONS_MAP, GAP_MAP, RADIUS_MAP } from "@/shared/constants/sizing";
+} from "../../constants/generalStyles";
+import { DIMENSIONS_MAP, GAP_MAP, RADIUS_MAP } from "../../constants/sizing";
 
 import type { ImageDivProps } from "./interfaces";
 

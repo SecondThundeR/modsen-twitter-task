@@ -1,6 +1,6 @@
 import { push, ref } from "firebase/database";
 
-import { database } from "@/shared/lib/firebase";
+import { database } from "..";
 
 export async function pushData<T>(path: string, data: T) {
   const dbRef = ref(database, path);
