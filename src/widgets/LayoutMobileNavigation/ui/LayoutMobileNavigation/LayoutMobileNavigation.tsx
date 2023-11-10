@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 
-import { SignoutButton } from "@/features/authentication/signout";
 import { withRouteAware } from "@/features/navigation";
+import { SignoutButton } from "@/features/profile";
 import { CreateTweetModalButton } from "@/features/tweet";
 import { NAV_BUTTONS } from "@/shared/constants/navButtons";
 import { SectionButton } from "@/shared/ui";
