@@ -1,4 +1,4 @@
-export * from "./db";
+export * from "./api";
 export * from "./hooks";
 export { Tweet } from "./ui/Tweet/Tweet";
 export {

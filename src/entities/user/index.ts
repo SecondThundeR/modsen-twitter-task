@@ -1,5 +1,5 @@
-export { getUserData } from "./db/getUserData";
-export { updateUserData } from "./db/updateUserData";
+export { getUserData } from "./api/getUserData";
+export { updateUserData } from "./api/updateUserData";
 export type {
   UserState,
   UserData,
