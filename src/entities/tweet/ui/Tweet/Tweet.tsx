@@ -1,12 +1,12 @@
 import { memo } from "react";
 
-import { useTweetAuthor, useTweetLikes } from "@/entities/tweet";
 import LikeIcon from "@/shared/assets/like.svg?react";
 import LikeFilledIcon from "@/shared/assets/likeFill.svg?react";
 import { formatTimeDifference } from "@/shared/helpers/date";
 import { Link } from "@/shared/lib/router";
 import { Avatar, IconButton, Image, Text, Title } from "@/shared/ui";
 
+import { useTweetAuthor, useTweetLikes } from "../..";
 import type { TweetProps } from "./interfaces";
 import {
   Wrapper,

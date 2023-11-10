@@ -4,8 +4,8 @@ import {
   type PayloadAction,
 } from "@reduxjs/toolkit";
 
-import type { TweetType } from "@/entities/tweet";
-import { selectCurrentUser } from "@/entities/user";
+import type { TweetType } from "@/entities/tweet/@x/types";
+import { selectCurrentUser } from "@/entities/user/@x/selectors";
 
 import type { AuthorState } from "./types";
 

@@ -1,6 +1,6 @@
-import type { AuthorData } from "@/entities/author";
 import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseArray";
 import { getChildData } from "@/shared/lib/firebase/api/getChildData";
+import { AuthorData } from "..";
 
 export const getAllAuthorsData = async (currentUserId?: string) => {
   const dbPath = "users/";

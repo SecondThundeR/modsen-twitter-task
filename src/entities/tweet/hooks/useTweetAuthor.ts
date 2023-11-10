@@ -1,5 +1,5 @@
-import { selectAuthorByID } from "@/entities/author";
-import { selectUserDataByID } from "@/entities/user";
+import { selectAuthorByID } from "@/entities/author/@x/selectors";
+import { selectUserDataByID } from "@/entities/user/@x/selectors";
 import { useAppSelector } from "@/shared/lib/hooks";
 import { RoutePaths } from "@/shared/lib/router";
 

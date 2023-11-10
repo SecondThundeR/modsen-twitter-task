@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { ThemeProvider as StyledProvider } from "styled-components";
 
-import { selectCurrentTheme } from "@/entities/theme";
 import { useAppSelector } from "@/shared/lib/hooks";
 import { GlobalStyle, darkTheme, lightTheme } from "@/shared/lib/theme";
 
+import { selectCurrentTheme } from "..";
 import type { ThemeProviderProps } from "./interfaces";
 
 export const ThemeProvider = memo(function ThemeProvider({

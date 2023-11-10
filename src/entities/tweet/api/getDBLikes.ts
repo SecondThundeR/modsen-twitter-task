@@ -1,6 +1,6 @@
-import type { TweetType } from "@/entities/tweet";
 import { deserializeFirebaseArray } from "@/shared/helpers/deserializeFirebaseArray";
 import { getData } from "@/shared/lib/firebase";
+import type { TweetType } from "..";
 
 export const getDBLikes = async (tweetId: string) => {
   const dbPath = "tweets/" + tweetId;

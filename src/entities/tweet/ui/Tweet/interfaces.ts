@@ -1,4 +1,4 @@
-import type { TweetType } from "@/entities/tweet";
+import { TweetType } from "../..";
 
 export interface TweetProps extends Omit<TweetType, "likesIds"> {}
 

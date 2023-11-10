@@ -1,6 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { selectCurrentUser } from "@/entities/user";
+import { selectCurrentUser } from "@/entities/user/@x/selectors";
 
 import type { Tweet, TweetsState } from "./types";
 

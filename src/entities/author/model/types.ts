@@ -1,4 +1,4 @@
-import type { UserData, UserState } from "@/entities/user";
+import type { UserData, UserState } from "@/entities/user/@x/types";
 
 export type AuthorData =
   | (Omit<NonNullable<UserData>, "phoneNumber" | "dateOfBirth"> &
