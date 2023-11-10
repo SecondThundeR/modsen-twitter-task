@@ -1,18 +1,18 @@
-import type { ReactNode } from "react";
+import type { PropsWithChildren } from "react";
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider as StyledProvider } from "styled-components";
 import { selectCurrentTheme } from "@/entities/theme";
 import { useAppSelector } from "@/shared/lib/hooks";
 import { GlobalStyle, darkTheme, lightTheme } from "@/shared/lib/theme";
 
-export const withTheme = (component: () => ReactNode) => () => {
+export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const currentTheme = useAppSelector(selectCurrentTheme);
   const styledTheme = currentTheme === "light" ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={styledTheme}>
+    <StyledProvider theme={styledTheme}>
       <GlobalStyle />
-      {component()}
-    </ThemeProvider>
+      {children}
+    </StyledProvider>
   );
 };

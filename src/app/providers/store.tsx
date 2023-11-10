@@ -1,13 +1,13 @@
-import type { ReactNode } from "react";
+import type { PropsWithChildren } from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { appStore, persistedStore } from "@/app/appStore";
 
-export const withStore = (component: () => ReactNode) => () => (
+export const StoreProvider = ({ children }: PropsWithChildren) => (
   <Provider store={appStore}>
     <PersistGate loading={null} persistor={persistedStore}>
-      {component()}
+      {children}
     </PersistGate>
   </Provider>
 );

@@ -1,9 +1,13 @@
 import { Routing } from "@/pages";
 
-import { withProviders } from "./providers";
+import { WithProviders } from "./providers";
 
-const App = withProviders(() => {
-  return <Routing />;
-});
+const App = () => {
+  return (
+    <WithProviders>
+      <Routing />
+    </WithProviders>
+  );
+};
 
 export default App;
