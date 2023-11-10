@@ -1,7 +1,6 @@
 import type { TweetDBInfo, TweetType } from "@/entities/tweet";
 import { updateUserData } from "@/entities/user";
-import { updateData, uploadImage } from "@/shared/lib/firebase";
-import { pushData } from "@/shared/lib/firebase/api/pushData";
+import { updateData, uploadImage, pushData } from "@/shared/lib/firebase";
 
 export async function pushNewTweet(
   authorId: string,
